@@ -1,2 +1,2 @@
 # jeevithalakshyam.github.io
-Da'wah blog for the Kerala / Malayali community
+Reflections on the purpose of life — for the Kerala / Malayali community
