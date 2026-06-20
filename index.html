@@ -1,66 +1,374 @@
 <!DOCTYPE html>
 <html lang="ml">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jeevithalakshyam | ജീവിതലക്ഷ്യം</title>
-  <meta name="description" content="Reflections on the purpose of life — for the Kerala community.">
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Segoe UI', Tahoma, sans-serif;
-      background: linear-gradient(135deg, #1a3a2e 0%, #2d5a3f 100%);
-      color: #f4f1e8;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem;
-      text-align: center;
-    }
-    .container { max-width: 640px; }
-    h1 {
-      font-size: 2.8rem;
-      margin-bottom: 0.5rem;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-    }
-    .malayalam {
-      font-size: 1.6rem;
-      margin-bottom: 2rem;
-      opacity: 0.95;
-    }
-    .tagline {
-      font-size: 1.15rem;
-      line-height: 1.7;
-      opacity: 0.85;
-      margin-bottom: 2.5rem;
-    }
-    .coming-soon {
-      display: inline-block;
-      padding: 0.6rem 1.5rem;
-      border: 1px solid rgba(255,255,255,0.3);
-      border-radius: 50px;
-      font-size: 0.95rem;
-      letter-spacing: 1px;
-    }
-    .footer {
-      margin-top: 3rem;
-      font-size: 0.85rem;
-      opacity: 0.6;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jeevithalakshyam · ജീവിതലക്ഷ്യം</title>
+<meta name="description" content="What is your life for? A quiet space for life's deepest question — in Malayalam, Manglish, and English.">
+
+<!-- Open Graph for WhatsApp/social previews -->
+<meta property="og:title" content="ജീവിതലക്ഷ്യം · Jeevithalakshyam">
+<meta property="og:description" content="What is your life for?">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://jeevithalakshyam.info">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&family=Noto+Sans+Malayalam:wght@400;500;600;700&family=Noto+Serif+Malayalam:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --canvas: #0F1419;
+    --surface: #1A1F26;
+    --elevated: #232A33;
+    --primary: #00A86B;
+    --primary-bright: #00C77C;
+    --gold: #D4A24C;
+    --gold-bright: #F5C572;
+    --emerald-tint: #1A3A2E;
+    --text-bright: #FFFFFF;
+    --text-body: #D1D5DB;
+    --text-muted: #8B95A1;
+    --border: #2D3640;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--canvas);
+    color: var(--text-body);
+    font-family: 'Inter', system-ui, sans-serif;
+    min-height: 100vh;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* Subtle radial glow on canvas */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(ellipse at 30% 20%, var(--emerald-tint) 0%, transparent 50%);
+    opacity: 0.4;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ============ NAVBAR ============ */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    padding: 1.25rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+    background: rgba(15, 20, 25, 0.6);
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s;
+  }
+  nav.scrolled { border-bottom-color: var(--border); }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: var(--gold);
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+  }
+  .brand-glyph {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-bright) 100%);
+    color: var(--canvas);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Noto Serif Malayalam', serif;
+    font-weight: 700;
+    font-size: 1rem;
+  }
+
+  /* ============ LANGUAGE TOGGLE ============ */
+  .lang-toggle {
+    display: flex;
+    gap: 0.25rem;
+    background: var(--surface);
+    padding: 0.3rem;
+    border-radius: 50px;
+    border: 1px solid var(--border);
+  }
+  .lang-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    padding: 0.4rem 0.9rem;
+    border-radius: 50px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.25s;
+    font-family: inherit;
+  }
+  .lang-btn.active {
+    background: var(--primary);
+    color: var(--canvas);
+    font-weight: 600;
+  }
+  .lang-btn:hover:not(.active) { color: var(--text-bright); }
+
+  /* ============ HERO ============ */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 6rem 1.5rem 4rem;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+  }
+
+  .hero-title {
+    font-family: 'Noto Serif Malayalam', serif;
+    font-weight: 700;
+    font-size: clamp(2.5rem, 7vw, 4.5rem);
+    color: var(--text-bright);
+    margin-bottom: 0.4rem;
+    letter-spacing: -0.5px;
+    text-shadow: 0 0 60px rgba(0, 168, 107, 0.25);
+  }
+
+  .hero-subtitle {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: var(--text-muted);
+    letter-spacing: 1px;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-tagline {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+    color: var(--gold);
+    margin-bottom: 5rem;
+  }
+
+  /* Mirror section */
+  .mirror {
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .mirror-line {
+    font-family: 'Noto Serif Malayalam', serif;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    line-height: 1.6;
+    color: var(--text-body);
+    margin: 1rem 0;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.7s ease forwards;
+  }
+
+  .mirror-line.eng {
+    font-family: 'Fraunces', serif;
+  }
+
+  .mirror-line:nth-child(1) { animation-delay: 0.1s; }
+  .mirror-line:nth-child(2) { animation-delay: 0.35s; }
+  .mirror-line:nth-child(3) { animation-delay: 0.5s; }
+  .mirror-line:nth-child(4) { animation-delay: 0.65s; }
+  .mirror-line:nth-child(5) { animation-delay: 0.95s; }
+  .mirror-line:nth-child(6) { animation-delay: 1.3s; }
+  .mirror-line.gap { margin-top: 2rem; }
+
+  .scroll-highlight {
+    color: var(--primary-bright);
+    font-weight: 500;
+  }
+
+  .why-word {
+    display: block;
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: clamp(4rem, 10vw, 6.5rem);
+    color: var(--text-bright);
+    margin-top: 2rem;
+    text-shadow:
+      0 0 30px rgba(0, 200, 124, 0.6),
+      0 0 60px rgba(0, 168, 107, 0.4),
+      0 0 100px rgba(0, 168, 107, 0.2);
+    opacity: 0;
+    transform: scale(0.85);
+    animation: bloomIn 1.2s ease 1.6s forwards;
+  }
+
+  .invitation {
+    margin-top: 5rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 2.4s forwards;
+  }
+  .invitation-text {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    color: var(--text-muted);
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+  .scroll-arrow {
+    color: var(--gold);
+    font-size: 1.2rem;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  /* Hide content by default, show based on language */
+  .lang-content { display: none; }
+  .lang-content.active { display: block; }
+
+  /* ============ ANIMATIONS ============ */
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes bloomIn {
+    to { opacity: 1; transform: scale(1); }
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 0.6; transform: translateY(0); }
+    50% { opacity: 1; transform: translateY(6px); }
+  }
+
+  /* ============ MOBILE ============ */
+  @media (max-width: 640px) {
+    nav { padding: 1rem 1.25rem; }
+    .brand { font-size: 0.95rem; }
+    .lang-btn { padding: 0.35rem 0.7rem; font-size: 0.72rem; }
+    .hero { padding: 5rem 1.25rem 3rem; }
+    .mirror-line.gap { margin-top: 1.5rem; }
+  }
+
+  /* ============ FOOTER (minimal) ============ */
+  footer {
+    text-align: center;
+    padding: 3rem 1.5rem 2rem;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    position: relative;
+    z-index: 1;
+  }
+  footer a { color: var(--gold); text-decoration: none; }
+</style>
 </head>
 <body>
-  <div class="container">
-    <h1>Jeevithalakshyam</h1>
-    <div class="malayalam">ജീവിതലക്ഷ്യം</div>
-    <p class="tagline">
-      Reflections on the deepest question of life —<br>
-      meaning, purpose, and the path within.
-    </p>
-    <div class="coming-soon">Launching soon · ഉടൻ ലഭ്യമാകും</div>
-    <div class="footer">© 2026 · jeevithalakshyam.info</div>
+
+<nav id="navbar">
+  <div class="brand">
+    <div class="brand-glyph">ജ</div>
+    <span>Jeevithalakshyam</span>
   </div>
+  <div class="lang-toggle" role="tablist">
+    <button class="lang-btn active" data-lang="ml">മലയാളം</button>
+    <button class="lang-btn" data-lang="manglish">Manglish</button>
+    <button class="lang-btn" data-lang="en">English</button>
+  </div>
+</nav>
+
+<section class="hero">
+  <h1 class="hero-title">ജീവിതലക്ഷ്യം</h1>
+  <div class="hero-subtitle">Jeevithalakshyam</div>
+  <div class="hero-tagline">What is your life for?</div>
+
+  <!-- ============ MALAYALAM (Default) ============ -->
+  <div class="mirror lang-content active" data-lang="ml">
+    <div class="mirror-line">നീ ഉണരുന്നു.</div>
+    <div class="mirror-line">പണിയെടുക്കുന്നു.</div>
+    <div class="mirror-line">സ്ക്രോൾ <span class="scroll-highlight">ചെയ്യുന്നു</span>.</div>
+    <div class="mirror-line">ഉറങ്ങുന്നു.</div>
+    <div class="mirror-line gap">വീണ്ടും ഉണരുന്നു.</div>
+    <div class="mirror-line gap">പക്ഷേ ഒരിക്കലെങ്കിലും<br>ചോദിച്ചിട്ടുണ്ടോ —</div>
+    <div class="why-word">എന്തിന് ?</div>
+  </div>
+
+  <!-- ============ MANGLISH ============ -->
+  <div class="mirror lang-content" data-lang="manglish">
+    <div class="mirror-line eng">Nee unarunnu.</div>
+    <div class="mirror-line eng">Paniyedukkunnu.</div>
+    <div class="mirror-line eng"><span class="scroll-highlight">Scroll</span> cheyyunnu.</div>
+    <div class="mirror-line eng">Urangunnu.</div>
+    <div class="mirror-line eng gap">Veendum unarunnu.</div>
+    <div class="mirror-line eng gap">Pakshe orikkalengilum<br>chodichittundo —</div>
+    <div class="why-word">enthin ?</div>
+  </div>
+
+  <!-- ============ ENGLISH ============ -->
+  <div class="mirror lang-content" data-lang="en">
+    <div class="mirror-line eng">You wake up.</div>
+    <div class="mirror-line eng">You work.</div>
+    <div class="mirror-line eng">You <span class="scroll-highlight">scroll</span>.</div>
+    <div class="mirror-line eng">You sleep.</div>
+    <div class="mirror-line eng gap">Then you wake up again.</div>
+    <div class="mirror-line eng gap">But have you asked —</div>
+    <div class="why-word">why ?</div>
+  </div>
+
+  <div class="invitation">
+    <div class="invitation-text">This question deserves an answer.</div>
+    <div class="scroll-arrow">↓</div>
+  </div>
+</section>
+
+<footer>
+  © 2026 · <a href="mailto:admin@jeevithalakshyam.info">jeevithalakshyam.info</a>
+</footer>
+
+<script>
+  // Language toggle
+  const buttons = document.querySelectorAll('.lang-btn');
+  const contents = document.querySelectorAll('.lang-content');
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const lang = btn.dataset.lang;
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      contents.forEach(c => {
+        c.classList.toggle('active', c.dataset.lang === lang);
+        // Restart animations on switch
+        if (c.dataset.lang === lang) {
+          c.querySelectorAll('.mirror-line, .why-word').forEach(el => {
+            el.style.animation = 'none';
+            el.offsetHeight; // trigger reflow
+            el.style.animation = '';
+          });
+        }
+      });
+      localStorage.setItem('jl-lang', lang);
+    });
+  });
+
+  // Restore saved language preference
+  const savedLang = localStorage.getItem('jl-lang');
+  if (savedLang) {
+    const btn = document.querySelector(`.lang-btn[data-lang="${savedLang}"]`);
+    if (btn) btn.click();
+  }
+
+  // Navbar scroll effect
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+  });
+</script>
+
 </body>
 </html>
