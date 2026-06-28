@@ -3,19 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jeevithalakshyam · ജീവിതലക്ഷ്യം</title>
-<meta name="description" content="What is your life for? A quiet space for life's deepest question — in Malayalam, Manglish, and English.">
+<title>Jeevithalakshyam · ജീവിതലക്ഷ്യം · v2</title>
+<meta name="description" content="Reflections on the deepest question of life — meaning, purpose, and the path within.">
 
-<!-- Open Graph for WhatsApp/social previews -->
+<!-- Open Graph -->
 <meta property="og:title" content="ജീവിതലക്ഷ്യം · Jeevithalakshyam">
-<meta property="og:description" content="What is your life for?">
+<meta property="og:description" content="Reflections on the deepest question of life.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://jeevithalakshyam.info">
 
 <!-- Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&family=Noto+Sans+Malayalam:wght@400;500;600;700&family=Noto+Serif+Malayalam:wght@400;500;600;700&display=swap" rel="stylesheet">
+https://fonts.googleapis.com
+https://fonts.gstatic.com crossorigin>
+1,400&family=Inter:wght@400;500;600;700&family=Noto+Sans+Malayalam:wght@400;500;600;700&family=Noto+Serif+Malayalam:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
   :root {
@@ -45,7 +45,6 @@
     overflow-x: hidden;
   }
 
-  /* Subtle radial glow on canvas */
   body::before {
     content: '';
     position: fixed;
@@ -152,16 +151,38 @@
     font-size: clamp(1rem, 2vw, 1.25rem);
     color: var(--text-muted);
     letter-spacing: 1px;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  /* NEW: Reflective intro tagline */
+  .reflective-tagline {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: clamp(1.05rem, 2vw, 1.25rem);
+    color: var(--text-body);
+    max-width: 540px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.75;
+    opacity: 0.92;
   }
 
   .hero-tagline {
     font-family: 'Fraunces', serif;
     font-style: italic;
     font-weight: 400;
-    font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+    font-size: clamp(1.15rem, 2.3vw, 1.45rem);
     color: var(--gold);
     margin-bottom: 5rem;
+  }
+
+  /* Divider */
+  .divider {
+    width: 60px;
+    height: 1px;
+    background: var(--border);
+    margin: 0 auto 4rem;
+    opacity: 0.6;
   }
 
   /* Mirror section */
@@ -193,11 +214,6 @@
   .mirror-line:nth-child(5) { animation-delay: 0.95s; }
   .mirror-line:nth-child(6) { animation-delay: 1.3s; }
   .mirror-line.gap { margin-top: 2rem; }
-
-  .scroll-highlight {
-    color: var(--primary-bright);
-    font-weight: 500;
-  }
 
   .why-word {
     display: block;
@@ -233,11 +249,9 @@
     animation: pulse 2s ease-in-out infinite;
   }
 
-  /* Hide content by default, show based on language */
   .lang-content { display: none; }
   .lang-content.active { display: block; }
 
-  /* ============ ANIMATIONS ============ */
   @keyframes fadeUp {
     to { opacity: 1; transform: translateY(0); }
   }
@@ -249,16 +263,15 @@
     50% { opacity: 1; transform: translateY(6px); }
   }
 
-  /* ============ MOBILE ============ */
   @media (max-width: 640px) {
     nav { padding: 1rem 1.25rem; }
     .brand { font-size: 0.95rem; }
     .lang-btn { padding: 0.35rem 0.7rem; font-size: 0.72rem; }
     .hero { padding: 5rem 1.25rem 3rem; }
     .mirror-line.gap { margin-top: 1.5rem; }
+    .divider { margin-bottom: 3rem; }
   }
 
-  /* ============ FOOTER (minimal) ============ */
   footer {
     text-align: center;
     padding: 3rem 1.5rem 2rem;
@@ -287,13 +300,21 @@
 <section class="hero">
   <h1 class="hero-title">ജീവിതലക്ഷ്യം</h1>
   <div class="hero-subtitle">Jeevithalakshyam</div>
+
+  <p class="reflective-tagline">
+    Reflections on the deepest question of life —<br>
+    meaning, purpose, and the path within.
+  </p>
+
   <div class="hero-tagline">What is your life for?</div>
+
+  <div class="divider"></div>
 
   <!-- ============ MALAYALAM (Default) ============ -->
   <div class="mirror lang-content active" data-lang="ml">
     <div class="mirror-line">നീ ഉണരുന്നു.</div>
     <div class="mirror-line">പണിയെടുക്കുന്നു.</div>
-    <div class="mirror-line">സ്ക്രോൾ <span class="scroll-highlight">ചെയ്യുന്നു</span>.</div>
+    <div class="mirror-line">സ്ക്രോൾ ചെയ്യുന്നു.</div>
     <div class="mirror-line">ഉറങ്ങുന്നു.</div>
     <div class="mirror-line gap">വീണ്ടും ഉണരുന്നു.</div>
     <div class="mirror-line gap">പക്ഷേ ഒരിക്കലെങ്കിലും<br>ചോദിച്ചിട്ടുണ്ടോ —</div>
@@ -304,7 +325,7 @@
   <div class="mirror lang-content" data-lang="manglish">
     <div class="mirror-line eng">Nee unarunnu.</div>
     <div class="mirror-line eng">Paniyedukkunnu.</div>
-    <div class="mirror-line eng"><span class="scroll-highlight">Scroll</span> cheyyunnu.</div>
+    <div class="mirror-line eng">Scroll cheyyunnu.</div>
     <div class="mirror-line eng">Urangunnu.</div>
     <div class="mirror-line eng gap">Veendum unarunnu.</div>
     <div class="mirror-line eng gap">Pakshe orikkalengilum<br>chodichittundo —</div>
@@ -315,7 +336,7 @@
   <div class="mirror lang-content" data-lang="en">
     <div class="mirror-line eng">You wake up.</div>
     <div class="mirror-line eng">You work.</div>
-    <div class="mirror-line eng">You <span class="scroll-highlight">scroll</span>.</div>
+    <div class="mirror-line eng">You scroll.</div>
     <div class="mirror-line eng">You sleep.</div>
     <div class="mirror-line eng gap">Then you wake up again.</div>
     <div class="mirror-line eng gap">But have you asked —</div>
@@ -333,7 +354,6 @@
 </footer>
 
 <script>
-  // Language toggle
   const buttons = document.querySelectorAll('.lang-btn');
   const contents = document.querySelectorAll('.lang-content');
 
@@ -344,11 +364,10 @@
       btn.classList.add('active');
       contents.forEach(c => {
         c.classList.toggle('active', c.dataset.lang === lang);
-        // Restart animations on switch
         if (c.dataset.lang === lang) {
           c.querySelectorAll('.mirror-line, .why-word').forEach(el => {
             el.style.animation = 'none';
-            el.offsetHeight; // trigger reflow
+            el.offsetHeight;
             el.style.animation = '';
           });
         }
@@ -357,14 +376,12 @@
     });
   });
 
-  // Restore saved language preference
   const savedLang = localStorage.getItem('jl-lang');
   if (savedLang) {
     const btn = document.querySelector(`.lang-btn[data-lang="${savedLang}"]`);
     if (btn) btn.click();
   }
 
-  // Navbar scroll effect
   window.addEventListener('scroll', () => {
     document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
   });
