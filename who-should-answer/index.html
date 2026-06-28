@@ -1,1 +1,410 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Step 1 — Who Should Answer? | ജീവിതലക്ഷ്യം</title>
+<meta name="description" content="Before we answer the deepest question of life, we must ask who is qualified to answer it.">
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;700&family=Noto+Serif+Malayalam:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --canvas: #0F1419;
+  --surface: #1A1F26;
+  --elevated: #232A33;
+  --primary: #00A86B;
+  --primary-bright: #00C77C;
+  --gold: #D4A24C;
+  --gold-bright: #F5C572;
+  --emerald-tint: #1A3A2E;
+  --heading: #FFFFFF;
+  --body: #D1D5DB;
+  --muted: #8B95A1;
+  --border: #2D3640;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--canvas);
+  color: var(--body);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.7;
+  min-height: 100vh;
+  background-image: radial-gradient(ellipse at top left, var(--emerald-tint) 0%, transparent 50%);
+  background-attachment: fixed;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  border-bottom: 1px solid var(--border);
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--heading);
+}
+.brand-glyph {
+  width: 32px; height: 32px;
+  background: var(--gold);
+  color: var(--canvas);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Noto Serif Malayalam', serif;
+  font-weight: 700;
+  font-size: 18px;
+}
+.brand-name { font-weight: 500; font-size: 15px; }
+
+.lang-toggle {
+  display: flex;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 4px;
+  gap: 2px;
+}
+.lang-toggle button {
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+.lang-toggle button.active {
+  background: var(--primary);
+  color: var(--canvas);
+  font-weight: 500;
+}
+.lang-toggle button:hover:not(.active) { color: var(--body); }
+
+.progress {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 50px 20px 20px;
+}
+.dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--border);
+  transition: all 0.3s;
+}
+.dot.completed { background: var(--primary); opacity: 0.4; }
+.dot.current { background: var(--primary); box-shadow: 0 0 12px var(--primary); }
+
+.step-container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+}
+
+.step-label {
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.step-question {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(28px, 5vw, 44px);
+  font-weight: 400;
+  color: var(--heading);
+  text-align: center;
+  line-height: 1.3;
+  margin-bottom: 16px;
+}
+.step-question strong {
+  color: var(--primary-bright);
+  font-style: italic;
+  font-weight: 700;
+}
+.step-question-ml {
+  font-family: 'Noto Serif Malayalam', serif;
+  font-size: clamp(26px, 4.5vw, 38px);
+  font-weight: 700;
+}
+
+.divider {
+  width: 60px;
+  height: 1px;
+  background: var(--border);
+  margin: 40px auto;
+}
+
+.body-text {
+  font-size: 17px;
+  line-height: 1.85;
+  margin-bottom: 24px;
+  color: var(--body);
+}
+.body-text.ml { font-family: 'Noto Serif Malayalam', serif; font-size: 19px; line-height: 1.9; }
+.body-text.manglish { font-style: italic; }
+
+.anomaly-card {
+  background: var(--surface);
+  border-left: 3px solid var(--gold);
+  padding: 28px 32px;
+  margin: 40px 0;
+  border-radius: 8px;
+  box-shadow: 0 0 30px rgba(212, 162, 76, 0.08);
+}
+.anomaly-label {
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.anomaly-text {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 19px;
+  color: var(--heading);
+  line-height: 1.6;
+}
+.anomaly-text.ml {
+  font-family: 'Noto Serif Malayalam', serif;
+  font-style: normal;
+  font-size: 20px;
+}
+
+.transition {
+  text-align: center;
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  color: var(--gold-bright);
+  font-size: 20px;
+  margin: 50px 0 40px;
+  line-height: 1.6;
+}
+.transition.ml { font-family: 'Noto Serif Malayalam', serif; font-style: normal; }
+
+.cta-wrap { text-align: center; margin-top: 60px; }
+.continue-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--primary);
+  color: var(--canvas);
+  text-decoration: none;
+  padding: 16px 36px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 16px;
+  transition: all 0.3s;
+}
+.continue-btn:hover {
+  background: var(--primary-bright);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 168, 107, 0.3);
+}
+.continue-btn .arrow { transition: transform 0.3s; }
+.continue-btn:hover .arrow { transform: translateX(4px); }
+
+.back-link {
+  display: block;
+  text-align: center;
+  margin-top: 32px;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 13px;
+  transition: color 0.2s;
+}
+.back-link:hover { color: var(--body); }
+
+.footer {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--muted);
+  font-size: 12px;
+  border-top: 1px solid var(--border);
+  margin-top: 60px;
+}
+
+[data-lang] { display: none; }
+html[lang="ml"] [data-lang="ml"],
+html[lang="manglish"] [data-lang="manglish"],
+html[lang="en"] [data-lang="en"] { display: block; }
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.8s ease forwards;
+}
+.fade-in:nth-child(2) { animation-delay: 0.15s; }
+.fade-in:nth-child(3) { animation-delay: 0.3s; }
+.fade-in:nth-child(4) { animation-delay: 0.45s; }
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="/" class="brand">
+    <span class="brand-glyph">ജ</span>
+    <span class="brand-name">Jeevithalakshyam</span>
+  </a>
+  <div class="lang-toggle">
+    <button onclick="setLang('ml')" id="btn-ml" class="active">മലയാളം</button>
+    <button onclick="setLang('manglish')" id="btn-manglish">Manglish</button>
+    <button onclick="setLang('en')" id="btn-en">English</button>
+  </div>
+</nav>
+
+<div class="progress" aria-label="Step 1 of 11">
+  <span class="dot current"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+</div>
+
+<main class="step-container">
+
+  <div class="step-label fade-in">
+    <span data-lang="ml">പടി 1 / 11</span>
+    <span data-lang="manglish">Step 1 / 11</span>
+    <span data-lang="en">Step 1 / 11</span>
+  </div>
+
+  <h1 class="step-question fade-in">
+    <span data-lang="ml" class="step-question-ml">
+      ഉത്തരം തേടും മുമ്പ് —<br>
+      <strong>ആര് ഉത്തരം നൽകണം?</strong>
+    </span>
+    <span data-lang="manglish">
+      Uttharam thedum mumpu —<br>
+      <strong>aar uttharam nalkanam?</strong>
+    </span>
+    <span data-lang="en">
+      Before we answer —<br>
+      <strong>who SHOULD answer?</strong>
+    </span>
+  </h1>
+
+  <div class="divider"></div>
+
+  <p class="body-text ml fade-in" data-lang="ml">
+    "എന്തിന്?" എന്ന ചോദ്യത്തിന് ഉത്തരം തേടും മുമ്പ്, ഒരു കാര്യം ചിന്തിക്കണം — ആ ഉത്തരം നൽകാൻ ആര് യോഗ്യൻ? ജീവിതത്തിന്റെ ഉദ്ദേശ്യം പോലൊരു ആഴമേറിയ ചോദ്യത്തിന്, ഉത്തരം ഏതുമിത്രം പറയാൻ പറ്റില്ല. ഉത്തരം നൽകുന്നയാൾക്ക് ആ ഉത്തരം അറിയണം — ഊഹിക്കാനല്ല.
+  </p>
+  <p class="body-text manglish fade-in" data-lang="manglish">
+    "Enthinu?" enna chodyathinu uttharam thedum mumpu, oru kaaryam chinthikkanam — aa uttharam nalkaan aar yogyan? Jeevithathinte uddheshyam polulla oru aazhameriya chodyathinu, uttharam ethumithram parayaan pattilla. Uttharam nalkunnayaalkku aa uttharam ariyanam — oohikkaanalla.
+  </p>
+  <p class="body-text fade-in" data-lang="en">
+    Before we rush to answer "Why?", we must pause and ask one thing — who is even qualified to answer it? For a question as deep as the purpose of your life, the answer cannot come from just anyone. The one who answers must actually know the answer — not guess it.
+  </p>
+
+  <div class="anomaly-card fade-in">
+    <div class="anomaly-label">
+      <span>💭</span>
+      <span data-lang="ml">ഒരു ചിന്ത</span>
+      <span data-lang="manglish">Oru chintha</span>
+      <span data-lang="en">A thought</span>
+    </div>
+    <p class="anomaly-text ml" data-lang="ml">
+      ഒരു കുട്ടി തെരുവിലൊരാളോട് ചോദിക്കുന്നു — "ഞാൻ എന്തിന് ജനിച്ചു?" ആ അപരിചിതന്റെ ഉത്തരം നീ വിശ്വസിക്കുമോ?
+    </p>
+    <p class="anomaly-text" data-lang="manglish">
+      Oru kutti theruvil oraalodu chodikkunnu — "Njaan enthinu janichu?" Aa aparichithante uttharam nee viswasikkumo?
+    </p>
+    <p class="anomaly-text" data-lang="en">
+      A child asks a stranger on the street — "Why was I born?" Would you trust the stranger's answer?
+    </p>
+  </div>
+
+  <p class="body-text ml" data-lang="ml">
+    നോക്കൂ — നിന്റെ ജീവിതലക്ഷ്യം പറയാൻ ആരൊക്കെ വരുന്നു? മാതാപിതാക്കൾ പറയും, "നന്നായി പഠിക്കണം, ജോലി നേടണം." സമൂഹം പറയും, "സമ്പത്തും കീർത്തിയും നേടണം." സിനിമയും സീരിയലും പറയും, "സ്നേഹം കണ്ടെത്തണം." സോഷ്യൽ മീഡിയ പറയും, "സ്വയം ജീവിക്കണം, ആഘോഷിക്കണം." ഫിലോസഫർമാർ പറയും, "അർത്ഥം നീ തന്നെ ഉണ്ടാക്കണം." നിന്റെ മനസ്സ് പറയും, "സന്തോഷം തേടണം." പക്ഷേ — ഇവരാരും നിന്നെ സൃഷ്ടിച്ചിട്ടില്ല. അവരുടെ ഉത്തരങ്ങൾ ഊഹങ്ങൾ മാത്രമാണ് — അനുഭവത്തിന്റെ പുറംമോടി അണിഞ്ഞ ഊഹങ്ങൾ.
+  </p>
+  <p class="body-text manglish" data-lang="manglish">
+    Nokku — ninte jeevithalakshyam parayaan aarokke varunnu? Mathapithakkal parayum, "Nannayi padhikkanam, joli nedanam." Samooham parayum, "Sampathum keerthiyum nedanam." Cinema-yum serial-um parayum, "Sneham kandethanam." Social media parayum, "Swayam jeevikkanam, aaghoshikkanam." Philosopher-maar parayum, "Artham nee thanne undaakkanam." Ninte manassu parayum, "Santhosham thedanam." Pakshe — ivaraarum ninne srishtichittilla. Avarude uttharangal oohangal maathramaanu — anubhavathinte purammodi anhinja oohangal.
+  </p>
+  <p class="body-text" data-lang="en">
+    Look around — who all are offering you an answer? Your parents say: "Study well, get a job." Society says: "Earn wealth and status." Films and serials say: "Find love." Social media says: "Live for yourself, celebrate." Philosophers say: "Create your own meaning." Your own mind says: "Chase happiness." But none of them made you. Their answers are guesses — guesses dressed in the clothing of experience.
+  </p>
+
+  <p class="body-text ml" data-lang="ml">
+    ഒരു സാധനത്തിന്റെ ഉദ്ദേശ്യം പറയാൻ അത് ഉണ്ടാക്കിയവൻ മാത്രമേ യോഗ്യനുള്ളൂ. നിന്റെ ജീവിതലക്ഷ്യം പറയാൻ — നിന്നെ ഉണ്ടാക്കിയവൻ മാത്രം.
+  </p>
+  <p class="body-text manglish" data-lang="manglish">
+    Oru saadhanathinte uddheshyam parayaan athu undaakiyavan maathrame yogyanullu. Ninte jeevithalakshyam parayaan — ninne undaakiyavan maathram.
+  </p>
+  <p class="body-text" data-lang="en">
+    Only the one who made something can truly explain its purpose. And only the One who made you can truly explain yours.
+  </p>
+
+  <div class="transition ml" data-lang="ml">
+    "എങ്കിൽ ആര് ഉത്തരം നൽകും?<br>നിന്നെ സൃഷ്ടിച്ചവൻ മാത്രം."
+  </div>
+  <div class="transition" data-lang="manglish">
+    "Engil aar uttharam nalkum?<br>Ninne srishtichavan maathram."
+  </div>
+  <div class="transition" data-lang="en">
+    "Then who can answer?<br>Only the One who made you."
+  </div>
+
+  <div class="cta-wrap">
+    <a href="/only-the-maker-knows/" class="continue-btn">
+      <span data-lang="ml">തുടരുക</span>
+      <span data-lang="manglish">Continue</span>
+      <span data-lang="en">Continue</span>
+      <span class="arrow">→</span>
+    </a>
+    <a href="/" class="back-link">
+      <span data-lang="ml">← തുടക്കത്തിലേക്ക്</span>
+      <span data-lang="manglish">← Back to start</span>
+      <span data-lang="en">← Back to start</span>
+    </a>
+  </div>
+
+</main>
+
+<footer class="footer">
+  <span data-lang="ml">© 2026 ജീവിതലക്ഷ്യം · jeevithalakshyam.info</span>
+  <span data-lang="manglish">© 2026 Jeevithalakshyam · jeevithalakshyam.info</span>
+  <span data-lang="en">© 2026 Jeevithalakshyam · jeevithalakshyam.info</span>
+</footer>
+
+<script>
+function setLang(lang) {
+  document.documentElement.lang = lang;
+  localStorage.setItem('jl-lang', lang);
+  document.querySelectorAll('.lang-toggle button').forEach(b => b.classList.remove('active'));
+  document.getElementById('btn-' + lang).classList.add('active');
+}
+
+(function() {
+  const saved = localStorage.getItem('jl-lang') || 'ml';
+  setLang(saved);
+})();
+</script>
+
+</body>
+</html>
