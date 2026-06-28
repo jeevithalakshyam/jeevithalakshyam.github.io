@@ -3,19 +3,441 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>only-the-maker-knows — ജീവിതലക്ഷ്യം</title>
+<title>Step 2 — Only the Maker Knows | ജീവിതലക്ഷ്യം</title>
+<meta name="description" content="Only the one who made something can truly explain its purpose. Discover why this principle changes everything about how we search for meaning.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;700&family=Noto+Serif+Malayalam:wght@400;700&display=swap" rel="stylesheet">
+
 <style>
-  body { background:#0F1419; color:#D1D5DB; font-family:sans-serif; display:flex; align-items:center; justify-content:center; min-height:100vh; text-align:center; padding:20px; }
-  h1 { color:#00C77C; font-weight:300; margin-bottom:12px; }
-  p { color:#8B95A1; }
-  a { color:#D4A24C; text-decoration:none; margin-top:24px; display:inline-block; }
+:root {
+  --canvas: #0F1419;
+  --surface: #1A1F26;
+  --elevated: #232A33;
+  --primary: #00A86B;
+  --primary-bright: #00C77C;
+  --gold: #D4A24C;
+  --gold-bright: #F5C572;
+  --emerald-tint: #1A3A2E;
+  --heading: #FFFFFF;
+  --body: #D1D5DB;
+  --muted: #8B95A1;
+  --border: #2D3640;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--canvas);
+  color: var(--body);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.7;
+  min-height: 100vh;
+  background-image: radial-gradient(ellipse at top left, var(--emerald-tint) 0%, transparent 50%);
+  background-attachment: fixed;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  border-bottom: 1px solid var(--border);
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--heading);
+}
+.brand-glyph {
+  width: 32px; height: 32px;
+  background: var(--gold);
+  color: var(--canvas);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Noto Serif Malayalam', serif;
+  font-weight: 700;
+  font-size: 18px;
+}
+.brand-name { font-weight: 500; font-size: 15px; }
+
+.lang-toggle {
+  display: flex;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 4px;
+  gap: 2px;
+}
+.lang-toggle button {
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+.lang-toggle button.active {
+  background: var(--primary);
+  color: var(--canvas);
+  font-weight: 500;
+}
+.lang-toggle button:hover:not(.active) { color: var(--body); }
+
+.progress {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 50px 20px 20px;
+}
+.dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--border);
+  transition: all 0.3s;
+}
+.dot.completed { background: var(--primary); opacity: 0.4; }
+.dot.current { background: var(--primary); box-shadow: 0 0 12px var(--primary); }
+
+.step-container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+}
+
+.step-label {
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.step-question {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(28px, 5vw, 44px);
+  font-weight: 400;
+  color: var(--heading);
+  text-align: center;
+  line-height: 1.3;
+  margin-bottom: 16px;
+}
+.step-question strong {
+  color: var(--primary-bright);
+  font-style: italic;
+  font-weight: 700;
+}
+.step-question-ml {
+  font-family: 'Noto Serif Malayalam', serif;
+  font-size: clamp(26px, 4.5vw, 38px);
+  font-weight: 700;
+}
+
+.divider {
+  width: 60px;
+  height: 1px;
+  background: var(--border);
+  margin: 40px auto;
+}
+
+.body-text {
+  font-size: 17px;
+  line-height: 1.85;
+  margin-bottom: 24px;
+  color: var(--body);
+}
+.body-text.ml { font-family: 'Noto Serif Malayalam', serif; font-size: 19px; line-height: 1.9; }
+.body-text.manglish { font-style: italic; }
+
+.anomaly-card {
+  background: var(--surface);
+  border-left: 3px solid var(--gold);
+  padding: 28px 32px;
+  margin: 40px 0;
+  border-radius: 8px;
+  box-shadow: 0 0 30px rgba(212, 162, 76, 0.08);
+}
+.anomaly-label {
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.anomaly-text {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 19px;
+  color: var(--heading);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+.anomaly-text.ml {
+  font-family: 'Noto Serif Malayalam', serif;
+  font-style: normal;
+  font-size: 20px;
+}
+.anomaly-text:last-child { margin-bottom: 0; }
+
+.transition {
+  text-align: center;
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  color: var(--gold-bright);
+  font-size: 20px;
+  margin: 50px 0 40px;
+  line-height: 1.6;
+}
+.transition.ml { font-family: 'Noto Serif Malayalam', serif; font-style: normal; }
+
+.cta-wrap { text-align: center; margin-top: 60px; }
+.continue-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--primary);
+  color: var(--canvas);
+  text-decoration: none;
+  padding: 16px 36px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 16px;
+  transition: all 0.3s;
+}
+.continue-btn:hover {
+  background: var(--primary-bright);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 168, 107, 0.3);
+}
+.continue-btn .arrow { transition: transform 0.3s; }
+.continue-btn:hover .arrow { transform: translateX(4px); }
+
+.back-link {
+  display: block;
+  text-align: center;
+  margin-top: 32px;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 13px;
+  transition: color 0.2s;
+}
+.back-link:hover { color: var(--body); }
+
+.footer {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--muted);
+  font-size: 12px;
+  border-top: 1px solid var(--border);
+  margin-top: 60px;
+}
+
+[data-lang] { display: none; }
+html[lang="ml"] [data-lang="ml"],
+html[lang="manglish"] [data-lang="manglish"],
+html[lang="en"] [data-lang="en"] { display: block; }
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.8s ease forwards;
+}
+.fade-in:nth-child(2) { animation-delay: 0.15s; }
+.fade-in:nth-child(3) { animation-delay: 0.3s; }
+.fade-in:nth-child(4) { animation-delay: 0.45s; }
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
 </style>
 </head>
 <body>
-<div>
-  <h1>only-the-maker-knows</h1>
-  <p>This step is coming soon.</p>
-  <a href="/">← Back to start</a>
+
+<nav class="nav">
+  <a href="/" class="brand">
+    <span class="brand-glyph">ജ</span>
+    <span class="brand-name">Jeevithalakshyam</span>
+  </a>
+  <div class="lang-toggle">
+    <button onclick="setLang('ml')" id="btn-ml" class="active">മലയാളം</button>
+    <button onclick="setLang('manglish')" id="btn-manglish">Manglish</button>
+    <button onclick="setLang('en')" id="btn-en">English</button>
+  </div>
+</nav>
+
+<div class="progress" aria-label="Step 2 of 11">
+  <span class="dot completed"></span>
+  <span class="dot current"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
 </div>
+
+<main class="step-container">
+
+  <div class="step-label fade-in">
+    <span data-lang="ml">പടി 2 / 11</span>
+    <span data-lang="manglish">Step 2 / 11</span>
+    <span data-lang="en">Step 2 / 11</span>
+  </div>
+
+  <h1 class="step-question fade-in">
+    <span data-lang="ml" class="step-question-ml">
+      ഒരു സാധനത്തിന്റെ ഉദ്ദേശ്യം —<br>
+      <strong>അത് ഉണ്ടാക്കിയവൻ മാത്രം അറിയും</strong>
+    </span>
+    <span data-lang="manglish">
+      Oru saadhanathinte uddheshyam —<br>
+      <strong>athu undaakiyavan maathram ariyum</strong>
+    </span>
+    <span data-lang="en">
+      The purpose of a thing —<br>
+      <strong>only its Maker knows</strong>
+    </span>
+  </h1>
+
+  <div class="divider"></div>
+
+  <p class="body-text ml fade-in" data-lang="ml">
+    ഒരു സാധനത്തിന്റെ ലക്ഷ്യം ആര് നിശ്ചയിക്കുന്നു? ആ സാധനം തന്നെയോ? അല്ല. അത് ഉപയോഗിക്കുന്നവനോ? അല്ല. അത് നോക്കിക്കണ്ടവനോ? അല്ല. ഉദ്ദേശ്യം നിശ്ചയിക്കുന്നത് — അത് ഉണ്ടാക്കിയവൻ മാത്രമാണ്. ഇത് ഒരു സിദ്ധാന്തമല്ല, ഒരു യാഥാർത്ഥ്യമാണ്. നോക്കാം.
+  </p>
+  <p class="body-text manglish fade-in" data-lang="manglish">
+    Oru saadhanathinte lakshyam aar nischayikkunnu? Aa saadhanam thanneyo? Alla. Athu upayogikkunnavano? Alla. Athu nokkikkandavano? Alla. Uddheshyam nischayikkunnathu — athu undaakiyavan maathramaanu. Ithu oru siddhaanthamalla, oru yaathaarthyamaanu. Nokkaam.
+  </p>
+  <p class="body-text fade-in" data-lang="en">
+    Who decides the purpose of a thing? The thing itself? No. The one who uses it? No. The one who observes it? No. Purpose is decided only by the one who *made* it. This is not a theory — it is a reality. Let's see it.
+  </p>
+
+  <div class="anomaly-card fade-in">
+    <div class="anomaly-label">
+      <span>💭</span>
+      <span data-lang="ml">മൂന്ന് ഉദാഹരണങ്ങൾ</span>
+      <span data-lang="manglish">Moonu udaaharanangal</span>
+      <span data-lang="en">Three examples</span>
+    </div>
+
+    <p class="anomaly-text ml" data-lang="ml">
+      <strong style="color:var(--gold-bright);">ഒരു മേശ.</strong> ആരാണ് അതിന്റെ ഉദ്ദേശ്യം നിശ്ചയിച്ചത് — മേശ തന്നെയോ? അല്ല. അതുണ്ടാക്കിയ ആശാരി മാത്രമാണ് അറിയുന്നത് — എഴുതാനോ, ഭക്ഷണത്തിനോ, അലങ്കാരത്തിനോ?
+    </p>
+    <p class="anomaly-text" data-lang="manglish">
+      <strong style="color:var(--gold-bright);">Oru mesa.</strong> Aaraanu athinte uddheshyam nischayichathu — mesa thanneyo? Alla. Athundaakiya aashari maathramaanu ariyunnathu — ezhuthaano, bhakshanathino, alankaarathino?
+    </p>
+    <p class="anomaly-text" data-lang="en">
+      <strong style="color:var(--gold-bright);">A table.</strong> Who decided its purpose — the table itself? No. Only the carpenter who built it knows — for writing, for eating, or for display?
+    </p>
+
+    <p class="anomaly-text ml" data-lang="ml">
+      <strong style="color:var(--gold-bright);">ഒരു സ്മാർട്ട്ഫോൺ.</strong> അതിലെ ഓരോ ഫീച്ചറും എന്തിനു വേണ്ടി ഉണ്ടാക്കിയതാണെന്ന് ഉപയോക്താവ് കണ്ടെത്തുകയാണ് — തീരുമാനിക്കുകയല്ല. അത് രൂപകല്പന ചെയ്ത എഞ്ചിനീയർമാർക്ക് മാത്രമാണ് ഉദ്ദേശ്യം അറിയുന്നത്.
+    </p>
+    <p class="anomaly-text" data-lang="manglish">
+      <strong style="color:var(--gold-bright);">Oru smartphone.</strong> Athile oro feature-um enthinu vendi undaakiyathaanennu upayokthaavu kandethukayaanu — theerumaanikkukayalla. Athu roopakalpana cheytha engineer-maarkku maathramaanu uddheshyam ariyunnathu.
+    </p>
+    <p class="anomaly-text" data-lang="en">
+      <strong style="color:var(--gold-bright);">A smartphone.</strong> The user *discovers* what each feature was made for — they don't decide it. Only the engineers who designed it know its purpose.
+    </p>
+
+    <p class="anomaly-text ml" data-lang="ml">
+      <strong style="color:var(--gold-bright);">ഒരു അപരിചിത വസ്തു.</strong> നിന്നെ ഒരാൾ ഒരു വിചിത്ര ഉപകരണം കൈയിൽ തരുന്നു. അതെന്താണെന്നു നിനക്ക് അറിയില്ല. നീ ഊഹിക്കാം, പരീക്ഷിക്കാം — പക്ഷേ ശരിയായ ഉത്തരം അത് ഉണ്ടാക്കിയ കണ്ടെത്തലുകാരൻ മാത്രമേ പറയൂ.
+    </p>
+    <p class="anomaly-text" data-lang="manglish">
+      <strong style="color:var(--gold-bright);">Oru aparichitha vasthu.</strong> Ninne oraal oru vichithra upakaranam kaiyil tharunnu. Athenthaanennu ninakku ariyilla. Nee oohikkaam, pareekshikkaam — pakshe shariyaaya uttharam athu undaakiya kandethalukaaran maathrame parayoo.
+    </p>
+    <p class="anomaly-text" data-lang="en">
+      <strong style="color:var(--gold-bright);">A strange object.</strong> Someone hands you an unfamiliar device. You don't know what it is. You can guess, you can experiment — but only the inventor who made it can tell you its true purpose.
+    </p>
+  </div>
+
+  <p class="body-text ml" data-lang="ml">
+    ഈ മൂന്നു ഉദാഹരണങ്ങളിലും ഒരേ പാഠം ഉണ്ട് — <strong style="color:var(--primary-bright);">ഉദ്ദേശ്യം ഉണ്ടാക്കിയവനിൽ നിന്ന് വരുന്നു, ഉണ്ടാക്കപ്പെട്ടതിൽ നിന്നല്ല.</strong> ഒരു മേശ സ്വയം ഉദ്ദേശ്യം നിശ്ചയിക്കില്ല. ഒരു ഫോൺ സ്വയം ലക്ഷ്യം പറയില്ല. ഒരു ഉപകരണം സ്വയം അർത്ഥം കണ്ടെത്തില്ല.
+  </p>
+  <p class="body-text manglish" data-lang="manglish">
+    Ee moonu udaaharanangalilum ore paadam undu — <strong style="color:var(--primary-bright);">uddheshyam undaakiyavanil ninnu varunnu, undaakappettathil ninnalla.</strong> Oru mesa swayam uddheshyam nischayikkilla. Oru phone swayam lakshyam parayilla. Oru upakaranam swayam artham kandethilla.
+  </p>
+  <p class="body-text" data-lang="en">
+    All three examples teach the same lesson — <strong style="color:var(--primary-bright);">purpose comes from the maker, not from the made.</strong> A table cannot decide its own purpose. A phone cannot declare its own goal. A device cannot discover its own meaning.
+  </p>
+
+  <p class="body-text ml" data-lang="ml">
+    ഇപ്പോൾ ഒരു ചോദ്യം — നീ ഒരു മേശയേക്കാൾ സങ്കീർണ്ണനല്ലേ? ഒരു ഫോണിനെക്കാൾ സങ്കീർണ്ണനല്ലേ? നിന്റെ കണ്ണുകൾ ഏതു ക്യാമറയെക്കാളും മികച്ചതാണ്. നിന്റെ തലച്ചോറ് ഏതു കമ്പ്യൂട്ടറിനെക്കാളും ശക്തമാണ്. നിന്റെ ഹൃദയം ഏതു മെഷീനെക്കാളും കൃത്യമാണ്. എങ്കിൽ — ഈ സങ്കീർണ്ണതയ്ക്ക് സ്വയം ഉദ്ദേശ്യം നിശ്ചയിക്കാൻ കഴിയുമോ?
+  </p>
+  <p class="body-text manglish" data-lang="manglish">
+    Ippol oru chodyam — nee oru mesayekkaalum sankeernanalle? Oru phone-inekkaalum sankeernanalle? Ninte kannukal ethu camera-yekkaalum mikachathaanu. Ninte thalachoru ethu computer-inekkaalum shakthamaanu. Ninte hridayam ethu machine-inekkaalum kruthyamaanu. Engil — ee sankeernathaykku swayam uddheshyam nischayikkaan kazhiyumo?
+  </p>
+  <p class="body-text" data-lang="en">
+    Now a question — are you not infinitely more complex than a table? More complex than a phone? Your eyes outperform any camera. Your brain outperforms any computer. Your heart outperforms any machine. So — can this complexity decide its own purpose?
+  </p>
+
+  <div class="transition ml" data-lang="ml">
+    "ഒരു മേശയ്ക്ക് അതിന്റെ ഉണ്ടാക്കിയവൻ വേണം.<br>നിനക്കും വേണം — നിന്നെ ഉണ്ടാക്കിയവൻ."
+  </div>
+  <div class="transition" data-lang="manglish">
+    "Oru mesaykku athinte undaakiyavan venam.<br>Ninakkum venam — ninne undaakiyavan."
+  </div>
+  <div class="transition" data-lang="en">
+    "A table needs its maker to explain it.<br>So do you — and yours."
+  </div>
+
+  <p class="body-text ml" data-lang="ml">
+    പക്ഷേ ഇവിടെ ഒരു സംശയം ഉയരുന്നു — <em>നിജമായും ഒരു ഉണ്ടാക്കിയവൻ ഉണ്ടോ?</em> അതോ ഞാൻ കേവലം ഒരു ആകസ്മികതയാണോ? ഇത് ഇനി തെളിയിക്കണം.
+  </p>
+  <p class="body-text manglish" data-lang="manglish">
+    Pakshe ivide oru samshayam uyarunnu — <em>nijamaayum oru undaakiyavan undo?</em> Atho njaan kevalam oru aakasmikathayaano? Ithu ini theliyikkanam.
+  </p>
+  <p class="body-text" data-lang="en">
+    But a doubt arises here — <em>is there really a Maker at all?</em> Or am I just an accident? This must now be proven.
+  </p>
+
+  <div class="cta-wrap">
+    <a href="/is-there-a-creator/" class="continue-btn">
+      <span data-lang="ml">തുടരുക</span>
+      <span data-lang="manglish">Continue</span>
+      <span data-lang="en">Continue</span>
+      <span class="arrow">→</span>
+    </a>
+    <a href="/" class="back-link">
+      <span data-lang="ml">← തുടക്കത്തിലേക്ക്</span>
+      <span data-lang="manglish">← Back to start</span>
+      <span data-lang="en">← Back to start</span>
+    </a>
+  </div>
+
+</main>
+
+<footer class="footer">
+  <span data-lang="ml">© 2026 ജീവിതലക്ഷ്യം · jeevithalakshyam.info</span>
+  <span data-lang="manglish">© 2026 Jeevithalakshyam · jeevithalakshyam.info</span>
+  <span data-lang="en">© 2026 Jeevithalakshyam · jeevithalakshyam.info</span>
+</footer>
+
+<script>
+function setLang(lang) {
+  document.documentElement.lang = lang;
+  localStorage.setItem('jl-lang', lang);
+  document.querySelectorAll('.lang-toggle button').forEach(b => b.classList.remove('active'));
+  document.getElementById('btn-' + lang).classList.add('active');
+}
+
+(function() {
+  const saved = localStorage.getItem('jl-lang') || 'ml';
+  setLang(saved);
+})();
+</script>
+
 </body>
 </html>
