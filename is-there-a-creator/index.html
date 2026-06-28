@@ -3,19 +3,287 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>is-there-a-creator — ജീവിതലക്ഷ്യം</title>
+<title>Step 3 — Is There a Creator? | ജീവിതലക്ഷ്യം</title>
+<meta name="description" content="Three rational arguments — without scripture — for the existence of a Creator.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;700&family=Noto+Serif+Malayalam:wght@400;700&display=swap" rel="stylesheet">
+
 <style>
-  body { background:#0F1419; color:#D1D5DB; font-family:sans-serif; display:flex; align-items:center; justify-content:center; min-height:100vh; text-align:center; padding:20px; }
-  h1 { color:#00C77C; font-weight:300; margin-bottom:12px; }
-  p { color:#8B95A1; }
-  a { color:#D4A24C; text-decoration:none; margin-top:24px; display:inline-block; }
+:root {
+  --canvas: #0F1419;
+  --surface: #1A1F26;
+  --elevated: #232A33;
+  --primary: #00A86B;
+  --primary-bright: #00C77C;
+  --gold: #D4A24C;
+  --gold-bright: #F5C572;
+  --emerald-tint: #1A3A2E;
+  --heading: #FFFFFF;
+  --body: #D1D5DB;
+  --muted: #8B95A1;
+  --border: #2D3640;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: var(--canvas);
+  color: var(--body);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.7;
+  min-height: 100vh;
+  background-image: radial-gradient(ellipse at top left, var(--emerald-tint) 0%, transparent 50%);
+  background-attachment: fixed;
+}
+.nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 40px; border-bottom: 1px solid var(--border); }
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--heading); }
+.brand-glyph { width: 32px; height: 32px; background: var(--gold); color: var(--canvas); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Noto Serif Malayalam', serif; font-weight: 700; font-size: 18px; }
+.brand-name { font-weight: 500; font-size: 15px; }
+.lang-toggle { display: flex; background: var(--surface); border: 1px solid var(--border); border-radius: 999px; padding: 4px; gap: 2px; }
+.lang-toggle button { background: transparent; border: none; color: var(--muted); padding: 6px 14px; border-radius: 999px; font-size: 13px; cursor: pointer; transition: all 0.2s; font-family: inherit; }
+.lang-toggle button.active { background: var(--primary); color: var(--canvas); font-weight: 500; }
+.lang-toggle button:hover:not(.active) { color: var(--body); }
+.progress { display: flex; justify-content: center; gap: 10px; padding: 50px 20px 20px; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--border); transition: all 0.3s; }
+.dot.completed { background: var(--primary); opacity: 0.4; }
+.dot.current { background: var(--primary); box-shadow: 0 0 12px var(--primary); }
+.step-container { max-width: 720px; margin: 0 auto; padding: 40px 24px 80px; }
+.step-label { text-align: center; color: var(--muted); font-size: 13px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 24px; }
+.step-question { font-family: 'Fraunces', serif; font-size: clamp(28px, 5vw, 44px); font-weight: 400; color: var(--heading); text-align: center; line-height: 1.3; margin-bottom: 16px; }
+.step-question strong { color: var(--primary-bright); font-style: italic; font-weight: 700; }
+.step-question-ml { font-family: 'Noto Serif Malayalam', serif; font-size: clamp(26px, 4.5vw, 38px); font-weight: 700; }
+.divider { width: 60px; height: 1px; background: var(--border); margin: 40px auto; }
+.body-text { font-size: 17px; line-height: 1.85; margin-bottom: 24px; color: var(--body); }
+.body-text.ml { font-family: 'Noto Serif Malayalam', serif; font-size: 19px; line-height: 1.9; }
+.body-text.manglish { font-style: italic; }
+.argument-card { background: var(--surface); border-left: 3px solid var(--primary); padding: 28px 32px; margin: 32px 0; border-radius: 8px; box-shadow: 0 0 30px rgba(0, 168, 107, 0.08); }
+.argument-label { color: var(--primary-bright); font-size: 11px; letter-spacing: 3px; text-transform: uppercase; font-weight: 700; margin-bottom: 12px; }
+.argument-title { font-family: 'Fraunces', serif; font-size: 22px; color: var(--heading); margin-bottom: 14px; font-weight: 600; }
+.argument-title.ml { font-family: 'Noto Serif Malayalam', serif; }
+.argument-text { font-size: 16px; color: var(--body); line-height: 1.75; }
+.argument-text.ml { font-family: 'Noto Serif Malayalam', serif; font-size: 17px; }
+.anomaly-card { background: var(--surface); border-left: 3px solid var(--gold); padding: 28px 32px; margin: 40px 0; border-radius: 8px; box-shadow: 0 0 30px rgba(212, 162, 76, 0.08); }
+.anomaly-label { color: var(--gold); font-size: 11px; letter-spacing: 3px; text-transform: uppercase; font-weight: 700; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+.anomaly-text { font-family: 'Fraunces', serif; font-style: italic; font-size: 19px; color: var(--heading); line-height: 1.6; }
+.anomaly-text.ml { font-family: 'Noto Serif Malayalam', serif; font-style: normal; font-size: 20px; }
+.transition { text-align: center; font-family: 'Fraunces', serif; font-style: italic; color: var(--gold-bright); font-size: 20px; margin: 50px 0 40px; line-height: 1.6; }
+.transition.ml { font-family: 'Noto Serif Malayalam', serif; font-style: normal; }
+.cta-wrap { text-align: center; margin-top: 60px; }
+.continue-btn { display: inline-flex; align-items: center; gap: 12px; background: var(--primary); color: var(--canvas); text-decoration: none; padding: 16px 36px; border-radius: 999px; font-weight: 600; font-size: 16px; transition: all 0.3s; }
+.continue-btn:hover { background: var(--primary-bright); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0, 168, 107, 0.3); }
+.continue-btn .arrow { transition: transform 0.3s; }
+.continue-btn:hover .arrow { transform: translateX(4px); }
+.back-link { display: block; text-align: center; margin-top: 32px; color: var(--muted); text-decoration: none; font-size: 13px; transition: color 0.2s; }
+.back-link:hover { color: var(--body); }
+.footer { text-align: center; padding: 40px 20px; color: var(--muted); font-size: 12px; border-top: 1px solid var(--border); margin-top: 60px; }
+[data-lang] { display: none; }
+html[lang="ml"] [data-lang="ml"], html[lang="manglish"] [data-lang="manglish"], html[lang="en"] [data-lang="en"] { display: block; }
+.fade-in { opacity: 0; transform: translateY(20px); animation: fadeUp 0.8s ease forwards; }
+@keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
 </style>
 </head>
 <body>
-<div>
-  <h1>is-there-a-creator</h1>
-  <p>This step is coming soon.</p>
-  <a href="/">← Back to start</a>
+
+<nav class="nav">
+  <a href="/" class="brand">
+    <span class="brand-glyph">ജ</span>
+    <span class="brand-name">Jeevithalakshyam</span>
+  </a>
+  <div class="lang-toggle">
+    <button onclick="setLang('ml')" id="btn-ml" class="active">മലയാളം</button>
+    <button onclick="setLang('manglish')" id="btn-manglish">Manglish</button>
+    <button onclick="setLang('en')" id="btn-en">English</button>
+  </div>
+</nav>
+
+<div class="progress" aria-label="Step 3 of 11">
+  <span class="dot completed"></span>
+  <span class="dot completed"></span>
+  <span class="dot current"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
 </div>
+
+<main class="step-container">
+
+  <div class="step-label fade-in">
+    <span data-lang="ml">പടി 3 / 11</span>
+    <span data-lang="manglish">Step 3 / 11</span>
+    <span data-lang="en">Step 3 / 11</span>
+  </div>
+
+  <h1 class="step-question fade-in">
+    <span data-lang="ml" class="step-question-ml">
+      നിജമായും —<br>
+      <strong>ഒരു സ്രഷ്ടാവ് ഉണ്ടോ?</strong>
+    </span>
+    <span data-lang="manglish">
+      Nijamaayum —<br>
+      <strong>oru srashtaavu undo?</strong>
+    </span>
+    <span data-lang="en">
+      Truly —<br>
+      <strong>is there a Creator?</strong>
+    </span>
+  </h1>
+
+  <div class="divider"></div>
+
+  <p class="body-text ml fade-in" data-lang="ml">
+    ഇതുവരെ നാം പറഞ്ഞത് — ഒരു സാധനത്തിന്റെ ഉദ്ദേശ്യം അതുണ്ടാക്കിയവനിൽ നിന്നാണ്. പക്ഷേ ഒരു ചോദ്യം ഇപ്പോഴും ബാക്കിയുണ്ട് — നിജമായും ഒരു ഉണ്ടാക്കിയവൻ ഉണ്ടോ? ഇല്ലെങ്കിൽ ഈ ചർച്ച അവിടെ അവസാനിക്കും. ഉണ്ടെങ്കിൽ, ജീവിതലക്ഷ്യത്തിന്റെ ഉത്തരം നമുക്ക് കിട്ടും. ഇത് മതത്തിലൂടെയല്ല — ബുദ്ധിയിലൂടെ പരിശോധിക്കാം. മൂന്ന് ലളിതമായ വാദങ്ങൾ.
+  </p>
+  <p class="body-text manglish fade-in" data-lang="manglish">
+    Ithuvare naam paranjathu — oru saadhanathinte uddheshyam athundaakiyavanil ninnaanu. Pakshe oru chodyam ippozhum baakkiyundu — nijamaayum oru undaakiyavan undo? Illenkil ee charcha avide avasaanikkum. Undenkil, jeevithalakshyathinte uttharam namukku kittum. Ithu mathathiloodeyalla — buddhiyilooode parishodhikkaam. Moonu lalithamaaya vaadangal.
+  </p>
+  <p class="body-text fade-in" data-lang="en">
+    So far we said — the purpose of a thing comes from its maker. But one question still remains — is there really a Maker? If not, this discussion ends here. If yes, the answer to the purpose of life becomes available. Let us examine this not through religion — but through reason. Three simple arguments.
+  </p>
+
+  <!-- ARGUMENT 1 -->
+  <div class="argument-card fade-in">
+    <div class="argument-label">
+      <span data-lang="ml">വാദം 1 — തുടക്കം</span>
+      <span data-lang="manglish">Argument 1 — Origin</span>
+      <span data-lang="en">Argument 1 — Origin</span>
+    </div>
+    <div class="argument-title ml" data-lang="ml">തുടങ്ങിയതെല്ലാം ഒരു കാരണത്തിൽ നിന്നു തുടങ്ങി</div>
+    <div class="argument-title" data-lang="manglish">Thudangiyathellaam oru kaaranathil ninnu thudangi</div>
+    <div class="argument-title" data-lang="en">Everything that begins has a cause</div>
+
+    <p class="argument-text ml" data-lang="ml">
+      ഒരു മഴത്തുള്ളി തുടങ്ങാൻ ഒരു മേഘം വേണം. ഒരു മേഘം തുടങ്ങാൻ ജലബാഷ്പം വേണം. ഒരു ജീവൻ തുടങ്ങാൻ ഒരു മാതാപിതാവ് വേണം. ഒരു സ്ഫോടനം തുടങ്ങാൻ ഒരു ഇന്ധനം വേണം. തുടങ്ങിയ ഏതും — സ്വയം തുടങ്ങിയിട്ടില്ല. ശാസ്ത്രം പറയുന്നു: പ്രപഞ്ചം ഏകദേശം 13.8 ബില്യൺ വർഷം മുമ്പ് തുടങ്ങി. എങ്കിൽ — അതിനെ തുടങ്ങിച്ച കാരണം പ്രപഞ്ചത്തിന് വെളിയിൽ ഉണ്ടാകണം. ആ കാരണത്തെയാണ് നാം "സ്രഷ്ടാവ്" എന്ന് വിളിക്കുന്നത്.
+    </p>
+    <p class="argument-text" data-lang="manglish">
+      Oru mazhathulli thudangaan oru megham venam. Oru megham thudangaan jalabaashpam venam. Oru jeevan thudangaan oru maathaapithaavu venam. Oru sphotanam thudangaan oru indhanam venam. Thudangiya ethum — swayam thudangiyittilla. Shaasthram parayunnu: prapancham ekadeshma 13.8 billion varsham mumpu thudangi. Engil — athine thudangicha kaaranam prapanchathinu veliyil undaakanam. Aa kaaranatheyaanu naam "srashtaavu" ennu vilikkunnathu.
+    </p>
+    <p class="argument-text" data-lang="en">
+      A raindrop needs a cloud to begin. A cloud needs vapour. A life needs a parent. An explosion needs fuel. Anything that began — did not begin on its own. Science confirms: the universe began roughly 13.8 billion years ago. So — whatever caused it must exist outside it. That cause is what we call the Creator.
+    </p>
+  </div>
+
+  <!-- ARGUMENT 2 -->
+  <div class="argument-card fade-in">
+    <div class="argument-label">
+      <span data-lang="ml">വാദം 2 — രൂപകല്പന</span>
+      <span data-lang="manglish">Argument 2 — Design</span>
+      <span data-lang="en">Argument 2 — Design</span>
+    </div>
+    <div class="argument-title ml" data-lang="ml">പ്രപഞ്ചം ഒരു ആകസ്മികതയല്ല — ഒരു സൂക്ഷ്മ ക്രമീകരണമാണ്</div>
+    <div class="argument-title" data-lang="manglish">Prapancham oru aakasmikathayalla — oru sookshma krameekaranamaanu</div>
+    <div class="argument-title" data-lang="en">The universe is not an accident — it is a fine-tuning</div>
+
+    <p class="argument-text ml" data-lang="ml">
+      ഭൂമി സൂര്യനോട് അല്പം അടുത്തായാൽ — കരിഞ്ഞുപോകും. അല്പം അകന്നായാൽ — മഞ്ഞുകട്ടയാകും. അന്തരീക്ഷത്തിലെ ഓക്സിജൻ 21% ആണ്. 25% ആയാൽ — കാടുകൾ ഒറ്റ തീപ്പൊരിയിൽ കത്തിയമരും. 18% ആയാൽ — ശ്വാസം നിലയ്ക്കും. ജലം മാത്രമാണ് ഖനീഭവിക്കുമ്പോൾ വ്യാപ്തി കൂടുന്ന ഒരേയൊരു ദ്രവം — അതുകൊണ്ടാണ് മഞ്ഞുകട്ടകൾ വെള്ളത്തിൽ പൊങ്ങുന്നത്, അല്ലെങ്കിൽ കടലിലെ ജീവൻ മുഴുവൻ മരവിച്ചുപോകുമായിരുന്നു. DNA-യിലെ വിവരസാന്ദ്രത ലോകത്തിലെ ഏതു സൂപ്പർകമ്പ്യൂട്ടറിനെക്കാളും കൂടുതലാണ്. ഇത്രയും കൃത്യമായ ക്രമീകരണം — ആകസ്മികമോ?
+    </p>
+    <p class="argument-text" data-lang="manglish">
+      Bhoomi sooryanod alpam aduthaayaal — karinju pokum. Alpam akanaayaal — manjukattayaakum. Anthareekshathile oxygen 21% aanu. 25% aayaal — kaadukal otta theepporiyil kathiyamarum. 18% aayaal — shvaasam nilaykkum. Jalam maathramaanu khaneebhavikkumpol vyaapthi koodunna oreyoru dravam — athukondaanu manjukattakal vellathil pongunnathu, allenkil kadalile jeevan muzhuvan maravichupokumaayirunnu. DNA-yile vivarasaandratha lokathile ethu supercomputer-inekkaalum kooduthalaanu. Ithrayum kruthyamaaya krameekaranam — aakasmikamo?
+    </p>
+    <p class="argument-text" data-lang="en">
+      If Earth were slightly closer to the sun — we would burn. Slightly farther — we would freeze. Atmospheric oxygen is 21%. At 25%, forests would ignite from a single spark. At 18%, breathing would stop. Water is the only liquid that expands when frozen — that is why ice floats, otherwise all ocean life would have frozen solid. The information density in DNA exceeds any supercomputer on Earth. This level of precision — by accident?
+    </p>
+  </div>
+
+  <!-- ARGUMENT 3 -->
+  <div class="argument-card fade-in">
+    <div class="argument-label">
+      <span data-lang="ml">വാദം 3 — ശൂന്യതയിൽ നിന്ന് ഒന്നുമില്ല</span>
+      <span data-lang="manglish">Argument 3 — Nothing from nothing</span>
+      <span data-lang="en">Argument 3 — Nothing produces nothing</span>
+    </div>
+    <div class="argument-title ml" data-lang="ml">ഇല്ലായ്മക്ക് ഉണ്ടാക്കാൻ ശക്തിയില്ല</div>
+    <div class="argument-title" data-lang="manglish">Illaaymakku undaakkaan shakthiyilla</div>
+    <div class="argument-title" data-lang="en">Nothingness has no power to produce</div>
+
+    <p class="argument-text ml" data-lang="ml">
+      ഒരു ശൂന്യ മുറിയിൽ ഒരു മേശ താനേ പ്രത്യക്ഷപ്പെടുമോ? ഇല്ല. ഒരു ശൂന്യ പേജിൽ ഒരു കവിത താനേ എഴുതപ്പെടുമോ? ഇല്ല. ശൂന്യതയ്ക്ക് ഒന്നും ഉണ്ടാക്കാൻ കഴിയില്ല — ഇത് ഏറ്റവും അടിസ്ഥാന യുക്തിയാണ്. പക്ഷേ ഇപ്പോൾ കാണുക — എന്തോ ഉണ്ട്. നക്ഷത്രങ്ങൾ, ഗ്രഹങ്ങൾ, ജീവൻ, നീ, ഞാൻ. എങ്കിൽ — ഈ "എന്തോ" ശൂന്യതയിൽ നിന്ന് വന്നതല്ല. ഒരു സ്വയം-നിലനിൽക്കുന്ന, ഉണ്ടാക്കപ്പെടാത്ത ശക്തി ഉണ്ടാകണം. അതാണ് സ്രഷ്ടാവ്.
+    </p>
+    <p class="argument-text" data-lang="manglish">
+      Oru shoonya muriyil oru mesa thaane prathyakshappedumo? Illa. Oru shoonya page-il oru kavitha thaane ezhuthappedumo? Illa. Shoonyathaykku onnum undaakkaan kazhiyilla — ithu ettavum adisthaana yukthiyaanu. Pakshe ippol kaanuka — entho undu. Nakshathrangal, grahangal, jeevan, nee, njaan. Engil — ee "entho" shoonyathayil ninnu vannathalla. Oru swayam-nilanilkkunna, undaakappedaatha shakthi undaakanam. Athaanu srashtaavu.
+    </p>
+    <p class="argument-text" data-lang="en">
+      Would a table appear by itself in an empty room? No. Would a poem write itself on a blank page? No. Nothingness has no power to produce anything — this is the most basic logic. Yet here we are — *something* exists. Stars, planets, life, you, me. Therefore — this "something" did not come from nothing. A self-existent, uncaused power must exist. That is the Creator.
+    </p>
+  </div>
+
+  <!-- ANOMALY -->
+  <div class="anomaly-card fade-in">
+    <div class="anomaly-label">
+      <span>💭</span>
+      <span data-lang="ml">ഒരു ലളിത ഉദാഹരണം</span>
+      <span data-lang="manglish">Oru lalitha udaaharanam</span>
+      <span data-lang="en">A simple illustration</span>
+    </div>
+    <p class="anomaly-text ml" data-lang="ml">
+      നീ ഒരു മരുഭൂമിയിലൂടെ നടക്കുമ്പോൾ ഒരു വാച്ച് കണ്ടെത്തുന്നു. അത് ടിക് ടിക് മിടിക്കുന്നു. കാറ്റും മണലും കാലവും ചേർന്ന് ആ വാച്ച് താനേ ഉണ്ടായതാണ് എന്ന് നീ കരുതുമോ? ഇല്ല. എങ്കിൽ — ഒരു വാച്ചിനെക്കാൾ കോടി മടങ്ങ് സങ്കീർണ്ണമായ കണ്ണിനെക്കുറിച്ച് അങ്ങനെ പറയാമോ?
+    </p>
+    <p class="anomaly-text" data-lang="manglish">
+      Nee oru marubhoomiyiloode nadakkumbol oru watch kandethunnu. Athu tick tick midikkunnu. Kaattum manalum kaalavum chernu aa watch thaane undaayathaanu ennu nee karuthumo? Illa. Engil — oru watch-inekkaal koti madangu sankeernamaaya kanninekkurichu angane parayaamo?
+    </p>
+    <p class="anomaly-text" data-lang="en">
+      You walk through a desert and find a watch. It is ticking. Would you say wind + sand + time made it? No. Then how can we say the same about the human eye — millions of times more complex than a watch?
+    </p>
+  </div>
+
+  <p class="body-text ml" data-lang="ml">
+    മൂന്നു വാദങ്ങളും ഒരേ നിഗമനത്തിലേക്ക് നയിക്കുന്നു — <strong style="color:var(--primary-bright);">ഒരു സ്രഷ്ടാവ് ഉണ്ട്.</strong> ഇത് വിശ്വാസമല്ല, യുക്തിയാണ്. ശാസ്ത്രവും ഇതേ ദിശയിലേക്കു തന്നെ വിരൽ ചൂണ്ടുന്നു.
+  </p>
+  <p class="body-text manglish" data-lang="manglish">
+    Moonu vaadangalum ore nigamanathilekku nayikkunnu — <strong style="color:var(--primary-bright);">oru srashtaavu undu.</strong> Ithu vishvaasamalla, yukthiyaanu. Shaasthravum ithe dishayilekku thanne viral choondunnu.
+  </p>
+  <p class="body-text" data-lang="en">
+    All three arguments lead to the same conclusion — <strong style="color:var(--primary-bright);">a Creator exists.</strong> This is not faith, it is reason. Science itself points in the same direction.
+  </p>
+
+  <div class="transition ml" data-lang="ml">
+    "സ്രഷ്ടാവ് ഉണ്ട്.<br>പക്ഷേ — എന്തുകൊണ്ട് ഒരാൾ മാത്രം?"
+  </div>
+  <div class="transition" data-lang="manglish">
+    "Srashtaavu undu.<br>Pakshe — enthukondu oraal maathram?"
+  </div>
+  <div class="transition" data-lang="en">
+    "A Creator exists.<br>But — why must it be only One?"
+  </div>
+
+  <div class="cta-wrap">
+    <a href="/why-one-creator/" class="continue-btn">
+      <span data-lang="ml">തുടരുക</span>
+      <span data-lang="manglish">Continue</span>
+      <span data-lang="en">Continue</span>
+      <span class="arrow">→</span>
+    </a>
+    <a href="/" class="back-link">
+      <span data-lang="ml">← തുടക്കത്തിലേക്ക്</span>
+      <span data-lang="manglish">← Back to start</span>
+      <span data-lang="en">← Back to start</span>
+    </a>
+  </div>
+
+</main>
+
+<footer class="footer">
+  <span data-lang="ml">© 2026 ജീവിതലക്ഷ്യം · jeevithalakshyam.info</span>
+  <span data-lang="manglish">© 2026 Jeevithalakshyam · jeevithalakshyam.info</span>
+  <span data-lang="en">© 2026 Jeevithalakshyam · jeevithalakshyam.info</span>
+</footer>
+
+<script>
+function setLang(lang) {
+  document.documentElement.lang = lang;
+  localStorage.setItem('jl-lang', lang);
+  document.querySelectorAll('.lang-toggle button').forEach(b => b.classList.remove('active'));
+  document.getElementById('btn-' + lang).classList.add('active');
+}
+(function() {
+  const saved = localStorage.getItem('jl-lang') || 'ml';
+  setLang(saved);
+})();
+</script>
+
 </body>
 </html>
