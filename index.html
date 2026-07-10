@@ -13,9 +13,9 @@
 <meta property="og:url" content="https://jeevithalakshyam.info">
 
 <!-- Fonts -->
-https://fonts.googleapis.com
-https://fonts.gstatic.com crossorigin>
-1,400&family=Inter:wght@400;500;600;700&family=Noto+Sans+Malayalam:wght@400;500;600;700&family=Noto+Serif+Malayalam:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&family=Noto+Sans+Malayalam:wght@400;500;600;700&family=Noto+Serif+Malayalam:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
   :root {
@@ -267,15 +267,24 @@ https://fonts.gstatic.com crossorigin>
     nav { padding: 1rem 1.25rem; }
     .brand { font-size: 0.95rem; }
     .lang-btn { padding: 0.35rem 0.7rem; font-size: 0.72rem; }
-    .hero { padding: 5rem 1.25rem 3rem; }
-    .mirror-line.gap { margin-top: 1.5rem; }
-    .divider { margin-bottom: 3rem; }
+    .hero { min-height: auto; padding: 7rem 1.25rem 3rem; }
+    .hero-tagline { margin-bottom: 3rem; }
+    .divider { margin: 0 auto 2.5rem; }
+    .mirror-line { margin: 0.65rem 0; }
+    .mirror-line.gap { margin-top: 1.4rem; }
+    .why-word { margin-top: 1.5rem; }
+    .invitation { margin-top: 3rem; }
   }
   @media (max-width: 400px) {
     nav { padding: 0.8rem 0.7rem; }
     .brand span:last-child { display: none; }
     .lang-toggle { gap: 0.1rem; padding: 0.2rem; }
     .lang-btn { padding: 0.28rem 0.45rem; font-size: 0.62rem; }
+    .hero { padding: 6.5rem 1rem 2.5rem; }
+    .hero-title { font-size: clamp(2rem, 9vw, 2.5rem); }
+    .why-word { font-size: clamp(2.75rem, 13vw, 4rem); }
+    .reflective-tagline { font-size: 0.95rem; margin-bottom: 1.75rem; }
+    .hero-tagline { margin-bottom: 2.25rem; }
   }
 
   footer {
@@ -356,10 +365,10 @@ https://fonts.gstatic.com crossorigin>
 </section>
 
 <footer>
-  © 2026 · <a href="mailto:admin@jeevithalakshyam.info">jeevithalakshyam.info</a>
+  © 2026 · <a href="/cdn-cgi/l/email-protection#0766636a6e69476d6262716e736f666b666c746f7e666a296e696168">jeevithalakshyam.info</a>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   const buttons = document.querySelectorAll('.lang-btn');
   const contents = document.querySelectorAll('.lang-content');
 
