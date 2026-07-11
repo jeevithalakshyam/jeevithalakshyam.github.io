@@ -122,6 +122,35 @@
   }
   .lang-btn:hover:not(.active) { color: var(--text-bright); }
 
+  .nav-right { display: flex; align-items: center; gap: 0.75rem; }
+  .articles-menu { position: relative; }
+  .articles-btn {
+    display: flex; align-items: center; gap: 0.4rem;
+    background: transparent; border: 1px solid var(--border);
+    color: var(--text-muted); padding: 0.5rem 0.9rem;
+    border-radius: 50px; font-size: 0.78rem; font-weight: 500;
+    cursor: pointer; font-family: inherit; transition: all 0.25s;
+  }
+  .articles-btn:hover, .articles-btn.open { color: var(--text-bright); border-color: var(--primary); }
+  .articles-icon { display: none; font-size: 0.85rem; line-height: 1; }
+  .articles-btn .caret { font-size: 0.6rem; transition: transform 0.25s; }
+  .articles-btn.open .caret { transform: rotate(180deg); }
+  .articles-dropdown {
+    position: absolute; top: calc(100% + 10px); right: 0; min-width: 260px;
+    background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+    padding: 0.4rem; box-shadow: 0 12px 32px rgba(0,0,0,0.4);
+    opacity: 0; visibility: hidden; transform: translateY(-6px);
+    transition: all 0.2s; z-index: 200;
+  }
+  .articles-dropdown.open { opacity: 1; visibility: visible; transform: translateY(0); }
+  .article-item {
+    display: block; padding: 0.7rem 0.85rem; border-radius: 8px;
+    color: var(--text-body); text-decoration: none; font-size: 0.85rem;
+    line-height: 1.5; transition: background 0.2s;
+  }
+  .article-item:hover { background: var(--elevated); color: var(--text-bright); }
+  
+
   /* ============ HERO ============ */
   .hero {
     min-height: 100vh;
@@ -269,6 +298,7 @@
     .lang-btn { padding: 0.35rem 0.7rem; font-size: 0.72rem; }
     .hero { min-height: auto; padding: 7rem 1.25rem 3rem; }
     .hero-tagline { margin-bottom: 3rem; }
+    .articles-btn { padding: 0.35rem 0.65rem; font-size: 0.7rem; }
     .divider { margin: 0 auto 2.5rem; }
     .mirror-line { margin: 0.65rem 0; }
     .mirror-line.gap { margin-top: 1.4rem; }
@@ -281,6 +311,10 @@
     .lang-toggle { gap: 0.1rem; padding: 0.2rem; }
     .lang-btn { padding: 0.28rem 0.45rem; font-size: 0.62rem; }
     .hero { padding: 6.5rem 1rem 2.5rem; }
+    .articles-label, .articles-btn .caret { display: none; }
+    .articles-icon { display: inline; }
+    .articles-btn { padding: 0.3rem 0.5rem; border-radius: 50%; }
+    .nav-right { gap: 0.4rem; }
     .hero-title { font-size: clamp(2rem, 9vw, 2.5rem); }
     .why-word { font-size: clamp(2.75rem, 13vw, 4rem); }
     .reflective-tagline { font-size: 0.95rem; margin-bottom: 1.75rem; }
@@ -305,10 +339,22 @@
     <div class="brand-glyph">ജ</div>
     <span>Jeevithalakshyam</span>
   </div>
-  <div class="lang-toggle" role="tablist">
-    <button class="lang-btn active" data-lang="ml">മലയാളം</button>
-    <button class="lang-btn" data-lang="manglish">Manglish</button>
-    <button class="lang-btn" data-lang="en">English</button>
+  <div class="nav-right">
+    <div class="articles-menu">
+      <button class="articles-btn" id="articlesBtn" onclick="toggleArticles(event)">
+        <span class="articles-icon">&#128196;</span>
+        <span class="articles-label">അറിവുകൾ</span>
+        <span class="caret">&#9662;</span>
+      </button>
+      <div class="articles-dropdown" id="articlesDropdown">
+        <a href="/articles/evidence-islam-is-true/" class="article-item">ഇസ്‌ലാം സത്യമാണെന്നതിന് എന്ത് തെളിവ്?</a>
+      </div>
+    </div>
+    <div class="lang-toggle" role="tablist">
+      <button class="lang-btn active" data-lang="ml">മലയാളം</button>
+      <button class="lang-btn" data-lang="manglish">Manglish</button>
+      <button class="lang-btn" data-lang="en">English</button>
+    </div>
   </div>
 </nav>
 
@@ -365,10 +411,25 @@
 </section>
 
 <footer>
-  © 2026 · <a href="mailto:admin@jeevithalakshyam.info">jeevithalakshyam.info</a>
+  © 2026 · jeevithalakshyam.info
 </footer>
 
 <script>
+  function toggleArticles(e) {
+    e.stopPropagation();
+    const btn = document.getElementById('articlesBtn');
+    const dd = document.getElementById('articlesDropdown');
+    const isOpen = dd.classList.toggle('open');
+    btn.classList.toggle('open', isOpen);
+  }
+  document.addEventListener('click', (e) => {
+    const menu = document.querySelector('.articles-menu');
+    if (menu && !menu.contains(e.target)) {
+      document.getElementById('articlesDropdown').classList.remove('open');
+      document.getElementById('articlesBtn').classList.remove('open');
+    }
+  });
+
   const buttons = document.querySelectorAll('.lang-btn');
   const contents = document.querySelectorAll('.lang-content');
 
@@ -377,6 +438,7 @@
       const lang = btn.dataset.lang;
       buttons.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
+      document.documentElement.lang = lang;
       contents.forEach(c => {
         c.classList.toggle('active', c.dataset.lang === lang);
         if (c.dataset.lang === lang) {
