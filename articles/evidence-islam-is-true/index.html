@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What Is the Evidence that Islam Is True? | ജീവിതലക്ഷ്യം</title>
+<meta name="description" content="A long-form look at the evidence for the truthfulness of Islam and the Prophethood of Muhammad ﷺ — human nature, reason, signs, prophecy, character, and the Quran itself.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;700&family=Noto+Serif+Malayalam:wght@400;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --canvas: #0F1419;
+  --surface: #1A1F26;
+  --elevated: #232A33;
+  --primary: #00A86B;
+  --primary-bright: #00C77C;
+  --gold: #D4A24C;
+  --gold-bright: #F5C572;
+  --emerald-tint: #1A3A2E;
+  --heading: #FFFFFF;
+  --body: #D1D5DB;
+  --muted: #8B95A1;
+  --border: #2D3640;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+a { -webkit-tap-highlight-color: transparent; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--canvas);
+  color: var(--body);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.7;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(ellipse at 30% 20%, var(--emerald-tint) 0%, transparent 50%);
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ============ NAV (shared pattern) ============ */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  padding: 1.25rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+  background: rgba(15, 20, 25, 0.6);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s;
+}
+nav.scrolled { border-bottom-color: var(--border); }
+.brand { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; color: var(--gold); font-family: 'Fraunces', serif; font-weight: 600; font-size: 1.1rem; letter-spacing: 0.5px; }
+.brand-glyph { width: 28px; height: 28px; border-radius: 50%; background: linear-gradient(135deg, var(--gold) 0%, var(--gold-bright) 100%); color: var(--canvas); display: flex; align-items: center; justify-content: center; font-family: 'Noto Serif Malayalam', serif; font-weight: 700; font-size: 1rem; }
+.nav-right { display: flex; align-items: center; gap: 0.75rem; }
+.articles-menu { position: relative; }
+.articles-btn {
+  display: flex; align-items: center; gap: 0.4rem;
+  background: transparent; border: 1px solid var(--border);
+  color: var(--muted); padding: 0.5rem 0.9rem;
+  border-radius: 50px; font-size: 0.78rem; font-weight: 500;
+  cursor: pointer; font-family: inherit; transition: all 0.25s;
+}
+.articles-btn:hover, .articles-btn.open { color: var(--heading); border-color: var(--primary); }
+.articles-icon { display: none; font-size: 0.85rem; line-height: 1; }
+.articles-btn .caret { font-size: 0.6rem; transition: transform 0.25s; }
+.articles-btn.open .caret { transform: rotate(180deg); }
+.articles-dropdown {
+  position: absolute; top: calc(100% + 10px); right: 0; min-width: 260px;
+  background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+  padding: 0.4rem; box-shadow: 0 12px 32px rgba(0,0,0,0.4);
+  opacity: 0; visibility: hidden; transform: translateY(-6px);
+  transition: all 0.2s; z-index: 200;
+}
+.articles-dropdown.open { opacity: 1; visibility: visible; transform: translateY(0); }
+.article-item {
+  display: block; padding: 0.7rem 0.85rem; border-radius: 8px;
+  color: var(--body); text-decoration: none; font-size: 0.85rem;
+  line-height: 1.5; transition: background 0.2s;
+}
+.article-item:hover { background: var(--elevated); color: var(--heading); }
+.article-item.current { color: var(--primary-bright); }
+.lang-toggle { display: flex; gap: 0.25rem; background: var(--surface); padding: 0.3rem; border-radius: 50px; border: 1px solid var(--border); }
+.lang-btn { background: transparent; border: none; color: var(--muted); padding: 0.4rem 0.9rem; border-radius: 50px; font-size: 0.78rem; font-weight: 500; cursor: pointer; transition: all 0.25s; font-family: inherit; }
+.lang-btn.active { background: var(--primary); color: var(--canvas); font-weight: 600; }
+.lang-btn:hover:not(.active) { color: var(--heading); }
+
+/* ============ ARTICLE HEADER — deliberately plain: bold title only, no gold, no dramatic scale ============ */
+.article-header { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; padding: 8.5rem 24px 2.5rem; }
+.article-kicker { color: var(--muted); font-size: 12px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 18px; }
+.article-title { font-family: 'Fraunces', serif; font-weight: 700; font-size: clamp(1.7rem, 4vw, 2.3rem); color: var(--heading); line-height: 1.35; }
+.article-title.ml { font-family: 'Noto Serif Malayalam', serif; }
+.article-dek { margin-top: 16px; font-size: 16px; color: var(--muted); line-height: 1.7; }
+.article-dek.ml { font-family: 'Noto Serif Malayalam', serif; font-size: 17px; }
+.article-meta { margin-top: 20px; font-size: 13px; color: var(--muted); }
+.article-divider { width: 100%; height: 1px; background: var(--border); margin-top: 28px; }
+
+/* ============ BODY ============ */
+.article-container { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; padding: 8px 24px 80px; }
+.section-heading { font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.25rem; color: var(--primary-bright); margin: 2.5rem 0 1rem; }
+.section-heading.ml { font-family: 'Noto Serif Malayalam', serif; font-size: 1.3rem; }
+.body-text { font-size: 17px; line-height: 1.85; margin-bottom: 20px; color: var(--body); }
+.body-text.ml { font-family: 'Noto Serif Malayalam', serif; font-size: 19px; line-height: 1.9; }
+.body-text.manglish { font-style: italic; }
+.quote-block { background: var(--surface); border-left: 3px solid var(--primary); padding: 22px 26px; margin: 24px 0; border-radius: 8px; }
+.quote-text { font-family: 'Fraunces', serif; font-style: italic; font-size: 17px; color: var(--heading); line-height: 1.7; }
+.quote-text.ml { font-family: 'Noto Serif Malayalam', serif; font-style: normal; font-size: 18px; }
+.quote-source { margin-top: 10px; font-size: 13px; color: var(--muted); font-style: normal; }
+.ayah { font-family: 'Amiri', serif; font-size: 22px; color: var(--body); text-align: center; direction: rtl; line-height: 1.9; margin: 6px 0 14px; }
+.source-note { margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--border); font-size: 13px; color: var(--muted); }
+.back-link { display: inline-block; margin-top: 36px; color: var(--muted); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+.back-link:hover { color: var(--body); }
+.footer { position: relative; z-index: 1; text-align: center; padding: 40px 20px; color: var(--muted); font-size: 12px; border-top: 1px solid var(--border); margin-top: 40px; }
+
+[data-lang] { display: none; }
+html[lang="ml"] [data-lang="ml"], html[lang="manglish"] [data-lang="manglish"], html[lang="en"] [data-lang="en"] { display: block; }
+.fade-in { opacity: 0; transform: translateY(16px); animation: fadeUp 0.7s ease forwards; }
+@keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 640px) {
+  nav { padding: 0.9rem 1rem; }
+  .brand span:last-child { display: inline; }
+  .articles-btn { padding: 0.35rem 0.65rem; font-size: 0.7rem; }
+  .lang-btn { padding: 0.35rem 0.65rem; font-size: 0.7rem; }
+}
+@media (max-width: 400px) {
+  nav { padding: 0.8rem 0.7rem; }
+  .brand span:last-child { display: none; }
+  .articles-label, .articles-btn .caret { display: none; }
+  .articles-icon { display: inline; }
+  .articles-btn { padding: 0.3rem 0.5rem; border-radius: 50%; }
+  .nav-right { gap: 0.4rem; }
+  .lang-toggle { gap: 0.1rem; padding: 0.2rem; }
+  .lang-btn { padding: 0.28rem 0.45rem; font-size: 0.62rem; }
+}
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="/" class="brand">
+    <span class="brand-glyph">ജ</span>
+    <span>Jeevithalakshyam</span>
+  </a>
+  <div class="nav-right">
+    <div class="articles-menu">
+      <button class="articles-btn" id="articlesBtn" onclick="toggleArticles(event)">
+        <span class="articles-icon">&#128196;</span>
+        <span class="articles-label">അറിവുകൾ</span>
+        <span class="caret">&#9662;</span>
+      </button>
+      <div class="articles-dropdown" id="articlesDropdown">
+        <a href="/articles/evidence-islam-is-true/" class="article-item current">ഇസ്‌ലാം സത്യമാണെന്നതിന് എന്ത് തെളിവ്?</a>
+      </div>
+    </div>
+    <div class="lang-toggle" role="tablist">
+      <button class="lang-btn active" onclick="setLang('ml')" id="btn-ml">മലയാളം</button>
+      <button class="lang-btn" onclick="setLang('manglish')" id="btn-manglish">Manglish</button>
+      <button class="lang-btn" onclick="setLang('en')" id="btn-en">English</button>
+    </div>
+  </div>
+</nav>
+
+<header class="article-header">
+  <div class="article-kicker">
+    <span data-lang="ml">ലേഖനം</span>
+    <span data-lang="manglish">Lekhanam</span>
+    <span data-lang="en">Article</span>
+  </div>
+  <h1 class="article-title ml fade-in" data-lang="ml">ഇസ്‌ലാം സത്യമാണെന്നതിന് എന്ത് തെളിവ്?</h1>
+  <h1 class="article-title fade-in" data-lang="manglish">Islam sathyamaanennathinu enthu thelivu?</h1>
+  <h1 class="article-title fade-in" data-lang="en">What Is the Evidence that Islam Is True?</h1>
+
+  <p class="article-dek ml" data-lang="ml">മുഹമ്മദ് ﷺ യുടെ പ്രവാചകത്വത്തിന്റെ സത്യതയ്ക്ക് — വിശ്വാസത്തിലല്ല, മനുഷ്യപ്രകൃതി, യുക്തി, അടയാളങ്ങൾ, പ്രവചനം, സ്വഭാവം, ഗ്രന്ഥം എന്നിവയിലൂന്നിയ ഒരു ദീർഘ പരിശോധന.</p>
+  <p class="article-dek" data-lang="manglish">Muhammad ﷺ yude pravaachakathvathinte sathyathaykku — vishvaasathilalla, manushyaprakruthi, yukthi, adayaalangal, pravachanam, swabhaavam, grantham ennivayiloonniya oru dheerga parishodhana.</p>
+  <p class="article-dek" data-lang="en">A long-form look at the truthfulness of the Prophethood of Muhammad ﷺ — grounded not in belief, but in human nature, reason, signs, prophecy, character, and the book itself.</p>
+
+  <div class="article-divider"></div>
+</header>
+
+<main class="article-container">
+
+  <p class="body-text ml fade-in" data-lang="ml">
+    ഒരാൾ മുഹമ്മദ് ﷺ യുടെ കാലത്ത് ജീവിച്ചിരുന്നെങ്കിൽ, അദ്ദേഹം ജനങ്ങളെ ഈ മതത്തിലേക്ക് ക്ഷണിക്കുന്നത് കേട്ടിരുന്നെങ്കിൽ — അദ്ദേഹത്തിന്റെ സന്ദേശം വിശ്വസിക്കാൻ എന്താണ് പ്രേരണ നൽകുക? ഇസ്‌ലാം സത്യമാണെന്നും മുഹമ്മദ് ﷺ യഥാർത്ഥ ദൂതനാണെന്നും ഉള്ള തെളിവ് ധാരാളമാണ്, എണ്ണിത്തിട്ടപ്പെടുത്താൻ പോലും പ്രയാസമാണ്. ഇവിടെ ചില പ്രധാന ഭാഗങ്ങൾ സംഗ്രഹിക്കുന്നു.
+  </p>
+  <p class="body-text manglish fade-in" data-lang="manglish">
+    Oraal Muhammad ﷺ yude kaalathu jeevichirunnenkil, addheham janangale ee mathathilekku kshanikkunnathu kettirunnenkil — addhehathinte sandesham vishvasikkaan enthaanu preranaa nalkuka? Islam sathyamaanennum Muhammad ﷺ yathaartha doothanaanennum ulla thelivu dhaaraalamaanu, ennithittappeduthaan polum prayaasamaanu. Ivide chila pradhaana bhaagangal sangrahikkunnu.
+  </p>
+  <p class="body-text fade-in" data-lang="en">
+    If someone had lived at the time of Muhammad ﷺ and heard him calling people to this faith, what would motivate belief in his message? The evidence that Islam is true, and that Muhammad ﷺ is a genuine messenger, is abundant — almost too much to enumerate. This article summarizes the main strands of it.
+  </p>
+
+  <h2 class="section-heading ml" data-lang="ml">സൗമ്യമായ മനുഷ്യപ്രകൃതിയുടെ തെളിവ്</h2>
+  <h2 class="section-heading" data-lang="manglish">Manushyaprakruthiyude thelivu</h2>
+  <h2 class="section-heading" data-lang="en">The evidence of sound human nature</h2>
+
+  <p class="body-text ml" data-lang="ml">
+    ഇസ്‌ലാമിന്റെ ക്ഷണം സൗമ്യമായ മനുഷ്യപ്രകൃതിക്ക് (ഫിത്‌റ) അനുസൃതമാണ്. ഓരോ കുട്ടിയും ഈ സ്വാഭാവിക ചായ്‌വോടെയാണ് ജനിക്കുന്നത് — മാതാപിതാക്കളും സമൂഹവും പിന്നീട് അതിനെ മാറ്റുന്നു എന്നല്ലാതെ. ഇസ്‌ലാമിന്റെ പഠിപ്പിക്കലുകളിൽ സൗമ്യമായ മനുഷ്യപ്രകൃതിക്ക് വിരുദ്ധമായി ഒന്നും കാണില്ല.
+  </p>
+  <p class="body-text manglish" data-lang="manglish">
+    Islamite kshanam saumyamaaya manushyaprakruthikku (fitrah) anusruthamaanu. Oro kuttiyum ee swaabhaavika chaayvode jenikkunnathu — maathaapithakkalum samoohavum pinnedu athine maattunnu ennallaathe. Islamite padhippikkalukalil saumyamaaya manushyaprakruthikku virudhamaayi onnum kaanilla.
+  </p>
+  <p class="body-text" data-lang="en">
+    The call of Islam is consistent with sound human nature — what Islamic tradition calls the fitrah. Every child is born inclined this way, and it is only afterward that upbringing and environment redirect that inclination. Nothing in Islam's teachings contradicts sound human nature, unlike systems that ask people to act against it.
+  </p>
+
+  <div class="quote-block">
+    <p class="quote-text ml" data-lang="ml">"ഓരോ കുട്ടിയും ഫിത്‌റയിൽ അല്ലാതെ ജനിക്കുന്നില്ല, പിന്നീട് അതിന്റെ മാതാപിതാക്കൾ അതിനെ ജൂതനോ ക്രിസ്ത്യാനിയോ ആക്കുന്നു — മൃഗങ്ങൾ അവയുടെ കുഞ്ഞുങ്ങളെ അവയവങ്ങൾ പൂർണ്ണമായി പ്രസവിക്കുന്നത് പോലെ. അതിൽ വൈകല്യമുള്ള ഒന്നിനെ നീ കണ്ടിട്ടുണ്ടോ?"</p>
+    <p class="quote-text" data-lang="manglish">"Oro kuttiyum fitrayil allaathe jenikkunnilla, pinnedu athinte maathaapithakkal athine Jew-o Christian-o aakkunnu — mrigangal avayude kunjungale avayavangal poornamaayi prasavikkunnathu pole. Athil vaikalyamulla onnine nee kandittundo?"</p>
+    <p class="quote-text" data-lang="en">"There is no child who is not born in a state of fitrah, then his parents make him a Jew or a Christian — just as animals bring forth their young with limbs intact. Do you see any deformed one among them?"</p>
+    <p class="quote-source ml" data-lang="ml">— നബി ﷺ (ബുഖാരി, മുസ്‌ലിം)</p>
+    <p class="quote-source" data-lang="manglish">— Nabi ﷺ (Bukhari, Muslim)</p>
+    <p class="quote-source" data-lang="en">— The Prophet ﷺ (Bukhari, Muslim)</p>
+  </div>
+
+  <p class="body-text ml" data-lang="ml">
+    ഖുർആൻ ഇത് ഇങ്ങനെ പറയുന്നു: "നിന്റെ മുഖം ഏകദൈവാരാധനയുടെ മതത്തിലേക്ക് തിരിക്കുക — അല്ലാഹുവിന്റെ ഫിത്‌റ, മനുഷ്യരെ അതിൽ അവൻ സൃഷ്ടിച്ചു. അല്ലാഹുവിന്റെ സൃഷ്ടിയിൽ മാറ്റമില്ല." (30:30) ഒരു മൃഗത്തിന്റെ ചെവിക്ക് പിന്നീട് സംഭവിക്കുന്ന മുറിവ് പോലെ, മനുഷ്യന്റെ യഥാർത്ഥ പ്രകൃതിയിൽ നിന്നുള്ള വ്യതിയാനവും ജനിച്ചതിനു ശേഷം സംഭവിക്കുന്ന ഒന്നാണ് — ജന്മസിദ്ധമല്ല. ഈ കാരണത്താൽ, ഇസ്‌ലാമിന്റെ വിശ്വാസപരവും പ്രായോഗികവുമായ എല്ലാ പഠിപ്പിക്കലുകളും സൗമ്യമായ മനുഷ്യപ്രകൃതിയോട് ചേർന്നുനിൽക്കുന്നു, മറ്റ് പ്രത്യയശാസ്ത്രങ്ങളിൽ പലതും അതിനെതിരാണ് — ചിന്തിക്കുന്ന ഏതൊരാൾക്കും ഇത് വ്യക്തമാണ്.
+  </p>
+  <p class="body-text manglish" data-lang="manglish">
+    Quran ithu inganeyaanu parayunnathu: "Ninte mukham ekadaivaaraadhanayude mathathilekku thirikkuka — Allahuvinte fitrah, manushyare athil avan srishtichu. Allahuvinte srishtiyil maattamilla." (30:30) Oru mrigathinte cheviku pinnedu sambhavikkunna muriv pole, manushyante yathaartha prakruthiyil ninnulla vyathiyaanavum janichathinu shesham sambhavikkunna onnaanu — janmasiddhamalla. Ee kaaranathaal, Islamite vishvaasaparavum praayogikavumaaya ellaa padhippikkalukalum saumyamaaya manushyaprakruthiyodu chernnu nilkkunnu, matt prathyayashaasthrangalil palathum athinethiraanu — chinthikkunna ethoraalkkum ithu vyakthamaanu.
+  </p>
+  <p class="body-text" data-lang="en">
+    The Quran puts it this way: "So set your face toward the religion of pure monotheism — the natural disposition (fitrah) with which Allah created mankind. There is no altering the creation of Allah." (30:30) Just as a cut appearing later on an animal's ear happens after birth, not at it, any departure from sound human nature is something that happens to a person afterward — it is not innate. That is why every one of Islam's teachings, on belief and on practice alike, sits comfortably with sound human nature, while much in other systems of thought does not — something plain to anyone who reflects on it.
+  </p>
+
+  <h2 class="section-heading ml" data-lang="ml">യുക്തിപരമായ തെളിവ്</h2>
+  <h2 class="section-heading" data-lang="manglish">Yukthiparamaaya thelivu</h2>
+  <h2 class="section-heading" data-lang="en">Rational evidence</h2>
+
+  <p class="body-text ml" data-lang="ml">
+    ഖുർആൻ ബുദ്ധിയെ അഭിസംബോധന ചെയ്യുന്നു, യുക്തിസഹമായ തെളിവ് പരിശോധിക്കാൻ പക്വമായ ചിന്തയുള്ളവരെ ക്ഷണിക്കുന്നു: "അനുഗ്രഹീതമായ ഒരു ഗ്രന്ഥം, ഇത് നിനക്ക് അവതരിപ്പിച്ചത് — അവർ ഇതിലെ വചനങ്ങളെക്കുറിച്ച് ചിന്തിക്കാനും, ബോധമുള്ളവർ ഓർമ്മിക്കാനും." (38:29) വെളിപാടിന്റെ വാചകങ്ങളിൽ യുക്തിക്ക് നിരക്കാത്തതോ ബുദ്ധിക്ക് വിരുദ്ധമായതോ ഒന്നും കാണില്ല. അസത്യത്തിന് അനുകൂലമായി ഒരാൾ എന്ത് വാദമുഖം ഉയർത്തിയാലും, ഖുർആൻ അതിനെ വ്യക്തമായ, ബലമുള്ള യുക്തിയിലൂടെ എതിരിടുന്നു: "അവർ ഏതൊരു ഉപമയും കൊണ്ടുവന്നാലും, നാം നിനക്ക് സത്യവും അതിന്റെ ഏറ്റവും മികച്ച വിശദീകരണവും അറിയിക്കുന്നു." (25:33)
+  </p>
+  <p class="body-text manglish" data-lang="manglish">
+    Quran buddhiye abhisambodhana cheyyunnu, yukthisahamaaya thelivu parishodhikkaan pakvamaaya chinthayullavare kshanikkunnu: "Anugraheethamaaya oru grantham, ithu ninakku avatharippichathu — avar ithile vachanangalekkurichu chinthikkaanum, bodhamullavar ormikkaanum." (38:29) Velipaadinte vaachakangalil yukthikku nirakkaathathoo buddhikku virudhamaayathoo onnum kaanilla. Asathyathinu anukoolamaayi oraal enthu vaadamukham uyarthiyaalum, Quran athine vyakthamaaya, balamulla yukthiyiloode ethiridunnu: "Avar ethoru upamayum konduvannaalum, naam ninakku sathyavum athinte ettavum mikacha vishadeekaranavum ariyikkunnu." (25:33)
+  </p>
+  <p class="body-text" data-lang="en">
+    The Quran addresses reason directly, inviting people of sound and mature thinking to examine its proof: "A Book which We have sent down to you, full of blessings, that they may reflect upon its verses, and that people of understanding may remember." (38:29) Nothing in the text of revelation is impossible according to reason or rejected by it — and whenever falsehood raises an argument against it, the Quran answers with a clearer, more compelling one: "They do not bring you any similitude but We bring you the truth, and a better explanation." (25:33)
+  </p>
+  <p class="body-text ml" data-lang="ml">
+    ഖുർആൻ തന്നെ പറയുന്നു: "അവർ ഖുർആനെക്കുറിച്ച് ചിന്തിക്കുന്നില്ലേ? ഇത് അല്ലാഹുവല്ലാതെ മറ്റാരിൽ നിന്നായിരുന്നെങ്കിൽ, ഇതിൽ അവർ ഏറെ വൈരുദ്ധ്യം കണ്ടെത്തുമായിരുന്നു." (4:82) 23 വർഷം, യുദ്ധത്തിലും സമാധാനത്തിലും, സന്തോഷത്തിലും ദുഃഖത്തിലും, പല സാഹചര്യങ്ങളിൽ ഖണ്ഡശ്ശയായി അവതരിച്ച ഈ ഗ്രന്ഥത്തിൽ ഒരു വൈരുദ്ധ്യവുമില്ല എന്നത് — ഒരു മനുഷ്യരചനയിൽ അസാധാരണമാണ്. ദീർഘമായി സംസാരിക്കുന്ന ഒരാളുടെ വാക്കുകളിൽ എപ്പോഴും എന്തെങ്കിലും പൊരുത്തക്കുറവ് കാണാം — ഖുർആനിൽ അതില്ല എന്നത് അതിന്റെ ഉള്ളടക്കത്തിന്റെ ദൈവികതയിലേക്ക് വിരൽ ചൂണ്ടുന്നു.
+  </p>
+  <p class="body-text manglish" data-lang="manglish">
+    Quran thanne parayunnu: "Avar Quranekkurichu chinthikkunnille? Ithu Allahuvallaathe mattaaril ninnaayirunnenkil, ithil avar ere vairudhyam kandethumaayirunnu." (4:82) 23 varsham, yudhathilum samaadhaanathilum, santhoshathilum dukhathilum, pala saahacharyangalil khandashshayaayi avatharicha ee granthathil oru vairudhyavumilla ennathu — oru manushyarachanayil asaadhaaranamaanu. Dheerghamaayi samsaarikkunna oraalude vaakkukalil eppozhum enthenkilum poruthakkuravu kaanaam — Quranil athilla ennathu athinte ulladakkathinte daivikathayilekku viral choondunnu.
+  </p>
+  <p class="body-text" data-lang="en">
+    The Quran says of itself: "Do they not then consider the Quran carefully? Had it been from other than Allah, they would surely have found therein much contradiction." (4:82) That a text revealed piecemeal over 23 years, across war and peace, joy and grief, and wildly different circumstances, contains no internal contradiction is unusual for human authorship. Anyone who speaks at such length is bound to contradict themselves somewhere — the absence of that in the Quran points toward the divine origin of its content.
+  </p>
+
+  <h2 class="section-heading ml" data-lang="ml">അത്ഭുതങ്ങളും പ്രവാചകത്വത്തിന്റെ അടയാളങ്ങളും</h2>
+  <h2 class="section-heading" data-lang="manglish">Athbuthangalum adayaalangalum</h2>
+  <h2 class="section-heading" data-lang="en">Miracles and signs of Prophethood</h2>
+
+  <p class="body-text ml" data-lang="ml">
+    അല്ലാഹു നബി ﷺ യെ നിരവധി അത്ഭുതങ്ങളും ദൃശ്യ അടയാളങ്ങളും കൊണ്ട് പിന്തുണച്ചു — ചന്ദ്രൻ പിളർന്നത്, അദ്ദേഹത്തിന്റെ വിരലുകൾക്കിടയിലൂടെ ജലം ഒഴുകിയത്, ഭക്ഷണം അല്ലാഹുവിനെ പ്രകീർത്തിക്കുന്ന ശബ്ദം കേട്ടത്, ഭക്ഷണം വർദ്ധിച്ചത് എന്നിവ ഉദാഹരണങ്ങൾ. ഇവ ഒറ്റപ്പെട്ട കഥകളല്ല — ധാരാളം ആളുകൾ സാക്ഷ്യം വഹിച്ച്, ഉറപ്പുള്ള പരമ്പരകളിലൂടെ (തവാതുർ) കൈമാറ്റം ചെയ്യപ്പെട്ടതാണ്, ഇത് ഉറപ്പിന് ഇടം നൽകുന്നു.
+  </p>
+  <p class="body-text manglish" data-lang="manglish">
+    Allahu Nabi ﷺ ye niravadhi athbuthangalum drishya adayaalangalum kondu pinthunachu — chandran pilarnathu, addhehathinte virelukalkkidayiloode jalam ozhukiyathu, bhakshanam Allahuve prakeerthikkunna shabdham kettathu, bhakshanam vardhichathu ennivayaanu udaaharanangal. Iva ottappetta kathakalalla — dhaaraalam aalukal saakshyam vahichu, urappulla paramparakaliloode kaimaatam cheyyappettathaanu, ithu urappinu idam nalkunnu.
+  </p>
+  <p class="body-text" data-lang="en">
+    Allah supported the Prophet ﷺ with numerous miracles and tangible signs — the splitting of the moon, water flowing from between his fingers, food heard glorifying Allah as it was eaten, food multiplying to feed more than it should. These are not isolated tales; they were witnessed by large numbers of people and transmitted through unbroken, multiply-attested chains of narration (tawatur), which is what gives rise to certainty.
+  </p>
+
+  <div class="quote-block">
+    <p class="quote-text ml" data-lang="ml">ഒരു യാത്രയിൽ വെള്ളം കുറഞ്ഞപ്പോൾ, നബി ﷺ ബാക്കിയുള്ള അൽപ്പം ജലം ഒരു പാത്രത്തിൽ കൊണ്ടുവരാൻ പറഞ്ഞു. അദ്ദേഹം കൈ അതിൽ വച്ചു പ്രാർത്ഥിച്ചു — പിന്നെ അദ്ദേഹത്തിന്റെ വിരലുകൾക്കിടയിലൂടെ ജലം ഒഴുകാൻ തുടങ്ങി, മുഴുവൻ സംഘത്തിനും മതിയായത്ര.</p>
+    <p class="quote-text" data-lang="manglish">Oru yaathrayil vellam kuranjappol, Nabi ﷺ baakkiyulla alppam jalam oru paathrathil konduvaraan paranju. Addheham kai athil vachu praarthichu — pinne addhehathinte virelukalkkidayiloode jalam ozhukaan thudangi, muzhuvan sanghathinum mathiyaayathra.</p>
+    <p class="quote-text" data-lang="en">On a journey, when water ran low, the Prophet ﷺ asked for what little water remained to be brought in a vessel. He placed his hand in it and prayed — and water then began springing from between his fingers, enough for the entire group.</p>
+    <p class="quote-source ml" data-lang="ml">— അബ്ദുല്ല ഇബ്നു മസ്ഊദ് ﷺ യുടെ റിപ്പോർട്ട് (ബുഖാരി)</p>
+    <p class="quote-source" data-lang="manglish">— Abdullah ibn Mas'ood-inte report (Bukhari)</p>
+    <p class="quote-source" data-lang="en">— Reported by Abdullah ibn Mas'ud (Bukhari)</p>
+  </div>
+
+  <h2 class="section-heading ml" data-lang="ml">പ്രവചനങ്ങൾ പുലർന്നത്</h2>
+  <h2 class="section-heading" data-lang="manglish">Pravachanangal pularnnathu</h2>
+  <h2 class="section-heading" data-lang="en">Prophecies fulfilled</h2>
+
+  <p class="body-text ml" data-lang="ml">
+    നബി ﷺ ഭാവിയിൽ സംഭവിക്കാനിരിക്കുന്ന കാര്യങ്ങളെക്കുറിച്ച് പറഞ്ഞിട്ടുണ്ട് — അവയെല്ലാം കൃത്യമായി സംഭവിച്ചു, ഇത് വെളിപാടിലൂടെ മാത്രം കിട്ടാവുന്ന അദൃശ്യ അറിവിലേക്ക് വിരൽ ചൂണ്ടുന്നു. ഒരു ഉദാഹരണം: "ഹിജാസ് ഭൂമിയിൽ ഒരു തീ ഉയരാതെ ലോകാവസാനം വരില്ല, അത് ബുസ്‌റയിലെ ഒട്ടകങ്ങളുടെ കഴുത്തുകൾ പ്രകാശിപ്പിക്കും" എന്ന അദ്ദേഹത്തിന്റെ വാക്ക് — അദ്ദേഹത്തിന്റെ മരണത്തിന് ഏകദേശം 644 വർഷങ്ങൾക്ക് ശേഷം, ഹി. 654-ൽ, ചരിത്രകാരന്മാർ രേഖപ്പെടുത്തിയ പ്രകാരം കൃത്യമായി സംഭവിച്ചു.
+  </p>
+  <p class="body-text manglish" data-lang="manglish">
+    Nabi ﷺ bhaaviyil sambhavikkaanirikkunna kaaryangalekkurichu paranjittundu — avayellaam kruthyamaayi sambhavichu, ithu velipaadiloode maathram kittaavunna adrishya arivilekku viral choondunnu. Oru udaaharanam: "Hijaz bhoomiyil oru thee uyaraathe lokaavasaanam varilla, athu Busra-yile ottakangalude kazhuthukal prakaashippikkum" enna addhehathinte vaakku — addhehathinte maranathinu ekadesham 644 varshangalkku shesham, Hijri 654-il, charithrakaaranmaar rekhappeduthiya prakaaram kruthyamaayi sambhavichu.
+  </p>
+  <p class="body-text" data-lang="en">
+    The Prophet ﷺ spoke of future events that came to pass exactly as described — a sign of unseen knowledge that could only reach him through revelation. One example: his statement that "the Hour will not begin until a fire emerges in the land of the Hijaz which will illuminate the necks of the camels in Busra" — fulfilled, as recorded by historians, roughly 644 years after his death, in 654 AH.
+  </p>
+  <p class="body-text ml" data-lang="ml">
+    ഈ സംഭവം അക്കാലത്തെ ചരിത്രകാരന്മാർ തന്നെ രേഖപ്പെടുത്തിയിട്ടുണ്ട് — ദമസ്‌കസിലേക്ക് ഹിജാസിൽ നിന്ന് വന്ന കത്തുകൾ ആ തീയെക്കുറിച്ച് വിവരിക്കുന്നു, "രാത്രിയിൽ ഞങ്ങളുടെ വീടുകളിൽ ഒരു വിളക്കുപോലെ പ്രകാശം ഉണ്ടായിരുന്നു, പക്ഷേ അതിന് ചൂടോ കത്തലോ ഉണ്ടായിരുന്നില്ല" എന്ന് ഒരു ദൃക്‌സാക്ഷി വിവരണം അക്കൂട്ടത്തിലുണ്ട്. ഇത്രയും കൃത്യമായി, നൂറ്റാണ്ടുകൾക്ക് ശേഷം പുലർന്ന ഒരു പ്രവചനം ഒരു മനുഷ്യന്റെ ഊഹത്തിലൂടെ വിശദീകരിക്കാൻ പ്രയാസമാണ്.
+  </p>
+  <p class="body-text manglish" data-lang="manglish">
+    Ee sambhavam akkaalathe charithrakaaranmaar thanne rekhappeduthiyittundu — Damascus-ilekku Hijaz-il ninnu vanna kathukal aa theeyekkurichu vivarikkunnu, "raathriyil njangalude veedukalil oru vilakkupole prakaasham undaayirunnu, pakshe athinu chudoo kathaloo undaayirunnilla" ennu oru drikssaakshi vivaranam akkoottathilundu. Ithrayum kruthyamaayi, nootaandukalkku shesham pularnna oru pravachanam oru manushyante oohathiloode vishadeekarikkaan prayaasamaanu.
+  </p>
+  <p class="body-text" data-lang="en">
+    The event was documented by historians of that very era — letters reaching Damascus from the Hijaz described the fire, and one eyewitness account among them recalled, "at night it was as if there was a lamp in each of our houses, yet it gave off no heat and did not burn." A prophecy fulfilled this precisely, centuries later, is difficult to explain away as human guesswork.
+  </p>
+
+  <h2 class="section-heading ml" data-lang="ml">നബി ﷺ യുടെ സ്വഭാവഗുണങ്ങൾ</h2>
+  <h2 class="section-heading" data-lang="manglish">Nabi ﷺ yude swabhaavagunangal</h2>
+  <h2 class="section-heading" data-lang="en">Qualities and attributes of the Prophet ﷺ</h2>
+
+  <p class="body-text ml" data-lang="ml">
+    നബി ﷺ യുടെ പ്രവാചകത്വത്തിന്റെ ഏറ്റവും വലിയ തെളിവുകളിൽ ഒന്ന് അദ്ദേഹത്തിന്റെ സ്വന്തം സ്വഭാവമാണ് — അനാഥനായി വളർന്ന്, എഴുത്തും വായനയും അറിയാതെ, എന്നിട്ടും മാനുഷിക പൂർണ്ണതയുടെ ഒരു നിലവാരത്തിൽ എത്തിയ ഒരാൾ, ഒരു പ്രവാചകനല്ലാതെ മറ്റാർക്കും അപ്രാപ്യമായത്. നല്ല സ്വഭാവം അദ്ദേഹം പ്രോത്സാഹിപ്പിക്കാതെയും പ്രവർത്തിക്കാതെയും ഇല്ല, ചീത്ത സ്വഭാവത്തിൽ നിന്ന് അദ്ദേഹത്തെക്കാൾ അകലെയുള്ള ആരും ഇല്ല. നല്ല സ്വഭാവം എത്ര പ്രധാനമായിരുന്നു എന്ന് അദ്ദേഹം സ്വന്തം ദൗത്യത്തിന്റെ ലക്ഷ്യമായി തന്നെ പറഞ്ഞു:
+  </p>
+  <p class="body-text manglish" data-lang="manglish">
+    Nabi ﷺ yude pravaachakathvathinte ettavum valiya thelivukalil onnu addhehathinte swantham swabhaavamaanu — anaathanaayi valarnnu, ezhuthum vaayanayum ariyaathe, ennittum maanushika poornathayude oru nilavaarathil ethiya oraal, oru pravaachakanallaathe mattaarkkum apraapyamaayathu. Nalla swabhaavam addheham prothsaahippikkaathe pravarthikkaathe illa, cheetha swabhaavathil ninnu addhehathekkaal akeleyulla aarum illa. Nalla swabhaavam ethra pradhaanamaayirunnu ennu addheham swantham dauthyathinte lakshyamaayi thanne paranju:
+  </p>
+  <p class="body-text" data-lang="en">
+    One of the greatest proofs of his Prophethood ﷺ is his own character — an orphan who grew up illiterate, yet reached a level of human perfection in conduct attainable only by a prophet. There is no praiseworthy quality he did not embody and encourage, and none more distant from every blameworthy one. He named good character itself as the very purpose of his mission:
+  </p>
+
+  <div class="quote-block">
+    <p class="quote-text ml" data-lang="ml">"ഞാൻ അയക്കപ്പെട്ടിരിക്കുന്നത് നല്ല സ്വഭാവങ്ങളും പെരുമാറ്റങ്ങളും പൂർത്തിയാക്കാൻ മാത്രമാണ്."</p>
+    <p class="quote-text" data-lang="manglish">"Njaan ayakkappettirikkunnathu nalla swabhaavangalum perumaattangalum poorthiyaakkaan maathramaanu."</p>
+    <p class="quote-text" data-lang="en">"I have only been sent to perfect good manners and attitudes."</p>
+    <p class="quote-source ml" data-lang="ml">— നബി ﷺ (അഹ്‌മദ്)</p>
+    <p class="quote-source" data-lang="manglish">— Nabi ﷺ (Ahmad)</p>
+    <p class="quote-source" data-lang="en">— The Prophet ﷺ (Ahmad)</p>
+  </div>
+
+  <p class="body-text ml" data-lang="ml">
+    അത്ഭുതങ്ങൾ ഈ സത്യസന്ധതയെ സ്ഥിരീകരിക്കുന്നു. ചിലർ അദ്ദേഹത്തെ തെളിവ് കാണിക്കാൻ വെല്ലുവിളിച്ചപ്പോൾ അല്ലാഹു അസാധാരണ സംഭവങ്ങളിലൂടെ അദ്ദേഹത്തെ പിന്തുണച്ചു; ആരും വെല്ലുവിളിക്കാതെയും അദ്ദേഹത്തിന് അത്ഭുതങ്ങൾ നൽകപ്പെട്ടു, ഇത് അനുയായികളുടെ സ്ഥിരതയെ കൂടുതൽ ബലപ്പെടുത്തി.
+  </p>
+  <p class="body-text manglish" data-lang="manglish">
+    Athbuthangal ee sathyasandhathaye sthireekarikkunnu. Chilar addhehathe theliv kaanikkaan velluvilichappol Allahu asaadhaarana sambhavangaliloode addhehathe pinthunachu; aarum velluvilikkaathe addhehathinu athbuthangal nalkappettu, ithu anuyaayikalude sthirathaye kooduthal balappeduthi.
+  </p>
+  <p class="body-text" data-lang="en">
+    Miracles confirmed this truthfulness. When some challenged him to prove his claim, Allah supported him with extraordinary events; and he was also granted miracles without anyone challenging him, which only strengthened his followers' steadfastness further.
+  </p>
+
+  <h2 class="section-heading ml" data-lang="ml">അദ്ദേഹത്തിന്റെ ക്ഷണത്തിന്റെ കാമ്പ്</h2>
+  <h2 class="section-heading" data-lang="manglish">Kshanathinte kaambu</h2>
+  <h2 class="section-heading" data-lang="en">The essence of his call</h2>
+
+  <p class="body-text ml" data-lang="ml">
+    നബി ﷺ യുടെ ക്ഷണത്തിന്റെ അടിസ്ഥാനം — സുദൃഢമായ, തെളിവുള്ള അടിത്തറയിൽ വിശ്വാസം കെട്ടിപ്പടുക്കുക എന്നതാണ്. ഇത് ഒരു ഏകദൈവത്തിലേക്കുള്ള ക്ഷണമാണ്, സ്വയത്തിലേക്കല്ല — ആ ഏകദൈവം മാത്രമാണ് ഈ പ്രപഞ്ചത്തിന്റെ സ്രഷ്ടാവും ഭരണാധികാരിയും, ഗുണവും ദോഷവും ചെയ്യാൻ കഴിവുള്ളവനും, എല്ലാ ജീവജാലങ്ങളുടെയും ഉപജീവനം നിയന്ത്രിക്കുന്നവനും:
+  </p>
+  <p class="body-text manglish" data-lang="manglish">
+    Nabi ﷺ yude kshanathinte adisthaanam — sudridhamaaya, thelivulla adithаraayil vishvaasam kettippadukkuka ennathaanu. Ithu oru ekadaivathilekkulla kshanamaanu, swayathilekkalla — aa ekadaivam maathramaanu ee prapanchathinte srashtaavum bharanaadhikaariyum, gunavum doshavum cheyyaan kazhivullavanum, ellaa jeevajaalangaludeyum upajeevanam niyanthrikkunnavanum:
+  </p>
+  <p class="body-text" data-lang="en">
+    The basis of his call ﷺ is to build sound belief on a sound textual and rational foundation. It is a call to believe in the One God alone — never to himself — who alone is Lord, Creator, and Sovereign of this universe, who has power to cause harm or bring benefit, and who alone controls the provision of every living creature:
+  </p>
+
+  <div class="quote-block">
+    <p class="quote-text ml" data-lang="ml">"പറയുക: അവൻ അല്ലാഹു, ഏകൻ. അല്ലാഹു സ്വയംപര്യാപ്തൻ. അവൻ ജനിപ്പിക്കപ്പെട്ടില്ല, ജനിപ്പിച്ചതുമില്ല. അവന് തുല്യനായി ആരും ഇല്ല." · "പറയുക: ഞാൻ നിങ്ങളെപ്പോലെ ഒരു മനുഷ്യൻ മാത്രമാണ്, നിങ്ങളുടെ ദൈവം ഒരേ ദൈവം മാത്രമാണെന്ന് എനിക്ക് അറിയിക്കപ്പെട്ടിരിക്കുന്നു."</p>
+    <p class="quote-text" data-lang="manglish">"Parayuka: Avan Allahu, Ekan. Allahu swayamparyaapthan. Avan janippikkappettilla, janippichathumilla. Avanu thulyanaayi aarum illa." · "Parayuka: Njaan ningaleppole oru manushyan maathramaanu, ningalude daivam ore daivam maathramaanennu enikku ariyikkappettirikkunnu."</p>
+    <p class="quote-text" data-lang="en">"Say: He is Allah, the One. Allah, the Self-Sufficient. He begets not, nor was He begotten. And there is none co-equal or comparable unto Him." · "Say: I am only a man like you. It has been revealed to me that your God is only One God."</p>
+    <p class="quote-source ml" data-lang="ml">— അൽ-ഇഖ്‌ലാസ് 112:1-4, അൽ-കഹ്ഫ് 18:110</p>
+    <p class="quote-source" data-lang="manglish">— Al-Ikhlas 112:1-4, Al-Kahf 18:110</p>
+    <p class="quote-source" data-lang="en">— Al-Ikhlas 112:1-4, Al-Kahf 18:110</p>
+  </div>
+
+  <p class="body-text ml" data-lang="ml">
+    പാറകൾ, നക്ഷത്രങ്ങൾ, ശവക്കല്ലറകൾ, സമ്പത്ത്, തന്നിഷ്ടം, സ്വേച്ഛാധിപതികൾ എന്നിവയുടെ ആരാധനയിൽ നിന്ന് മനുഷ്യരെയും ജിന്നുകളെയും മോചിപ്പിക്കാനാണ് ഈ ക്ഷണം വന്നത് — മറ്റുള്ളവരുടെ ആരാധനയിൽ നിന്നും വിഗ്രഹാരാധനയുടെ അപമാനത്തിൽ നിന്നും സ്വേച്ഛാധിപതികളുടെ അടിച്ചമർത്തലിൽ നിന്നും തന്നിഷ്ടത്തിന്റെ അടിമത്തത്തിൽ നിന്നും മനുഷ്യരാശിയെ സ്വതന്ത്രമാക്കാൻ. നൂഹ്, മൂസ, ഈസ പോലുള്ള മുൻ പ്രവാചകന്മാരുടെ അതേ സന്ദേശത്തിന്റെ തുടർച്ചയും സ്ഥിരീകരണവുമായാണ് ഈ അനുഗ്രഹീത ക്ഷണം വരുന്നത് — അതിനാൽ ഇസ്‌ലാം എല്ലാ ദൂതന്മാരിലും പ്രവാചകന്മാരിലും വിശ്വസിക്കാനും, അവരെ ബഹുമാനിക്കാനും, അവർക്ക് അവതരിച്ച ഗ്രന്ഥങ്ങളിൽ വിശ്വസിക്കാനും ആഹ്വാനം ചെയ്യുന്നു. ഇത്തരമൊരു ക്ഷണം സംശയമില്ലാതെ സത്യമാണ്.
+  </p>
+  <p class="body-text manglish" data-lang="manglish">
+    Paarakal, nakshathrangal, shavakkallarakal, sampathu, thannishtam, sweychaathipathikal ennivayude aaraadhanayil ninnu manushyareyum jinnukaleyum mochippikkaanaanu ee kshanam vannathu — mattullavarude aaraadhanayil ninnum vigrahaaraadhanayude apamaanathil ninnum sweychaathipathikalude adichamarthalil ninnum thannishtathinte adimathathil ninnum manushyaraashiye swathanthramaakkaan. Nooh, Moosa, Eesa polulla mun pravaachakanmaarude athe sandheshathinte thudarchayum sthireekaranavumaayaanu ee anugraheetha kshanam varunnathu — athinaal Islam ellaa doothanmaarilum pravaachakanmaarilum vishvasikkaanum, avare bahumaanikkaanum, avarkku avatharicha granthangalil vishvasikkaanum aahvaanam cheyyunnu. Ittharamoru kshanam samshayamillaathe sathyamaanu.
+  </p>
+  <p class="body-text" data-lang="en">
+    This blessed call came to free mankind and jinn from the worship of rocks, stars, graves, wealth, desires, and tyrants — to liberate humanity from the worship of other people, the humiliation of idolatry, the oppression of tyrants, and the captivity of desires. It arrives as a continuation and confirmation of the same message brought by earlier messengers such as Noah, Moses, and Jesus — which is why Islam calls people to believe in all the messengers and prophets, to honor them, and to believe in the books revealed to them. A call of this kind is, without doubt, true.
+  </p>
+
+  <h2 class="section-heading ml" data-lang="ml">മുൻ ഗ്രന്ഥങ്ങളിലെ മുൻകൂർ സൂചന</h2>
+  <h2 class="section-heading" data-lang="manglish">Mun granthangalile munkoor soochana</h2>
+  <h2 class="section-heading" data-lang="en">Foretelling of Islam</h2>
+
+  <p class="body-text ml" data-lang="ml">
+    തോറയിലും സുവിശേഷത്തിലും മുഹമ്മദ് ﷺ യുടെ വരവിനെക്കുറിച്ചുള്ള സൂചനകളുണ്ടെന്ന് ഖുർആൻ പറയുന്നു — ചിലയിടങ്ങളിൽ പേരും വിശദാംശങ്ങളും വ്യക്തമായി പറഞ്ഞിരിക്കുന്നു, വായിക്കാനോ എഴുതാനോ അറിയാത്ത ഒരു പ്രവാചകനെക്കുറിച്ച്. ഈ സൂചനകൾ പൂർണ്ണമായി മാറ്റപ്പെടാതെ ഇന്നും ചില പതിപ്പുകളിൽ അവശേഷിക്കുന്നു എന്ന് ചരിത്രകാരന്മാർ ചൂണ്ടിക്കാണിക്കുന്നു, മറച്ചുവയ്ക്കാനും തിരുത്താനുമുള്ള ആവർത്തിച്ചുള്ള ശ്രമങ്ങൾക്കിടയിലും.
+  </p>
+  <p class="body-text manglish" data-lang="manglish">
+    Thorayilum suvishehsathilum Muhammad ﷺ yude varavinekkurichulla soochanakalundennu Quran parayunnu — chilayidangalil perum vishadaamshangalum vyakthamaayi paranjirikkunnu, vaayikkaano ezhuthaano ariyaatha oru pravaachakanekkurichu. Ee soochanakal poornamaayi maattappedaathe innum chila pathippukalil avasheshikkunnu ennu charithrakaaranmaar choondikaanikkunnu, marachuvaykkaanum thiruthaanumulla aavarthichulla shramangalkkidayilum.
+  </p>
+  <p class="body-text" data-lang="en">
+    The Quran states that the Torah and the Gospel contain glad tidings foretelling the coming of a Prophet who could neither read nor write — Muhammad ﷺ — with his description named clearly in some places. Historians point out that traces of these references still remain in some surviving versions, despite repeated attempts across history to erase or distort them.
+  </p>
+  <p class="body-text ml" data-lang="ml">
+    ഈസാ ﷺ പോലും തന്റെ ജനത്തോട് തനിക്ക് ശേഷം വരാനിരിക്കുന്ന ഒരു ദൂതനെക്കുറിച്ച് സന്തോഷവാർത്ത അറിയിച്ചു — "അഹ്‌മദ്" എന്ന പേരിൽ അറിയപ്പെടുന്ന ഒരാളെക്കുറിച്ച്. അതുപോലെ, തോറയിലെ ഒരു ഭാഗം അല്ലാഹു സീനായിൽ നിന്നും സെയീറിൽ നിന്നും "പാറാൻ" മലനിരകളിൽ നിന്നും പ്രകാശിക്കുന്നതായി വിവരിക്കുന്നു — ചരിത്രകാരന്മാർ ഈ "പാറാൻ" മലനിരകളെ ഹിജാസിലെ, മെക്കയ്ക്ക് ചുറ്റുമുള്ള മലനിരകളായി തിരിച്ചറിയുന്നു. ഈ വായനയിൽ, സീനായിൽ നിന്നുള്ള പ്രകാശം മൂസയ്ക്ക് നൽകിയ വെളിപാടിനെയും, സെയീറിൽ നിന്നുള്ളത് ഈസയ്ക്ക് നൽകിയ സുവിശേഷത്തെയും, പാറാനിൽ നിന്നുള്ളത് മുഹമ്മദ് ﷺ യ്ക്ക് നൽകിയ ഖുർആനെയും സൂചിപ്പിക്കുന്നു.
+  </p>
+  <p class="body-text manglish" data-lang="manglish">
+    Eesa ﷺ polum thante janathodu thanikku shesham varaanirikkunna oru doothanekkurichu santhoshavaartha ariyichu — "Ahmad" enna peril ariyappedunna oraalekkurichu. Athupole, Thorayile oru bhaagam Allahu Sinai-il ninnum Se'ir-il ninnum "Paaraan" malanirakalil ninnum prakaashikkunnathaayi vivarikkunnu — charithrakaaranmaar ee "Paaraan" malanirakale Hijaz-ile, Mecca-ykku chuttumulla malanirakalaayi thirichariyunnu. Ee vaayanayil, Sinai-il ninnulla prakaasham Moosaykku nalkiya velipaadineyum, Se'ir-il ninnullathu Eesaykku nalkiya suvishehsatheyum, Paaraanil ninnullathu Muhammad ﷺ ykku nalkiya Quranineyum soochippikkunnu.
+  </p>
+  <p class="body-text" data-lang="en">
+    Jesus himself, according to the Quran, gave his people glad tidings of a messenger to come after him, one who would be known by the name "Ahmad." Separately, a passage in the Torah describes God's light dawning from Sinai, from Seir, and shining forth from the mountains of "Paran" — historians identify these mountains of Paran with the range around the Hijaz and Mecca. Read this way, the dawning from Sinai points to the revelation given to Moses, from Seir to the Gospel given to Jesus, and the shining forth from Paran to the Quran given to Muhammad ﷺ.
+  </p>
+
+  <h2 class="section-heading ml" data-lang="ml">ഖുർആൻ തന്നെ — ഏറ്റവും വലിയ തെളിവ്</h2>
+  <h2 class="section-heading" data-lang="manglish">Quran thanne — ettavum valiya thelivu</h2>
+  <h2 class="section-heading" data-lang="en">The Quran itself — the greatest proof</h2>
+
+  <p class="body-text ml" data-lang="ml">
+    ഖുർആൻ — അതിന്റെ ശൈലിയിലും ഉള്ളടക്കത്തിലും ഒരു അത്ഭുതമാണ്, മുഴുവൻ മനുഷ്യരാശിക്കും അനുകരിക്കാൻ കഴിയാത്തത്. ഇത് വാചാടോപപരമായും, ശാസ്ത്രീയമായും, നിയമനിർമ്മാണപരമായും, ഭാവിസംഭവങ്ങളെയും അദൃശ്യകാര്യങ്ങളെയും കുറിച്ച് പറഞ്ഞ രീതിയിലും അത്ഭുതകരമാണ് — ഉയിർത്തെഴുന്നാളുന്ന നാളിൽ അല്ലാഹുവിന്റെ സൃഷ്ടികൾക്കെതിരെയുള്ള ഏറ്റവും വലിയ തെളിവ്.
+  </p>
+  <p class="body-text manglish" data-lang="manglish">
+    Quran — athinte shailiyilum ulladakkathilum oru athbuthamaanu, muzhuvan manushyaraashikkum anukarikkaan kazhiyaathathu. Ithu vaachaadopaparamaayum, shaasthreeyamaayum, niyamanirmmaanaparamaayum, bhaavisambhavangaleyum adrishyakaaryangaleyum kurichu paranja reethiyilum athbuthakaramaanu — uyirthezhunnaaluna naalil Allahuvinte srishtikalkkethireyulla ettavum valiya thelivu.
+  </p>
+  <p class="body-text" data-lang="en">
+    The Quran is miraculous in both style and content, something the whole of mankind cannot match. It is miraculous in its rhetoric, in matters that touch on science, in its legislation, and in the way it speaks of future events and unseen matters — the greatest proof of Allah against His creation on the Day of Resurrection.
+  </p>
+  <p class="body-text ml" data-lang="ml">
+    ചോദ്യത്തിൽ പരാമർശിച്ച ഖുർആനിക വെല്ലുവിളി — "ഇതുപോലെ ഒരു അധ്യായമെങ്കിലും കൊണ്ടുവരൂ" (52:34) — നബി ﷺ ഖുർആൻ സ്വയം എഴുതിയതാണ് എന്ന ആരോപണത്തിനുള്ള മറുപടിയാണ്. ആ ആരോപണം ശരിയാണെങ്കിൽ, ഇത് ഒരു മനുഷ്യന് സാധിക്കുന്ന കാര്യമാണ് എന്നാണല്ലോ അർത്ഥം — എങ്കിൽ, വാക്ചാതുര്യത്തിന്റെ വലിയ വിദഗ്ദ്ധരായിരുന്ന അവർക്ക് അതുപോലൊന്ന് കൊണ്ടുവരാൻ എന്താണ് തടസ്സം? അല്ലാഹു അവരെ ഘട്ടം ഘട്ടമായി വെല്ലുവിളിച്ചു — ആദ്യം മുഴുവൻ ഗ്രന്ഥത്തിന് സമാനമായത്, "മനുഷ്യരും ജിന്നുകളും ഒരുമിച്ചു ശ്രമിച്ചാലും കൊണ്ടുവരാൻ കഴിയില്ല" (17:88); പിന്നെ പത്ത് അധ്യായങ്ങൾ, "പത്ത് അധ്യായങ്ങൾ കൊണ്ടുവരൂ, കഴിയുന്നവരെയെല്ലാം സഹായത്തിന് വിളിച്ചോളൂ" (11:13); ഒടുവിൽ ഒരു അധ്യായം മാത്രം. ഈ വെല്ലുവിളിക്ക് 1400 വർഷമായി ആരും മറുപടി പറഞ്ഞിട്ടില്ല.
+  </p>
+  <p class="body-text manglish" data-lang="manglish">
+    Chodyathil paraamarshicha Quranika velluvili — "Ithupole oru adhyaayamenkilum konduvaroo" (52:34) — Nabi ﷺ Quran swayam ezhuthiyathaanu enna aaropanathinulla marupadiyaanu. Aa aaropanam shariyaanenkil, ithu oru manushyanu saadhikkunna kaaryamaanu ennaanallo artham — engil, vaakchaathuryathinte valiya vidagdharaayirunna avarkku athupoleonnu konduvaraan enthaanu thadassam? Allahu avare ghattam ghattamaayi velluvilichu — aadyam muzhuvan granthathinu samaanamaayathu, "manushyarum jinnukalum orumichu shramichaalum konduvaraan kazhiyilla" (17:88); pinne pathu adhyaayangal, "pathu adhyaayangal konduvaroo, kazhiyunnavareyellaam sahaayathinu vilichollu" (11:13); oduvil oru adhyaayam maathram. Ee velluviliykku 1400 varshamaayi aarum marupadi paranjittilla.
+  </p>
+  <p class="body-text" data-lang="en">
+    The Quranic challenge referenced in the question — "produce a chapter like it" (52:34) — is a response to those who claimed the Prophet ﷺ fabricated the Quran himself. If that claim were true, it would mean this was within the capability of ordinary people — so what, then, stopped the master rhetoricians of that era from producing something like it? Allah challenged them in stages: first to produce the whole of it, "even if mankind and jinn helped one another, they could not" (17:88); then just ten chapters, "produce ten chapters, and call whatever help you can" (11:13); and finally, just one chapter. That challenge has stood unanswered for 1400 years.
+  </p>
+  <p class="body-text ml" data-lang="ml">
+    ഒരു വിഷയത്തിൽ എഴുതിയ ഏതു പുസ്തകവും മറ്റൊന്നിനെ പോലെയാകും എന്ന എതിർവാദം ഇവിടെ ശരിയല്ല — കാരണം ഈ വെല്ലുവിളി വിഷയത്തിലല്ല, ശൈലിയിലും ഭാഷയിലും ഘടനയിലുമാണ്. ചെറിയ ഒരു അധ്യായത്തിൽ പോലും ഈ സവിശേഷതകൾ കാണാം — ചിലപ്പോൾ അദൃശ്യകാര്യങ്ങളെക്കുറിച്ചുള്ള അറിവ് കൂടി അതിൽ ചേരാം, ചിലപ്പോൾ ഇല്ലായിരിക്കാം; അത് കുറവല്ല, കാരണം അതിലുള്ളത് തന്നെ മതിയായതാണ്.
+  </p>
+  <p class="body-text manglish" data-lang="manglish">
+    Oru vishayathil ezhuthiya ethu pusthakavum mattonninu polaakum enna ethirvaadam ivide shariyalla — kaaranam ee velluvili vishayathilalla, shailiyilum bhaashayilum ghadanayilumaanu. Cheriya oru adhyaayathil polum ee savisheshathakal kaanaam — chilappol adrishyakaaryangalekkurichulla arivu koodi athil cheraam, chilappol illaayirikkaam; athu kuravalla, kaaranam athilullathu thanne mathiyaayathaanu.
+  </p>
+  <p class="body-text" data-lang="en">
+    The objection that any book on a topic resembles others on the same topic misses the point here — the challenge is not about subject matter but about style, language, and structure. Even the shortest chapter carries these features — its composition and eloquence, its harmony with reason, its precision of meaning, and sometimes knowledge of unseen matters as well; and where the last is absent, that is no flaw, because what is present is sufficient on its own.
+  </p>
+
+  <div class="quote-block">
+    <div class="ayah">قُلْ لَئِنِ اجْتَمَعَتِ الْإِنْسُ وَالْجِنُّ عَلَىٰ أَنْ يَأْتُوا بِمِثْلِ هٰذَا الْقُرْآنِ لَا يَأْتُونَ بِمِثْلِهِ</div>
+    <p class="quote-text ml" data-lang="ml">"പറയുക: മനുഷ്യരും ജിന്നുകളും ഒരുമിച്ചു കൂടിയാലും, ഈ ഖുർആൻ പോലെ ഒന്ന് കൊണ്ടുവരാൻ അവർക്ക് കഴിയില്ല, അവർ പരസ്പരം സഹായിച്ചാൽ പോലും."</p>
+    <p class="quote-text" data-lang="manglish">"Parayuka: Manushyarum jinnukalum orumichu koodiyaalum, ee Quran pole onnu konduvaraan avarkku kazhiyilla, avar parasparam sahaayichaal polum."</p>
+    <p class="quote-text" data-lang="en">"Say: 'If mankind and the jinn were together to produce the like of this Quran, they could not produce the like thereof, even if they helped one another.'"</p>
+    <p class="quote-source ml" data-lang="ml">— അൽ-ഇസ്‌റാ 17:88</p>
+    <p class="quote-source" data-lang="manglish">— Al-Isra 17:88</p>
+    <p class="quote-source" data-lang="en">— Al-Isra 17:88</p>
+  </div>
+
+  <p class="body-text ml" data-lang="ml">
+    ചുരുക്കത്തിൽ, ഈ തെളിവുകൾ ഓരോന്നും വിശദമായി ഇനിയും പഠിക്കാവുന്നതാണ് — ഇത് ഒരു സംഗ്രഹം മാത്രമാണ്. സത്യം സത്യസന്ധമായി തേടുന്ന ഏതൊരാൾക്കും ഈ തെളിവ് മതിയാകും.
+  </p>
+  <p class="body-text manglish" data-lang="manglish">
+    Churukkathil, ee thelivukal oronnum vishadamaayi iniyum padhikkaavunnathaanu — ithu oru sangraham maathramaanu. Sathyam sathyasandhamaayi thedunna ethoraalkkum ee thelivu mathiyaakum.
+  </p>
+  <p class="body-text" data-lang="en">
+    In summary, each of these strands of evidence can be studied in far greater depth — this is only a summary. For anyone sincerely and impartially seeking the truth, this evidence should be sufficient.
+  </p>
+
+  <p class="body-text ml" data-lang="ml"><em>അല്ലാഹുവിന് നല്ലതായി അറിയാം.</em></p>
+  <p class="body-text manglish" data-lang="manglish"><em>Allahuvinu nallathaayi ariyaam.</em></p>
+  <p class="body-text" data-lang="en"><em>And Allah knows best.</em></p>
+
+</main>
+
+<footer class="footer">
+  <span data-lang="ml">© 2026 ജീവിതലക്ഷ്യം · jeevithalakshyam.info</span>
+  <span data-lang="manglish">© 2026 Jeevithalakshyam · jeevithalakshyam.info</span>
+  <span data-lang="en">© 2026 Jeevithalakshyam · jeevithalakshyam.info</span>
+</footer>
+
+<script>
+function toggleArticles(e) {
+  e.stopPropagation();
+  const btn = document.getElementById('articlesBtn');
+  const dd = document.getElementById('articlesDropdown');
+  const isOpen = dd.classList.toggle('open');
+  btn.classList.toggle('open', isOpen);
+}
+document.addEventListener('click', (e) => {
+  const menu = document.querySelector('.articles-menu');
+  if (menu && !menu.contains(e.target)) {
+    document.getElementById('articlesDropdown').classList.remove('open');
+    document.getElementById('articlesBtn').classList.remove('open');
+  }
+});
+function setLang(lang) {
+  document.documentElement.lang = lang;
+  localStorage.setItem('jl-lang', lang);
+  document.querySelectorAll('.lang-toggle button').forEach(b => b.classList.remove('active'));
+  document.getElementById('btn-' + lang).classList.add('active');
+}
+(function() {
+  const saved = localStorage.getItem('jl-lang') || 'ml';
+  setLang(saved);
+})();
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+});
+</script>
+
+</body>
+</html>
