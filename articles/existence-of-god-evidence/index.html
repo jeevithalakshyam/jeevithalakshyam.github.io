@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Existence of God: Any Evidence? | ജീവിതലക്ഷ്യം</title>
+<meta name="description" content="Instinct, reason, and revelation all point to a Creator. Why God made us, and how we can know He exists.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;700&family=Noto+Serif+Malayalam:wght@400;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --canvas: #0F1419;
+  --surface: #1A1F26;
+  --elevated: #232A33;
+  --primary: #00A86B;
+  --primary-bright: #00C77C;
+  --gold: #D4A24C;
+  --gold-bright: #F5C572;
+  --emerald-tint: #1A3A2E;
+  --heading: #FFFFFF;
+  --body: #D1D5DB;
+  --muted: #8B95A1;
+  --border: #2D3640;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+a { -webkit-tap-highlight-color: transparent; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--canvas);
+  color: var(--body);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.7;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(ellipse at 30% 20%, var(--emerald-tint) 0%, transparent 50%);
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: 0;
+}
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  padding: 1.25rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+  background: rgba(15, 20, 25, 0.6);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s;
+}
+nav.scrolled { border-bottom-color: var(--border); }
+.brand { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; color: var(--gold); font-family: 'Fraunces', serif; font-weight: 600; font-size: 1.1rem; letter-spacing: 0.5px; }
+.brand-glyph { width: 28px; height: 28px; border-radius: 50%; background: linear-gradient(135deg, var(--gold) 0%, var(--gold-bright) 100%); color: var(--canvas); display: flex; align-items: center; justify-content: center; font-family: 'Noto Serif Malayalam', serif; font-weight: 700; font-size: 1rem; }
+.nav-right { display: flex; align-items: center; gap: 0.75rem; }
+.articles-menu { position: relative; }
+.articles-btn {
+  display: flex; align-items: center; gap: 0.4rem;
+  background: transparent; border: 1px solid var(--border);
+  color: var(--muted); padding: 0.5rem 0.9rem;
+  border-radius: 50px; font-size: 0.78rem; font-weight: 500;
+  cursor: pointer; font-family: inherit; transition: all 0.25s;
+}
+.articles-btn:hover, .articles-btn.open { color: var(--heading); border-color: var(--primary); }
+.articles-icon { display: none; font-size: 0.85rem; line-height: 1; }
+.articles-btn .caret { font-size: 0.6rem; transition: transform 0.25s; }
+.articles-btn.open .caret { transform: rotate(180deg); }
+.articles-dropdown {
+  position: absolute; top: calc(100% + 10px); right: 0; min-width: 290px;
+  background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+  padding: 0.4rem; box-shadow: 0 12px 32px rgba(0,0,0,0.4);
+  opacity: 0; visibility: hidden; transform: translateY(-6px);
+  transition: all 0.2s; z-index: 200;
+}
+.articles-dropdown.open { opacity: 1; visibility: visible; transform: translateY(0); }
+.article-item {
+  display: block; padding: 0.7rem 0.85rem; border-radius: 8px;
+  color: var(--body); text-decoration: none; font-size: 0.85rem;
+  line-height: 1.5; transition: background 0.2s;
+}
+.article-item:hover { background: var(--elevated); color: var(--heading); }
+.article-item.current { color: var(--primary-bright); }
+.lang-toggle { display: flex; gap: 0.25rem; background: var(--surface); padding: 0.3rem; border-radius: 50px; border: 1px solid var(--border); }
+.lang-btn { background: transparent; border: none; color: var(--muted); padding: 0.4rem 0.9rem; border-radius: 50px; font-size: 0.78rem; font-weight: 500; cursor: pointer; transition: all 0.25s; font-family: inherit; }
+.lang-btn.active { background: var(--primary); color: var(--canvas); font-weight: 600; }
+.lang-btn:hover:not(.active) { color: var(--heading); }
+
+.article-header { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; padding: 8.5rem 24px 2.5rem; }
+.article-kicker { color: var(--muted); font-size: 12px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 18px; }
+.article-title { font-family: 'Fraunces', serif; font-weight: 700; font-size: clamp(1.7rem, 4vw, 2.3rem); color: var(--heading); line-height: 1.35; }
+.article-title.ml { font-family: 'Noto Serif Malayalam', serif; }
+.article-dek { margin-top: 16px; font-size: 16px; color: var(--muted); line-height: 1.7; }
+.article-dek.ml { font-family: 'Noto Serif Malayalam', serif; font-size: 17px; }
+.article-meta { margin-top: 20px; font-size: 13px; color: var(--muted); }
+.article-divider { width: 100%; height: 1px; background: var(--border); margin-top: 28px; }
+
+.article-container { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; padding: 8px 24px 80px; }
+.section-heading { font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.25rem; color: var(--primary-bright); margin: 2.5rem 0 1rem; }
+.section-heading.ml { font-family: 'Noto Serif Malayalam', serif; font-size: 1.3rem; }
+.body-text { font-size: 17px; line-height: 1.85; margin-bottom: 20px; color: var(--body); }
+.body-text.ml { font-family: 'Noto Serif Malayalam', serif; font-size: 19px; line-height: 1.9; }
+.body-text.manglish { font-style: italic; }
+.quote-block { background: var(--surface); border-left: 3px solid var(--primary); padding: 22px 26px; margin: 24px 0; border-radius: 8px; }
+.quote-text { font-family: 'Fraunces', serif; font-style: italic; font-size: 17px; color: var(--heading); line-height: 1.7; }
+.quote-text.ml { font-family: 'Noto Serif Malayalam', serif; font-style: normal; font-size: 18px; }
+.quote-source { margin-top: 10px; font-size: 13px; color: var(--muted); font-style: normal; }
+.ayah { font-family: 'Amiri', serif; font-size: 22px; color: var(--body); text-align: center; direction: rtl; line-height: 1.9; margin: 6px 0 14px; }
+.source-note { margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--border); font-size: 13px; color: var(--muted); }
+.back-link { display: inline-block; margin-top: 36px; color: var(--muted); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+.back-link:hover { color: var(--body); }
+.footer { position: relative; z-index: 1; text-align: center; padding: 40px 20px; color: var(--muted); font-size: 12px; border-top: 1px solid var(--border); margin-top: 40px; }
+
+[data-lang] { display: none; }
+html[lang="ml"] [data-lang="ml"], html[lang="manglish"] [data-lang="manglish"], html[lang="en"] [data-lang="en"] { display: block; }
+.fade-in { opacity: 0; transform: translateY(16px); animation: fadeUp 0.7s ease forwards; }
+@keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 640px) {
+  nav { padding: 0.9rem 1rem; }
+  .brand span:last-child { display: inline; }
+  .articles-btn { padding: 0.35rem 0.65rem; font-size: 0.7rem; }
+  .lang-btn { padding: 0.35rem 0.65rem; font-size: 0.7rem; }
+}
+@media (max-width: 400px) {
+  nav { padding: 0.8rem 0.7rem; }
+  .brand span:last-child { display: none; }
+  .articles-label, .articles-btn .caret { display: none; }
+  .articles-icon { display: inline; }
+  .articles-btn { padding: 0.3rem 0.5rem; border-radius: 50%; }
+  .nav-right { gap: 0.4rem; }
+  .lang-toggle { gap: 0.1rem; padding: 0.2rem; }
+  .lang-btn { padding: 0.28rem 0.45rem; font-size: 0.62rem; }
+}
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="/" class="brand">
+    <span class="brand-glyph">ജ</span>
+    <span>Jeevithalakshyam</span>
+  </a>
+  <div class="nav-right">
+    <div class="articles-menu">
+      <button class="articles-btn" id="articlesBtn" onclick="toggleArticles(event)">
+        <span class="articles-icon">&#128196;</span>
+        <span class="articles-label">അറിവുകൾ</span>
+        <span class="caret">&#9662;</span>
+      </button>
+      <div class="articles-dropdown" id="articlesDropdown">
+        <a href="/articles/evidence-islam-is-true/" class="article-item">ഇസ്‌ലാം സത്യമാണെന്നതിന് എന്ത് തെളിവ്?</a>
+        <a href="/articles/evidence-prophethood-muhammad/" class="article-item">മുഹമ്മദ് ﷺ യുടെ പ്രവാചകത്വത്തിന്റെ തെളിവ്</a>
+        <a href="/articles/evidence-oneness-of-allah/" class="article-item">അല്ലാഹുവിന്റെ ഏകത്വത്തിന്റെ തെളിവ്</a>
+        <a href="/articles/existence-of-god-evidence/" class="article-item current">ദൈവാസ്തിത്വത്തിന് എന്ത് തെളിവ്?</a>
+        <a href="/articles/only-religion-sight-of-allah/" class="article-item">അല്ലാഹുവിന്റെ അടുക്കൽ ഏകമതം ഏത്?</a>
+        <a href="/articles/quran-word-of-allah-proofs/" class="article-item">ഖുർആൻ അല്ലാഹുവിന്റെ വാക്കാണെന്നതിന്റെ തെളിവുകൾ</a>
+      </div>
+    </div>
+    <div class="lang-toggle" role="tablist">
+      <button class="lang-btn active" onclick="setLang('ml')" id="btn-ml">മലയാളം</button>
+      <button class="lang-btn" onclick="setLang('manglish')" id="btn-manglish">Manglish</button>
+      <button class="lang-btn" onclick="setLang('en')" id="btn-en">English</button>
+    </div>
+  </div>
+</nav>
+
+<header class="article-header">
+  <div class="article-kicker">
+    <span data-lang="ml">ലേഖനം</span>
+    <span data-lang="manglish">Lekhanam</span>
+    <span data-lang="en">Article</span>
+  </div>
+  <h1 class="article-title ml fade-in" data-lang="ml">ദൈവാസ്തിത്വത്തിന് എന്ത് തെളിവ്?</h1>
+  <h1 class="article-title fade-in" data-lang="manglish">Daivaasthithvathinu enthu thelivu?</h1>
+  <h1 class="article-title fade-in" data-lang="en">Existence of God: Any Evidence?</h1>
+
+  <p class="article-dek ml" data-lang="ml">സഹജബോധം, യുക്തി, വെളിപാട് — ഇവ മൂന്നും ഒരു സ്രഷ്ടാവിലേക്കാണ് വിരൽ ചൂണ്ടുന്നത്. അല്ലാഹു നമ്മെ എന്തിനാണ് സൃഷ്ടിച്ചത്?</p>
+  <p class="article-dek" data-lang="manglish">Sahajabodham, yukthi, velipaadu — iva moonnum oru srashtaavilekkaanu viral choondunnathu. Allahu namme enthinaanu srishtichathu?</p>
+  <p class="article-dek" data-lang="en">Instinct, reason, and revelation all point toward one Creator. Why, then, did God make us?</p>
+
+  <div class="article-divider"></div>
+</header>
+
+<main class="article-container">
+
+  <p class="body-text ml fade-in" data-lang="ml">
+    ദൈവം ഉണ്ടെന്നതിന് തെളിവ് എവിടെ എന്ന് ഒരാൾ ചോദിക്കുമ്പോൾ, ഇത് ചിന്തിക്കുന്ന ഏതൊരാൾക്കും വ്യക്തമായ ഒരു കാര്യമാണ്, ദീർഘമായ വാദപ്രതിവാദം ആവശ്യമില്ല. ഈ തെളിവ് മൂന്ന് തരത്തിലാണ് — സഹജബോധപരം, ദൃശ്യപരം, മതനിയമപരം.
+  </p>
+  <p class="body-text manglish fade-in" data-lang="manglish">
+    Daivam undennathinu thelivu evide enna oraal chodikkumpol, ithu chinthikkunna ethoraalkkum vyakthamaaya oru kaaryamaanu, dheerghamaaya vaadaprathivaadam aavashyamilla. Ee thelivu moonnu tharathilaanu — sahajabodhaparam, drishyaparam, mathaniyamaparam.
+  </p>
+  <p class="body-text fade-in" data-lang="en">
+    When someone asks for proof that God exists, this is something plain to anyone who reflects, needing no lengthy argument. The evidence falls into three kinds: instinctive, tangible, and revelatory.
+  </p>
+
+  <h2 class="section-heading ml" data-lang="ml">സഹജബോധപരമായ തെളിവ്</h2>
+  <h2 class="section-heading" data-lang="manglish">Sahajabodhaparamaaya thelivu</h2>
+  <h2 class="section-heading" data-lang="en">Instinctive evidence</h2>
+
+  <p class="body-text ml" data-lang="ml">
+    മനുഷ്യന്റെ സ്വാഭാവിക പ്രകൃതി (ഫിത്‌റ) തന്നെ ദൈവാസ്തിത്വത്തിന് സാക്ഷ്യം വഹിക്കുന്നു — പിശാചുക്കൾ വഴിതെറ്റിക്കാത്ത ആർക്കും ഇത് ഏറ്റവും ബലമുള്ള തെളിവാണ്. ഓരോ മനുഷ്യനും തന്റെ ഉള്ളിൽ ഒരു നാഥനും സ്രഷ്ടാവും ഉണ്ടെന്ന് അനുഭവിക്കുന്നു, തനിക്ക് അവനെ ആവശ്യമുണ്ടെന്നും അനുഭവിക്കുന്നു; വലിയ ഒരു ദുരിതം വരുമ്പോൾ അവൻ സ്വാഭാവികമായി കൈകളും കണ്ണുകളും ഹൃദയവും ആകാശത്തേക്ക് ഉയർത്തി തന്റെ നാഥനിൽ നിന്ന് സഹായം തേടുന്നു.
+  </p>
+  <p class="body-text manglish" data-lang="manglish">
+    Manushyante swaabhaavika prakruthi (fitrah) thanne daivaasthithvathinu saakshyam vahikkunnu — pishaachukkal vazhithettikkaatha aarkkum ithu ettavum balamulla thelivaanu. Oro manushyanum thante ullil oru naathanum srashtaavum undennu anubhavikkunnu, thanikku avane aavashyamundennum anubhavikkunnu; valiya oru durithаm varumpol avan swaabhaavikamaayi kaikalum kannukalum hrudayavum aakaashathekku uyarthi thante naathanil ninnu sahaayam thedunnu.
+  </p>
+  <p class="body-text" data-lang="en">
+    Man's sound nature (fitrah) itself testifies to God's existence — the strongest evidence of all for anyone not led astray by the devils. Every person senses within himself that he has a Lord and Creator, and that he needs Him; when a great calamity strikes, he instinctively turns his hands, eyes, and heart toward the sky, seeking help from his Lord.
+  </p>
+
+  <div class="quote-block">
+    <p class="quote-text ml" data-lang="ml">"നിന്റെ മുഖം ഏകദൈവാരാധനയുടെ മതത്തിലേക്ക് തിരിക്കുക — അല്ലാഹുവിന്റെ ഫിത്‌റ, മനുഷ്യരെ അതിൽ അവൻ സൃഷ്ടിച്ചു."</p>
+    <p class="quote-text" data-lang="manglish">"Ninte mukham ekadaivaaraadhanayude mathathilekku thirikkuka — Allahuvinte fitrah, manushyare athil avan srishtichu."</p>
+    <p class="quote-text" data-lang="en">"So set your face toward the religion of pure monotheism — the natural disposition (fitrah) with which Allah created mankind."</p>
+    <p class="quote-source ml" data-lang="ml">— അർ-റൂം 30:30</p>
+    <p class="quote-source" data-lang="manglish">— Ar-Rum 30:30</p>
+    <p class="quote-source" data-lang="en">— Ar-Rum 30:30</p>
+  </div>
+
+  <h2 class="section-heading ml" data-lang="ml">ദൃശ്യമായ, യുക്തിപരമായ തെളിവ്</h2>
+  <h2 class="section-heading" data-lang="manglish">Drishyamaaya, yukthiparamaaya thelivu</h2>
+  <h2 class="section-heading" data-lang="en">Tangible, rational evidence</h2>
+
+  <p class="body-text ml" data-lang="ml">
+    നമുക്ക് ചുറ്റും മരങ്ങൾ, പാറകൾ, മനുഷ്യർ, ഭൂമി, ആകാശം, കടലുകൾ, നദികൾ എന്നിവ കാണാം. ഇവയെല്ലാം എങ്ങനെ ഉണ്ടായി? മൂന്ന് സാധ്യതകൾ മാത്രമേയുള്ളൂ — ഒന്ന്, ഒരു കാരണവുമില്ലാതെ യദൃച്ഛയാ ഉണ്ടായതാണ്; രണ്ട്, അവ സ്വയം സൃഷ്ടിച്ചതാണ്; മൂന്ന്, ഒരു സ്രഷ്ടാവ് അവയെ സൃഷ്ടിച്ചു. ആദ്യത്തെ രണ്ട് സാധ്യതകളും അസാധ്യമാണ് — അതിനാൽ മൂന്നാമത്തേത് മാത്രമാണ് ശരിയായത്, അതായത് അല്ലാഹു അവയെ സൃഷ്ടിച്ചു.
+  </p>
+  <p class="body-text manglish" data-lang="manglish">
+    Namukku chuttum marangal, paarakal, manushyar, bhoomi, aakaasham, kadalukal, nadhikal ennivа kaanaam. Ivayellaam engane undaayi? Moonnu saadhyathakal maathrame ullu — onnu, oru kaaranavumillaathe yadrichhayaa undaayathaanu; randu, ava swayam srishtichathaanu; moonnu, oru srashtaavu avaye srishtichu. Aadyathe randu saadhyathakalum asaadhyamaanu — athinaal moonnaamathe maathramaanu shariyaayathu, athaayathu Allahu avaye srishtichu.
+  </p>
+  <p class="body-text" data-lang="en">
+    Around us we see trees, rocks, people, the earth, the heavens, seas, and rivers. How did all of this come to be? There are only three possibilities: they came into being by accident with no cause; they created themselves; or a Creator created them. The first two are impossible — which leaves only the third: Allah created them.
+  </p>
+
+  <div class="quote-block">
+    <p class="quote-text ml" data-lang="ml">"അവർ ഒന്നുമില്ലാതെ സൃഷ്ടിക്കപ്പെട്ടതോ? അതോ അവർ തന്നെയാണോ സ്രഷ്ടാക്കൾ?"</p>
+    <p class="quote-text" data-lang="manglish">"Avar onnumillaathe srishtikkappettatho? Atho avar thanneyaano srashtaakkal?"</p>
+    <p class="quote-text" data-lang="en">"Were they created by nothing? Or were they themselves the creators?"</p>
+    <p class="quote-source ml" data-lang="ml">— അത്-തൂർ 52:35</p>
+    <p class="quote-source" data-lang="manglish">— At-Tur 52:35</p>
+    <p class="quote-source" data-lang="en">— At-Tur 52:35</p>
+  </div>
+
+  <p class="body-text ml" data-lang="ml">
+    ഓരോ വസ്തുവിനെയും അതിന് അനുയോജ്യമായ രീതിയിലാണ് അല്ലാഹു സൃഷ്ടിച്ചത് — ഒട്ടകത്തെ ശക്തമായ പുറംഭാഗത്തോടെ, യാത്രയ്ക്കും കടുത്ത സാഹചര്യങ്ങളെ അതിജീവിക്കാനും പാകത്തിൽ. പ്രാർത്ഥനയ്ക്ക് ഉത്തരം കിട്ടുന്നതും ഇതിന് തെളിവാണ് — നബി ﷺ മഴയ്ക്കായി പ്രാർത്ഥിച്ചപ്പോൾ, മിമ്പറിൽ നിന്ന് ഇറങ്ങുന്നതിനു മുമ്പേ മേഘം വന്ന് മഴ പെയ്തു തുടങ്ങി.
+  </p>
+  <p class="body-text manglish" data-lang="manglish">
+    Oro vasthuvineyum athinu anuyojyamaaya reethiyilaanu Allahu srishtichathu — ottakathe shakthamaaya puramgabhaagathode, yaathraykkum kadutha saahacharyangale athijeevikkaanum paakathil. Praarthanaykku utharam kittunnathum ithinu thelivaanu — Nabi ﷺ mazhaykkaayi praarthichappol, mimbaril ninnu irangunnathinu mumpe megham vannu mazha peythu thudangi.
+  </p>
+  <p class="body-text" data-lang="en">
+    Everything Allah created is suited exactly to its purpose — the camel, for instance, built strong-backed for riding and for enduring harsh conditions others cannot bear. Answered prayer is further evidence: when the Prophet ﷺ prayed for rain, a cloud appeared and rain fell before he had even stepped down from the pulpit.
+  </p>
+
+  <h2 class="section-heading ml" data-lang="ml">മതനിയമങ്ങളുടെ തെളിവ്</h2>
+  <h2 class="section-heading" data-lang="manglish">Mathaniyamangalude thelivu</h2>
+  <h2 class="section-heading" data-lang="en">The evidence of revealed law</h2>
+
+  <p class="body-text ml" data-lang="ml">
+    അല്ലാഹു അയച്ച എല്ലാ മതനിയമങ്ങളും ഒരു സ്രഷ്ടാവ് ഉണ്ട് എന്നതിനും, അവന്റെ അറിവിന്റെയും യുക്തിയുടെയും കാരുണ്യത്തിന്റെയും പൂർണ്ണതയ്ക്കും തെളിവാണ് — കാരണം ഈ നിയമങ്ങൾ ആരെങ്കിലും നിശ്ചയിച്ചതാവണം, ആ നിയമദാതാവ് അല്ലാഹുവാണ്.
+  </p>
+  <p class="body-text manglish" data-lang="manglish">
+    Allahu ayacha ellaa mathaniyamangalum oru srashtaavu undu ennathinum, avante arivinteyum yukthiyudeyum kaarunyathinteyum poornnathaykkum thelivaanu — kaaranam ee niyamangal aarenkilum nishchayichathaavanam, aa niyamadaathaavu Allahuvaanu.
+  </p>
+  <p class="body-text" data-lang="en">
+    Every divinely-revealed law points to the existence of the Creator, and to the perfection of His knowledge, wisdom, and mercy — because these laws must have been prescribed by someone, and that Lawgiver is Allah.
+  </p>
+
+  <h2 class="section-heading ml" data-lang="ml">അല്ലാഹു നമ്മെ എന്തിനാണ് സൃഷ്ടിച്ചത്?</h2>
+  <h2 class="section-heading" data-lang="manglish">Allahu namme enthinaanu srishtichathu?</h2>
+  <h2 class="section-heading" data-lang="en">Why did God create us?</h2>
+
+  <p class="body-text ml" data-lang="ml">
+    അവനെ ആരാധിക്കാനും, നന്ദി കാണിക്കാനും, ഓർമ്മിക്കാനും, അവൻ കൽപ്പിച്ചത് ചെയ്യാനും വേണ്ടിയാണ്. അല്ലാഹു തന്റെ അടിമകളെ പരീക്ഷിക്കുന്നു — അവർ അവനെ ആരാധിക്കുമോ അതോ മറ്റുള്ളവരെ ആരാധിക്കുമോ എന്ന്, വഴി കാണിച്ചു നൽകിയ ശേഷം.
+  </p>
+  <p class="body-text manglish" data-lang="manglish">
+    Avane aaraadhikkaanum, nandi kaanikkaanum, ormikkaanum, avan kalppichathu cheyyaanum vendiyaanu. Allahu thante adimakale parisheekshikkunnu — avar avane aaraadhikkumo atho mattullavare aaraadhikkumo ennu, vazhi kaanichu nalkiya shesham.
+  </p>
+  <p class="body-text" data-lang="en">
+    So that we would worship Him, thank Him, remember Him, and do what He has commanded. Allah tests His servants — whether they will worship Him or worship something else — after having already shown everyone the way.
+  </p>
+
+  <div class="quote-block">
+    <p class="quote-text ml" data-lang="ml">"മരണവും ജീവിതവും സൃഷ്ടിച്ചവൻ, നിങ്ങളിൽ ആരാണ് പ്രവർത്തനത്തിൽ ഏറ്റവും നല്ലവൻ എന്ന് പരീക്ഷിക്കാൻ." · "ജിന്നുകളെയും മനുഷ്യരെയും ഞാൻ സൃഷ്ടിച്ചത് അവർ എന്നെ ആരാധിക്കാൻ വേണ്ടി മാത്രമാണ്."</p>
+    <p class="quote-text" data-lang="manglish">"Maranavum jeevithavum srishtichavan, ningalil aaraanu pravarthanathil ettavum nallavan ennu parisheekshikkaan." · "Jinnukaleyum manushyareyum Njaan srishtichathu avar enne aaraadhikkaan vendi maathramaanu."</p>
+    <p class="quote-text" data-lang="en">"Who has created death and life that He may test you, which of you is best in deed." · "And I created not the jinn and mankind except that they should worship Me."</p>
+    <p class="quote-source ml" data-lang="ml">— അൽ-മുൽക് 67:2, അദ്-ദാരിയാത് 51:56</p>
+    <p class="quote-source" data-lang="manglish">— Al-Mulk 67:2, Ad-Dariyat 51:56</p>
+    <p class="quote-source" data-lang="en">— Al-Mulk 67:2, Ad-Dariyat 51:56</p>
+  </div>
+
+  <p class="body-text ml" data-lang="ml"><em>അല്ലാഹുവിന് നല്ലതായി അറിയാം.</em></p>
+  <p class="body-text manglish" data-lang="manglish"><em>Allahuvinu nallathaayi ariyaam.</em></p>
+  <p class="body-text" data-lang="en"><em>And Allah knows best.</em></p>
+
+</main>
+
+<footer class="footer">
+  <span data-lang="ml">© 2026 ജീവിതലക്ഷ്യം · jeevithalakshyam.info</span>
+  <span data-lang="manglish">© 2026 Jeevithalakshyam · jeevithalakshyam.info</span>
+  <span data-lang="en">© 2026 Jeevithalakshyam · jeevithalakshyam.info</span>
+</footer>
+
+<script>
+function toggleArticles(e) {
+  e.stopPropagation();
+  const btn = document.getElementById('articlesBtn');
+  const dd = document.getElementById('articlesDropdown');
+  const isOpen = dd.classList.toggle('open');
+  btn.classList.toggle('open', isOpen);
+}
+document.addEventListener('click', (e) => {
+  const menu = document.querySelector('.articles-menu');
+  if (menu && !menu.contains(e.target)) {
+    document.getElementById('articlesDropdown').classList.remove('open');
+    document.getElementById('articlesBtn').classList.remove('open');
+  }
+});
+function setLang(lang) {
+  document.documentElement.lang = lang;
+  localStorage.setItem('jl-lang', lang);
+  document.querySelectorAll('.lang-toggle button').forEach(b => b.classList.remove('active'));
+  document.getElementById('btn-' + lang).classList.add('active');
+}
+(function() {
+  const saved = localStorage.getItem('jl-lang') || 'ml';
+  setLang(saved);
+})();
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+});
+</script>
+
+</body>
+</html>

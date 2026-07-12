@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Evidence for the Prophethood of Muhammad | ജീവിതലക്ഷ്യം</title>
+<meta name="description" content="How do we know a claim of prophethood is true? The character, the message, the miracles, and the proof surrounding Muhammad ﷺ.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;700&family=Noto+Serif+Malayalam:wght@400;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --canvas: #0F1419;
+  --surface: #1A1F26;
+  --elevated: #232A33;
+  --primary: #00A86B;
+  --primary-bright: #00C77C;
+  --gold: #D4A24C;
+  --gold-bright: #F5C572;
+  --emerald-tint: #1A3A2E;
+  --heading: #FFFFFF;
+  --body: #D1D5DB;
+  --muted: #8B95A1;
+  --border: #2D3640;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+a { -webkit-tap-highlight-color: transparent; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--canvas);
+  color: var(--body);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.7;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(ellipse at 30% 20%, var(--emerald-tint) 0%, transparent 50%);
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: 0;
+}
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  padding: 1.25rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+  background: rgba(15, 20, 25, 0.6);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s;
+}
+nav.scrolled { border-bottom-color: var(--border); }
+.brand { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; color: var(--gold); font-family: 'Fraunces', serif; font-weight: 600; font-size: 1.1rem; letter-spacing: 0.5px; }
+.brand-glyph { width: 28px; height: 28px; border-radius: 50%; background: linear-gradient(135deg, var(--gold) 0%, var(--gold-bright) 100%); color: var(--canvas); display: flex; align-items: center; justify-content: center; font-family: 'Noto Serif Malayalam', serif; font-weight: 700; font-size: 1rem; }
+.nav-right { display: flex; align-items: center; gap: 0.75rem; }
+.articles-menu { position: relative; }
+.articles-btn {
+  display: flex; align-items: center; gap: 0.4rem;
+  background: transparent; border: 1px solid var(--border);
+  color: var(--muted); padding: 0.5rem 0.9rem;
+  border-radius: 50px; font-size: 0.78rem; font-weight: 500;
+  cursor: pointer; font-family: inherit; transition: all 0.25s;
+}
+.articles-btn:hover, .articles-btn.open { color: var(--heading); border-color: var(--primary); }
+.articles-icon { display: none; font-size: 0.85rem; line-height: 1; }
+.articles-btn .caret { font-size: 0.6rem; transition: transform 0.25s; }
+.articles-btn.open .caret { transform: rotate(180deg); }
+.articles-dropdown {
+  position: absolute; top: calc(100% + 10px); right: 0; min-width: 290px;
+  background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+  padding: 0.4rem; box-shadow: 0 12px 32px rgba(0,0,0,0.4);
+  opacity: 0; visibility: hidden; transform: translateY(-6px);
+  transition: all 0.2s; z-index: 200;
+}
+.articles-dropdown.open { opacity: 1; visibility: visible; transform: translateY(0); }
+.article-item {
+  display: block; padding: 0.7rem 0.85rem; border-radius: 8px;
+  color: var(--body); text-decoration: none; font-size: 0.85rem;
+  line-height: 1.5; transition: background 0.2s;
+}
+.article-item:hover { background: var(--elevated); color: var(--heading); }
+.article-item.current { color: var(--primary-bright); }
+.lang-toggle { display: flex; gap: 0.25rem; background: var(--surface); padding: 0.3rem; border-radius: 50px; border: 1px solid var(--border); }
+.lang-btn { background: transparent; border: none; color: var(--muted); padding: 0.4rem 0.9rem; border-radius: 50px; font-size: 0.78rem; font-weight: 500; cursor: pointer; transition: all 0.25s; font-family: inherit; }
+.lang-btn.active { background: var(--primary); color: var(--canvas); font-weight: 600; }
+.lang-btn:hover:not(.active) { color: var(--heading); }
+
+.article-header { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; padding: 8.5rem 24px 2.5rem; }
+.article-kicker { color: var(--muted); font-size: 12px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 18px; }
+.article-title { font-family: 'Fraunces', serif; font-weight: 700; font-size: clamp(1.7rem, 4vw, 2.3rem); color: var(--heading); line-height: 1.35; }
+.article-title.ml { font-family: 'Noto Serif Malayalam', serif; }
+.article-dek { margin-top: 16px; font-size: 16px; color: var(--muted); line-height: 1.7; }
+.article-dek.ml { font-family: 'Noto Serif Malayalam', serif; font-size: 17px; }
+.article-meta { margin-top: 20px; font-size: 13px; color: var(--muted); }
+.article-divider { width: 100%; height: 1px; background: var(--border); margin-top: 28px; }
+
+.article-container { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; padding: 8px 24px 80px; }
+.section-heading { font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.25rem; color: var(--primary-bright); margin: 2.5rem 0 1rem; }
+.section-heading.ml { font-family: 'Noto Serif Malayalam', serif; font-size: 1.3rem; }
+.body-text { font-size: 17px; line-height: 1.85; margin-bottom: 20px; color: var(--body); }
+.body-text.ml { font-family: 'Noto Serif Malayalam', serif; font-size: 19px; line-height: 1.9; }
+.body-text.manglish { font-style: italic; }
+.quote-block { background: var(--surface); border-left: 3px solid var(--primary); padding: 22px 26px; margin: 24px 0; border-radius: 8px; }
+.quote-text { font-family: 'Fraunces', serif; font-style: italic; font-size: 17px; color: var(--heading); line-height: 1.7; }
+.quote-text.ml { font-family: 'Noto Serif Malayalam', serif; font-style: normal; font-size: 18px; }
+.quote-source { margin-top: 10px; font-size: 13px; color: var(--muted); font-style: normal; }
+.ayah { font-family: 'Amiri', serif; font-size: 22px; color: var(--body); text-align: center; direction: rtl; line-height: 1.9; margin: 6px 0 14px; }
+.source-note { margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--border); font-size: 13px; color: var(--muted); }
+.back-link { display: inline-block; margin-top: 36px; color: var(--muted); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+.back-link:hover { color: var(--body); }
+.footer { position: relative; z-index: 1; text-align: center; padding: 40px 20px; color: var(--muted); font-size: 12px; border-top: 1px solid var(--border); margin-top: 40px; }
+
+[data-lang] { display: none; }
+html[lang="ml"] [data-lang="ml"], html[lang="manglish"] [data-lang="manglish"], html[lang="en"] [data-lang="en"] { display: block; }
+.fade-in { opacity: 0; transform: translateY(16px); animation: fadeUp 0.7s ease forwards; }
+@keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 640px) {
+  nav { padding: 0.9rem 1rem; }
+  .brand span:last-child { display: inline; }
+  .articles-btn { padding: 0.35rem 0.65rem; font-size: 0.7rem; }
+  .lang-btn { padding: 0.35rem 0.65rem; font-size: 0.7rem; }
+}
+@media (max-width: 400px) {
+  nav { padding: 0.8rem 0.7rem; }
+  .brand span:last-child { display: none; }
+  .articles-label, .articles-btn .caret { display: none; }
+  .articles-icon { display: inline; }
+  .articles-btn { padding: 0.3rem 0.5rem; border-radius: 50%; }
+  .nav-right { gap: 0.4rem; }
+  .lang-toggle { gap: 0.1rem; padding: 0.2rem; }
+  .lang-btn { padding: 0.28rem 0.45rem; font-size: 0.62rem; }
+}
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="/" class="brand">
+    <span class="brand-glyph">ജ</span>
+    <span>Jeevithalakshyam</span>
+  </a>
+  <div class="nav-right">
+    <div class="articles-menu">
+      <button class="articles-btn" id="articlesBtn" onclick="toggleArticles(event)">
+        <span class="articles-icon">&#128196;</span>
+        <span class="articles-label">അറിവുകൾ</span>
+        <span class="caret">&#9662;</span>
+      </button>
+      <div class="articles-dropdown" id="articlesDropdown">
+        <a href="/articles/evidence-islam-is-true/" class="article-item">ഇസ്‌ലാം സത്യമാണെന്നതിന് എന്ത് തെളിവ്?</a>
+        <a href="/articles/evidence-prophethood-muhammad/" class="article-item current">മുഹമ്മദ് ﷺ യുടെ പ്രവാചകത്വത്തിന്റെ തെളിവ്</a>
+        <a href="/articles/evidence-oneness-of-allah/" class="article-item">അല്ലാഹുവിന്റെ ഏകത്വത്തിന്റെ തെളിവ്</a>
+        <a href="/articles/existence-of-god-evidence/" class="article-item">ദൈവാസ്തിത്വത്തിന് എന്ത് തെളിവ്?</a>
+        <a href="/articles/only-religion-sight-of-allah/" class="article-item">അല്ലാഹുവിന്റെ അടുക്കൽ ഏകമതം ഏത്?</a>
+        <a href="/articles/quran-word-of-allah-proofs/" class="article-item">ഖുർആൻ അല്ലാഹുവിന്റെ വാക്കാണെന്നതിന്റെ തെളിവുകൾ</a>
+      </div>
+    </div>
+    <div class="lang-toggle" role="tablist">
+      <button class="lang-btn active" onclick="setLang('ml')" id="btn-ml">മലയാളം</button>
+      <button class="lang-btn" onclick="setLang('manglish')" id="btn-manglish">Manglish</button>
+      <button class="lang-btn" onclick="setLang('en')" id="btn-en">English</button>
+    </div>
+  </div>
+</nav>
+
+<header class="article-header">
+  <div class="article-kicker">
+    <span data-lang="ml">ലേഖനം</span>
+    <span data-lang="manglish">Lekhanam</span>
+    <span data-lang="en">Article</span>
+  </div>
+  <h1 class="article-title ml fade-in" data-lang="ml">മുഹമ്മദ് ﷺ യുടെ പ്രവാചകത്വത്തിന്റെ സത്യതയ്ക്കുള്ള തെളിവ്</h1>
+  <h1 class="article-title fade-in" data-lang="manglish">Muhammad ﷺ yude pravaachakathvathinte sathyathaykkulla thelivu</h1>
+  <h1 class="article-title fade-in" data-lang="en">Evidence for the Prophethood of Muhammad</h1>
+
+  <p class="article-dek ml" data-lang="ml">ഒരാൾ പ്രവാചകനാണ് എന്ന അവകാശവാദം എങ്ങനെ സത്യമാണെന്ന് അറിയാം? അദ്ദേഹത്തിന്റെ സ്വഭാവം, സന്ദേശം, അത്ഭുതങ്ങൾ, മുൻ ഗ്രന്ഥങ്ങളിലെ സൂചനകൾ എന്നിവയിലൂടെയുള്ള ഒരു പരിശോധന.</p>
+  <p class="article-dek" data-lang="manglish">Oraal pravaachakanaanu enna avakaashavaadam engane sathyamaanennu ariyaam? Addhehathinte swabhaavam, sandesham, athbuthangal, mun granthangalile soochanakal ennivayiloodeyulla oru parishodhana.</p>
+  <p class="article-dek" data-lang="en">How does one know that a claim of prophethood is true? An examination through character, message, miracles, and the traces left in earlier scriptures.</p>
+
+  <div class="article-divider"></div>
+</header>
+
+<main class="article-container">
+
+  <p class="body-text ml fade-in" data-lang="ml">
+    ഒരു മനുഷ്യൻ "ഞാൻ അല്ലാഹുവിന്റെ ദൂതനാണ്" എന്ന് പറഞ്ഞാൽ, അത് വിശ്വസിക്കാൻ എന്താണ് ന്യായം? ഈ ചോദ്യം ഏതൊരു ന്യായയുക്തനും ഉയർത്തേണ്ടതാണ് — അന്ധമായ വിശ്വാസത്തിന് ഇസ്‌ലാമിൽ സ്ഥാനമില്ല. മുഹമ്മദ് ﷺ യുടെ പ്രവാചകത്വത്തിന് സത്യമാണെന്നതിന് വ്യക്തമായ, പരിശോധിക്കാവുന്ന തെളിവുകൾ ഉണ്ട്.
+  </p>
+  <p class="body-text manglish fade-in" data-lang="manglish">
+    Oru manushyan "Njaan Allahuvinte doothanaanu" ennu paranjaal, athu vishvasikkaan enthaanu nyaayam? Ee chodyam ethoru nyaayayukthanum uyarthendathaanu — andhamaaya vishvaasathinu Islamil sthaanamilla. Muhammad ﷺ yude pravaachakathvathinu sathyamaanennathinu vyakthamaaya, parishodhikkaavunna thelivukal undu.
+  </p>
+  <p class="body-text fade-in" data-lang="en">
+    If a man says, "I am a Messenger of Allah," what makes that claim believable? Anyone reasonable should ask this — blind belief has no place in Islam. The Prophethood of Muhammad ﷺ rests on evidence that is clear and open to examination.
+  </p>
+
+  <h2 class="section-heading ml" data-lang="ml">അദ്ദേഹത്തിന്റെ സ്വഭാവം തന്നെ ഒരു തെളിവ്</h2>
+  <h2 class="section-heading" data-lang="manglish">Swabhaavam thanne oru thelivu</h2>
+  <h2 class="section-heading" data-lang="en">His character itself is evidence</h2>
+
+  <p class="body-text ml" data-lang="ml">
+    അല്ലാഹു അദ്ദേഹത്തെ തിരഞ്ഞെടുത്തത് അനാഥനായി വളർന്ന്, എഴുത്തും വായനയും അറിയാത്ത ഒരാളായി — എന്നിട്ടും എല്ലാ നല്ല ഗുണങ്ങളും ഏറ്റവും ഉയർന്ന നിലയിൽ അദ്ദേഹത്തിൽ ഒരുമിച്ചു ചേർന്നു, ഒരു പ്രവാചകനല്ലാതെ മറ്റാർക്കും എത്താൻ കഴിയാത്ത നിലയിൽ. ശത്രുക്കൾ പോലും അദ്ദേഹത്തെ "അൽ-അമീൻ" (വിശ്വസ്തൻ) എന്നാണ് വിളിച്ചിരുന്നത്, പ്രവാചകത്വത്തിന് മുമ്പേ.
+  </p>
+  <p class="body-text manglish" data-lang="manglish">
+    Allahu addhehathe thiranjedutthathu anaathanaayi valarnnu, ezhuthum vaayanayum ariyaathe oraalaayi — ennittum ellaa nalla gunangalum ettavum uyarnna nilayil addhehathil orumichu chernnu, oru pravaachakanallaathe mattaarkkum ethaan kazhiyaatha nilayil. Shathrukkal polum addhehathe "Al-Ameen" (vishvasthan) ennaanu vilichirunnathu, pravaachakathvathinu mumpe.
+  </p>
+  <p class="body-text" data-lang="en">
+    Allah chose him though he grew up an orphan, unable to read or write — yet every praiseworthy quality was perfected in him at a level attainable only by a prophet. Even his enemies called him "al-Amin," the trustworthy one, before he ever claimed Prophethood.
+  </p>
+
+  <h2 class="section-heading ml" data-lang="ml">വെളിപാടും അതിന്റെ അടയാളങ്ങളും</h2>
+  <h2 class="section-heading" data-lang="manglish">Velipaadum adayaalangalum</h2>
+  <h2 class="section-heading" data-lang="en">Revelation and its signs</h2>
+
+  <p class="body-text ml" data-lang="ml">
+    ജിബ്‌രീൽ ﷺ വഴിയാണ് അദ്ദേഹത്തിന് വെളിപാട് ലഭിച്ചത് — യഹൂദരും ക്രിസ്ത്യാനികളും അംഗീകരിക്കുന്ന ഒരു മലക്ക്. വെളിപാട് ലഭിക്കുമ്പോൾ അദ്ദേഹത്തിൽ പ്രകടമായ, അസാധാരണമായ ലക്ഷണങ്ങൾ കാണപ്പെട്ടു — അത് പുറത്തുനിന്ന് വരുന്നതാണ്, അദ്ദേഹത്തിന്റെ സ്വന്തം നിയന്ത്രണത്തിലല്ല എന്ന് സഹാബികൾ സാക്ഷ്യപ്പെടുത്തി.
+  </p>
+  <p class="body-text manglish" data-lang="manglish">
+    Jibreel ﷺ vazhiyaanu addhehathinu velipaadu labhichathu — Yahudarum Christianikalum angeekarikkunna oru malakku. Velipaadu labhikkumpol addhehathil prakatamaaya, asaadhaaranamaaya lakshanangal kaanappettu — athu puratthu ninnu varunnathaanu, addhehathinte swantham niyanthranathilalla ennu sahaabikal saakshyappeduthi.
+  </p>
+  <p class="body-text" data-lang="en">
+    Revelation came to him through Jibreel, an angel recognized by both Jews and Christians. When revelation descended, visible, unusual effects appeared on him — his companions witnessed this and understood that it came from outside him, beyond his own control.
+  </p>
+
+  <h2 class="section-heading ml" data-lang="ml">അത്ഭുതങ്ങൾ — ബോധ്യപ്പെടുത്തുന്ന തെളിവ്</h2>
+  <h2 class="section-heading" data-lang="manglish">Athbuthangal — bodhyappeduthunna thelivu</h2>
+  <h2 class="section-heading" data-lang="en">Miracles — decisive proof</h2>
+
+  <p class="body-text ml" data-lang="ml">
+    ചന്ദ്രൻ പിളർന്നത്, ബൈത്തുൽ മഖ്ദിസിലേക്കുള്ള രാത്രി യാത്ര (ഇസ്‌റാഅ്) തുടങ്ങിയ ശാരീരികമായ അത്ഭുതങ്ങളിലൂടെ അല്ലാഹു അദ്ദേഹത്തെ പിന്തുണച്ചു — ജനങ്ങൾ അദ്ദേഹത്തെ വെല്ലുവിളിച്ചപ്പോൾ. അതിനൊപ്പം, ബുദ്ധിയുള്ളവർക്കുള്ള ഏറ്റവും വലിയ അത്ഭുതം — ഖുർആൻ തന്നെ — അദ്ദേഹത്തിന് നൽകപ്പെട്ടു, ശൈലിയിലും ഉള്ളടക്കത്തിലും മുഴുവൻ മനുഷ്യരാശിക്കും അനുകരിക്കാൻ കഴിയാത്തത്.
+  </p>
+  <p class="body-text manglish" data-lang="manglish">
+    Chandran pilarnnathu, Baithul Maqdisilekkulla raathri yaathra (Isra) thudangiya shaareerikamaaya athbuthangaliloode Allahu addhehathe pinthunachu — janangal addhehathe velluvilichappol. Athinoppam, buddhiyullavarkkulla ettavum valiya athbutham — Quran thanne — addhehathinu nalkappettu, shailiyilum ulladakkathilum muzhuvan manushyaraashikkum anukarikkaan kazhiyaathathu.
+  </p>
+  <p class="body-text" data-lang="en">
+    Allah supported him with tangible miracles — the splitting of the moon, the Night Journey to Bayt al-Maqdis — whenever people demanded proof. Alongside these, the greatest miracle for people of reason was given to him: the Quran itself, unmatched by the whole of mankind in both style and content.
+  </p>
+
+  <h2 class="section-heading ml" data-lang="ml">വേദഗ്രന്ഥങ്ങളിലെ മുൻസൂചന</h2>
+  <h2 class="section-heading" data-lang="manglish">Vedagranthangalile munsoochana</h2>
+  <h2 class="section-heading" data-lang="en">Foretold in earlier scriptures</h2>
+
+  <p class="body-text ml" data-lang="ml">
+    തോറയിലും സുവിശേഷത്തിലും അദ്ദേഹത്തിന്റെ വരവിനെക്കുറിച്ചുള്ള സൂചനകൾ ഉണ്ടായിരുന്നു — ഇത് തിരിച്ചറിഞ്ഞ ചില വേദജ്ഞർ ഇസ്‌ലാം സ്വീകരിച്ചു. മറച്ചുവയ്ക്കാനുള്ള ആവർത്തിച്ച ശ്രമങ്ങൾക്കിടയിലും, ഈ സൂചനകൾ ഇന്നും ചില പതിപ്പുകളിൽ അവശേഷിക്കുന്നു എന്ന് ചരിത്രകാരന്മാർ ചൂണ്ടിക്കാണിക്കുന്നു.
+  </p>
+  <p class="body-text manglish" data-lang="manglish">
+    Thorayilum suvishehsathilum addhehathinte varavinekkurichulla soochanakal undaayirunnu — ithu thiricharinja chila vedajnjar Islam sweekarichu. Marachuvaykkaanulla aavarthicha shramangalkkidayilum, ee soochanakal innum chila pathippukalil avasheshikkunnu ennu charithrakaaranmaar choondikaanikkunnu.
+  </p>
+  <p class="body-text" data-lang="en">
+    The Torah and Gospel contained hints of his coming — recognized by some scholars of earlier scripture, who then embraced Islam. Historians note that traces of these references remain in some surviving versions even now, despite repeated attempts to remove them.
+  </p>
+
+  <h2 class="section-heading ml" data-lang="ml">ഒരേ സന്ദേശത്തിന്റെ തുടർച്ച</h2>
+  <h2 class="section-heading" data-lang="manglish">Ore sandheshathinte thudarcha</h2>
+  <h2 class="section-heading" data-lang="en">Continuity of one message</h2>
+
+  <p class="body-text ml" data-lang="ml">
+    അദ്ദേഹത്തിന്റെ സന്ദേശം പുതിയതൊന്നും ആയിരുന്നില്ല — മൂസ ﷺ, ഈസ ﷺ തുടങ്ങിയ മുൻ ദൂതന്മാർ കൊണ്ടുവന്ന അതേ അടിസ്ഥാന സന്ദേശത്തിന്റെ തുടർച്ചയായിരുന്നു അത്. യഹൂദരും ക്രിസ്ത്യാനികളും തങ്ങളുടെ ഗ്രന്ഥങ്ങളിലെ സത്യത്തിന് സാക്ഷ്യം വഹിച്ചിരുന്നു — ആ ഗ്രന്ഥങ്ങളുടെ അതേ അടിസ്ഥാനതത്ത്വങ്ങൾ സ്ഥിരീകരിക്കുന്ന ഒരു സന്ദേശം കൃത്രിമമാകാൻ സാധ്യത കുറവാണ്.
+  </p>
+  <p class="body-text manglish" data-lang="manglish">
+    Addhehathinte sandesham puthiyathonnum aayirunnilla — Moosa ﷺ, Eesa ﷺ thudangiya mun doothanmaar konduvanna athe adisthaana sandheshathinte thudarchayaayirunnu athu. Yahudarum Christianikalum thangalude granthangalile sathyathinu saakshyam vahichirunnu — aa granthangalude athe adisthaanathathvangal sthireekarikkunna oru sandesham kruthrimamaakaan saadhyatha kuravaanu.
+  </p>
+  <p class="body-text" data-lang="en">
+    His message was nothing new — it continued the same core message brought by Musa ﷺ, ‘Isa ﷺ, and other messengers before him, whose books people of the earlier faiths had already testified to. A message that confirms the same principles as those earlier books, rather than contradicting them, is far less likely to be a fabrication.
+  </p>
+
+  <div class="quote-block">
+    <p class="quote-text ml" data-lang="ml">"...നിശ്ചയമായും അല്ലാഹുവിൽ നിന്ന് നിങ്ങൾക്ക് ഒരു പ്രകാശവും വ്യക്തമായ ഗ്രന്ഥവും വന്നിരിക്കുന്നു, അതിലൂടെ അല്ലാഹു തന്റെ പ്രീതി തേടുന്നവരെ സമാധാനത്തിന്റെ വഴികളിലേക്ക് നയിക്കുന്നു, അവരെ ഇരുട്ടിൽ നിന്ന് വെളിച്ചത്തിലേക്ക് കൊണ്ടുവരുന്നു."</p>
+    <p class="quote-text" data-lang="manglish">"...Nishchayamaayum Allahuvil ninnu ningalkku oru prakaashavum vyakthamaaya granthavum vannirikkunnu, athiloode Allahu thante preethi thedunnavare samaadhaanathinte vazhikalilekku nayikkunnu, avare irutil ninnu velichathilekku konduvarunnu."</p>
+    <p class="quote-text" data-lang="en">"...There has come to you from Allah a light and a clear Book, wherewith Allah guides all those who seek His good pleasure to the ways of peace, and brings them out of darkness into light."</p>
+    <p class="quote-source ml" data-lang="ml">— അൽ-മാഇദ 5:15-16</p>
+    <p class="quote-source" data-lang="manglish">— Al-Ma'idah 5:15-16</p>
+    <p class="quote-source" data-lang="en">— Al-Ma'idah 5:15-16</p>
+  </div>
+
+  <p class="body-text ml" data-lang="ml">
+    ചുരുക്കത്തിൽ, ചരിത്രത്തിലും യുക്തിയിലും ഈ തെളിവ് വ്യക്തമാണ് — സത്യം സത്യസന്ധമായി തേടുന്ന ഒരാൾക്ക് ഇത് സംശയം മാറ്റാനും ഹൃദയത്തിന്റെ ദാഹം ശമിപ്പിക്കാനും മതിയാകും.
+  </p>
+  <p class="body-text manglish" data-lang="manglish">
+    Churukkathil, charithrathilum yukthiyilum ee thelivu vyakthamaanu — sathyam sathyasandhamaayi thedunna oraalkku ithu samshayam maattaanum hrudayathinte daaham shamippikkaanum mathiyaakum.
+  </p>
+  <p class="body-text" data-lang="en">
+    In short, the proof is clear, both in historical record and in reason — enough to cure the doubt and quench the thirst of anyone who sincerely seeks the truth.
+  </p>
+
+  <p class="body-text ml" data-lang="ml"><em>അല്ലാഹുവിന് നല്ലതായി അറിയാം.</em></p>
+  <p class="body-text manglish" data-lang="manglish"><em>Allahuvinu nallathaayi ariyaam.</em></p>
+  <p class="body-text" data-lang="en"><em>And Allah knows best.</em></p>
+
+</main>
+
+<footer class="footer">
+  <span data-lang="ml">© 2026 ജീവിതലക്ഷ്യം · jeevithalakshyam.info</span>
+  <span data-lang="manglish">© 2026 Jeevithalakshyam · jeevithalakshyam.info</span>
+  <span data-lang="en">© 2026 Jeevithalakshyam · jeevithalakshyam.info</span>
+</footer>
+
+<script>
+function toggleArticles(e) {
+  e.stopPropagation();
+  const btn = document.getElementById('articlesBtn');
+  const dd = document.getElementById('articlesDropdown');
+  const isOpen = dd.classList.toggle('open');
+  btn.classList.toggle('open', isOpen);
+}
+document.addEventListener('click', (e) => {
+  const menu = document.querySelector('.articles-menu');
+  if (menu && !menu.contains(e.target)) {
+    document.getElementById('articlesDropdown').classList.remove('open');
+    document.getElementById('articlesBtn').classList.remove('open');
+  }
+});
+function setLang(lang) {
+  document.documentElement.lang = lang;
+  localStorage.setItem('jl-lang', lang);
+  document.querySelectorAll('.lang-toggle button').forEach(b => b.classList.remove('active'));
+  document.getElementById('btn-' + lang).classList.add('active');
+}
+(function() {
+  const saved = localStorage.getItem('jl-lang') || 'ml';
+  setLang(saved);
+})();
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proofs the Quran Is the Word of Allah | ജീവിതലക്ഷ്യം</title>
+<meta name="description" content="Textual and rational proofs that the Quran is Allah's own speech, not a created thing — and why that distinction matters.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;700&family=Noto+Serif+Malayalam:wght@400;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --canvas: #0F1419;
+  --surface: #1A1F26;
+  --elevated: #232A33;
+  --primary: #00A86B;
+  --primary-bright: #00C77C;
+  --gold: #D4A24C;
+  --gold-bright: #F5C572;
+  --emerald-tint: #1A3A2E;
+  --heading: #FFFFFF;
+  --body: #D1D5DB;
+  --muted: #8B95A1;
+  --border: #2D3640;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+a { -webkit-tap-highlight-color: transparent; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--canvas);
+  color: var(--body);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.7;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(ellipse at 30% 20%, var(--emerald-tint) 0%, transparent 50%);
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: 0;
+}
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  padding: 1.25rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+  background: rgba(15, 20, 25, 0.6);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s;
+}
+nav.scrolled { border-bottom-color: var(--border); }
+.brand { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; color: var(--gold); font-family: 'Fraunces', serif; font-weight: 600; font-size: 1.1rem; letter-spacing: 0.5px; }
+.brand-glyph { width: 28px; height: 28px; border-radius: 50%; background: linear-gradient(135deg, var(--gold) 0%, var(--gold-bright) 100%); color: var(--canvas); display: flex; align-items: center; justify-content: center; font-family: 'Noto Serif Malayalam', serif; font-weight: 700; font-size: 1rem; }
+.nav-right { display: flex; align-items: center; gap: 0.75rem; }
+.articles-menu { position: relative; }
+.articles-btn {
+  display: flex; align-items: center; gap: 0.4rem;
+  background: transparent; border: 1px solid var(--border);
+  color: var(--muted); padding: 0.5rem 0.9rem;
+  border-radius: 50px; font-size: 0.78rem; font-weight: 500;
+  cursor: pointer; font-family: inherit; transition: all 0.25s;
+}
+.articles-btn:hover, .articles-btn.open { color: var(--heading); border-color: var(--primary); }
+.articles-icon { display: none; font-size: 0.85rem; line-height: 1; }
+.articles-btn .caret { font-size: 0.6rem; transition: transform 0.25s; }
+.articles-btn.open .caret { transform: rotate(180deg); }
+.articles-dropdown {
+  position: absolute; top: calc(100% + 10px); right: 0; min-width: 290px;
+  background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+  padding: 0.4rem; box-shadow: 0 12px 32px rgba(0,0,0,0.4);
+  opacity: 0; visibility: hidden; transform: translateY(-6px);
+  transition: all 0.2s; z-index: 200;
+}
+.articles-dropdown.open { opacity: 1; visibility: visible; transform: translateY(0); }
+.article-item {
+  display: block; padding: 0.7rem 0.85rem; border-radius: 8px;
+  color: var(--body); text-decoration: none; font-size: 0.85rem;
+  line-height: 1.5; transition: background 0.2s;
+}
+.article-item:hover { background: var(--elevated); color: var(--heading); }
+.article-item.current { color: var(--primary-bright); }
+.lang-toggle { display: flex; gap: 0.25rem; background: var(--surface); padding: 0.3rem; border-radius: 50px; border: 1px solid var(--border); }
+.lang-btn { background: transparent; border: none; color: var(--muted); padding: 0.4rem 0.9rem; border-radius: 50px; font-size: 0.78rem; font-weight: 500; cursor: pointer; transition: all 0.25s; font-family: inherit; }
+.lang-btn.active { background: var(--primary); color: var(--canvas); font-weight: 600; }
+.lang-btn:hover:not(.active) { color: var(--heading); }
+
+.article-header { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; padding: 8.5rem 24px 2.5rem; }
+.article-kicker { color: var(--muted); font-size: 12px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 18px; }
+.article-title { font-family: 'Fraunces', serif; font-weight: 700; font-size: clamp(1.7rem, 4vw, 2.3rem); color: var(--heading); line-height: 1.35; }
+.article-title.ml { font-family: 'Noto Serif Malayalam', serif; }
+.article-dek { margin-top: 16px; font-size: 16px; color: var(--muted); line-height: 1.7; }
+.article-dek.ml { font-family: 'Noto Serif Malayalam', serif; font-size: 17px; }
+.article-meta { margin-top: 20px; font-size: 13px; color: var(--muted); }
+.article-divider { width: 100%; height: 1px; background: var(--border); margin-top: 28px; }
+
+.article-container { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; padding: 8px 24px 80px; }
+.section-heading { font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.25rem; color: var(--primary-bright); margin: 2.5rem 0 1rem; }
+.section-heading.ml { font-family: 'Noto Serif Malayalam', serif; font-size: 1.3rem; }
+.body-text { font-size: 17px; line-height: 1.85; margin-bottom: 20px; color: var(--body); }
+.body-text.ml { font-family: 'Noto Serif Malayalam', serif; font-size: 19px; line-height: 1.9; }
+.body-text.manglish { font-style: italic; }
+.quote-block { background: var(--surface); border-left: 3px solid var(--primary); padding: 22px 26px; margin: 24px 0; border-radius: 8px; }
+.quote-text { font-family: 'Fraunces', serif; font-style: italic; font-size: 17px; color: var(--heading); line-height: 1.7; }
+.quote-text.ml { font-family: 'Noto Serif Malayalam', serif; font-style: normal; font-size: 18px; }
+.quote-source { margin-top: 10px; font-size: 13px; color: var(--muted); font-style: normal; }
+.ayah { font-family: 'Amiri', serif; font-size: 22px; color: var(--body); text-align: center; direction: rtl; line-height: 1.9; margin: 6px 0 14px; }
+.source-note { margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--border); font-size: 13px; color: var(--muted); }
+.back-link { display: inline-block; margin-top: 36px; color: var(--muted); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+.back-link:hover { color: var(--body); }
+.footer { position: relative; z-index: 1; text-align: center; padding: 40px 20px; color: var(--muted); font-size: 12px; border-top: 1px solid var(--border); margin-top: 40px; }
+
+[data-lang] { display: none; }
+html[lang="ml"] [data-lang="ml"], html[lang="manglish"] [data-lang="manglish"], html[lang="en"] [data-lang="en"] { display: block; }
+.fade-in { opacity: 0; transform: translateY(16px); animation: fadeUp 0.7s ease forwards; }
+@keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+.numbered { display: flex; gap: 14px; margin-bottom: 22px; }
+.numbered .num { flex: none; width: 30px; height: 30px; border-radius: 50%; background: var(--elevated); color: var(--primary-bright); font-family: 'Fraunces', serif; font-weight: 700; font-size: 14px; display: flex; align-items: center; justify-content: center; }
+.numbered .txt { flex: 1; }
+
+@media (max-width: 640px) {
+  nav { padding: 0.9rem 1rem; }
+  .brand span:last-child { display: inline; }
+  .articles-btn { padding: 0.35rem 0.65rem; font-size: 0.7rem; }
+  .lang-btn { padding: 0.35rem 0.65rem; font-size: 0.7rem; }
+}
+@media (max-width: 400px) {
+  nav { padding: 0.8rem 0.7rem; }
+  .brand span:last-child { display: none; }
+  .articles-label, .articles-btn .caret { display: none; }
+  .articles-icon { display: inline; }
+  .articles-btn { padding: 0.3rem 0.5rem; border-radius: 50%; }
+  .nav-right { gap: 0.4rem; }
+  .lang-toggle { gap: 0.1rem; padding: 0.2rem; }
+  .lang-btn { padding: 0.28rem 0.45rem; font-size: 0.62rem; }
+}
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="/" class="brand">
+    <span class="brand-glyph">ജ</span>
+    <span>Jeevithalakshyam</span>
+  </a>
+  <div class="nav-right">
+    <div class="articles-menu">
+      <button class="articles-btn" id="articlesBtn" onclick="toggleArticles(event)">
+        <span class="articles-icon">&#128196;</span>
+        <span class="articles-label">അറിവുകൾ</span>
+        <span class="caret">&#9662;</span>
+      </button>
+      <div class="articles-dropdown" id="articlesDropdown">
+        <a href="/articles/evidence-islam-is-true/" class="article-item">ഇസ്‌ലാം സത്യമാണെന്നതിന് എന്ത് തെളിവ്?</a>
+        <a href="/articles/evidence-prophethood-muhammad/" class="article-item">മുഹമ്മദ് ﷺ യുടെ പ്രവാചകത്വത്തിന്റെ തെളിവ്</a>
+        <a href="/articles/evidence-oneness-of-allah/" class="article-item">അല്ലാഹുവിന്റെ ഏകത്വത്തിന്റെ തെളിവ്</a>
+        <a href="/articles/existence-of-god-evidence/" class="article-item">ദൈവാസ്തിത്വത്തിന് എന്ത് തെളിവ്?</a>
+        <a href="/articles/only-religion-sight-of-allah/" class="article-item">അല്ലാഹുവിന്റെ അടുക്കൽ ഏകമതം ഏത്?</a>
+        <a href="/articles/quran-word-of-allah-proofs/" class="article-item current">ഖുർആൻ അല്ലാഹുവിന്റെ വാക്കാണെന്നതിന്റെ തെളിവുകൾ</a>
+      </div>
+    </div>
+    <div class="lang-toggle" role="tablist">
+      <button class="lang-btn active" onclick="setLang('ml')" id="btn-ml">മലയാളം</button>
+      <button class="lang-btn" onclick="setLang('manglish')" id="btn-manglish">Manglish</button>
+      <button class="lang-btn" onclick="setLang('en')" id="btn-en">English</button>
+    </div>
+  </div>
+</nav>
+
+<header class="article-header">
+  <div class="article-kicker">
+    <span data-lang="ml">ലേഖനം</span>
+    <span data-lang="manglish">Lekhanam</span>
+    <span data-lang="en">Article</span>
+  </div>
+  <h1 class="article-title ml fade-in" data-lang="ml">ഖുർആൻ അല്ലാഹുവിന്റെ വാക്കാണ്, സൃഷ്ടിക്കപ്പെട്ടതല്ല</h1>
+  <h1 class="article-title fade-in" data-lang="manglish">Quran Allahuvinte vaakkaanu, srishtikkappettathalla</h1>
+  <h1 class="article-title fade-in" data-lang="en">The Quran Is the Word of Allah, Not a Created Thing</h1>
+
+  <p class="article-dek ml" data-lang="ml">ഖുർആൻ അല്ലാഹുവിന്റെ സ്വന്തം വാക്കാണ്, അവന്റെ ഒരു സൃഷ്ടിയല്ല എന്നതിന് ഗ്രന്ഥത്തിൽ നിന്നും യുക്തിയിൽ നിന്നുമുള്ള ചില പ്രധാന തെളിവുകൾ.</p>
+  <p class="article-dek" data-lang="manglish">Quran Allahuvinte swantham vaakkaanu, avante oru srishtiyalla ennathinu granthathil ninnum yukthiyil ninnumulla chila pradhaana thelivukal.</p>
+  <p class="article-dek" data-lang="en">Some of the main textual and rational proofs that the Quran is Allah's own speech — an attribute of His — and not something He created.</p>
+
+  <div class="article-divider"></div>
+</header>
+
+<main class="article-container">
+
+  <p class="body-text ml fade-in" data-lang="ml">
+    ചരിത്രത്തിൽ ചില വിഭാഗങ്ങൾ ഖുർആൻ "സൃഷ്ടിക്കപ്പെട്ടത്" ആണെന്ന് വാദിച്ചു — അതായത്, മരങ്ങളും പർവ്വതങ്ങളും പോലെ അല്ലാഹുവിന്റെ ഒരു സൃഷ്ടി മാത്രമാണ് അതും എന്ന്. സലഫായ പണ്ഡിതന്മാർ ഇതിനെ ഗ്രന്ഥത്തിൽ നിന്നും യുക്തിയിൽ നിന്നുമുള്ള ശക്തമായ തെളിവുകളാൽ എതിർത്തു. അതിൽ ചിലത് ഇവിടെ.
+  </p>
+  <p class="body-text manglish fade-in" data-lang="manglish">
+    Charithrathil chila vibhaagangal Quran "srishtikkappettathu" aanennu vaadichu — athaayathu, marangalum parvvathangalum pole Allahuvinte oru srishti maathramaanu athum ennu. Salafaaya panditanmar ithine granthathil ninnum yukthiyil ninnumulla shakthamaaya thelivukalaal ethirthu. Athil chilathu ivide.
+  </p>
+  <p class="body-text fade-in" data-lang="en">
+    Some sects in history claimed that the Quran is "created" — no different from trees or mountains, one more thing Allah made. Scholars of the earliest generations refuted this with strong evidence from both text and reason. Here are some of the main proofs.
+  </p>
+
+  <h2 class="section-heading ml" data-lang="ml">സൃഷ്ടിയും കൽപ്പനയും വേറെവേറെയാണ്</h2>
+  <h2 class="section-heading" data-lang="manglish">Srishtiyum kalppanayum verevereyaanu</h2>
+  <h2 class="section-heading" data-lang="en">Creation and command are distinct</h2>
+
+  <p class="body-text ml" data-lang="ml">
+    ഖുർആൻ പറയുന്നു: "സൃഷ്ടിയും കൽപ്പനയും അവന്റേതു തന്നെ." (7:54) അല്ലാഹു ഇവിടെ സൃഷ്ടിയെയും കൽപ്പനയെയും വേറെവേറെ പറയുന്നു — സൃഷ്ടി അവന്റെ പ്രവർത്തനവും, കൽപ്പന അവന്റെ വാക്കും ആണ്. സൃഷ്ടി തന്നെ കൽപ്പനയിലൂടെയാണ് സംഭവിക്കുന്നത് — "അവൻ ഒരു കാര്യം ഉദ്ദേശിച്ചാൽ, 'ഉണ്ടാകൂ' എന്ന് പറയുക മാത്രം, അത് ഉണ്ടാകുന്നു." (36:82) ആ കൽപ്പന തന്നെ സൃഷ്ടിക്കപ്പെട്ടതാണെങ്കിൽ, അതിനും ഒരു കൽപ്പന വേണ്ടിവരും — അനന്തമായി തുടരും, അത് അസാധ്യമാണ്.
+  </p>
+  <p class="body-text manglish" data-lang="manglish">
+    Quran parayunnu: "Srishtiyum kalppanayum avantethu thanne." (7:54) Allahu ivide srishtiyeyum kalppanayeyum verevere parayunnu — srishti avante pravarthanavum, kalppana avante vaakkum aanu. Srishti thanne kalppanayiloodeyaanu sambhavikkunnathu — "Avan oru kaaryam uddheshichaal, 'undaakoo' ennu parayuka maathram, athu undaakunnu." (36:82) Aa kalppana thanne srishtikkappettathaanenkil, athinum oru kalppana vendivarum — ananthamaayi thudarum, athu asaadhyamaanu.
+  </p>
+  <p class="body-text" data-lang="en">
+    The Quran says: "Surely, His is the creation and the command." (7:54) Allah differentiates here between creation and command — creation is His deed, command is His word. Creation itself happens through command — "His command, when He intends a thing, is only that He says to it, 'Be!' and it is." (36:82) If that command were itself created, it would need another command to create it, and so on without end — which is impossible.
+  </p>
+
+  <h2 class="section-heading ml" data-lang="ml">ഖുർആൻ അല്ലാഹുവിന്റെ അറിവാണ്</h2>
+  <h2 class="section-heading" data-lang="manglish">Quran Allahuvinte arivaanu</h2>
+  <h2 class="section-heading" data-lang="en">The Quran is Allah's knowledge</h2>
+
+  <p class="body-text ml" data-lang="ml">
+    "പരമകാരുണികൻ, ഖുർആൻ പഠിപ്പിച്ചു, മനുഷ്യനെ സൃഷ്ടിച്ചു." (55:1-3) ഇവിടെ അല്ലാഹു തന്റെ അറിവിനെയും (പഠിപ്പിച്ചത്) സൃഷ്ടിയെയും വേറെവേറെ പറയുന്നു — ഖുർആൻ അവന്റെ അറിവാണ്, മനുഷ്യൻ അവന്റെ സൃഷ്ടിയാണ്. അല്ലാഹുവിന്റെ അറിവ് സൃഷ്ടിക്കപ്പെട്ടതല്ല.
+  </p>
+  <p class="body-text manglish" data-lang="manglish">
+    "Paramakaarunikan, Quran padhippichu, manushyane srishtichu." (55:1-3) Ivide Allahu thante arivineyum (padhippichathu) srishtiyeyum verevere parayunnu — Quran avante arivaanu, manushyan avante srishtiyaanu. Allahuvinte arivu srishtikkappettathalla.
+  </p>
+  <p class="body-text" data-lang="en">
+    "The Most Beneficent — He taught the Quran, He created man." (55:1-3) Here Allah differentiates between His knowledge (what He taught) and His creation. The Quran is His knowledge; man is His creation. Allah's knowledge is not created.
+  </p>
+
+  <h2 class="section-heading ml" data-lang="ml">അവന്റെ വാക്കുകൾക്ക് അവസാനമില്ല</h2>
+  <h2 class="section-heading" data-lang="manglish">Avante vaakkukalkku avasaanamilla</h2>
+  <h2 class="section-heading" data-lang="en">His words have no end</h2>
+
+  <div class="quote-block">
+    <p class="quote-text ml" data-lang="ml">"സമുദ്രം എന്റെ നാഥന്റെ വാക്കുകൾക്കായി മറയാണെങ്കിൽ, ആ വാക്കുകൾ തീരുന്നതിനു മുമ്പേ സമുദ്രം തീർന്നുപോകും — മറ്റൊരു സമുദ്രം സഹായത്തിനായി കൊണ്ടുവന്നാലും."</p>
+    <p class="quote-text" data-lang="manglish">"Samudram ente naathante vaakkukalkkaayi marayaanenkil, aa vaakkukal theerunnathinu mumpe samudram theernnupokum — mattoru samudram sahaayathinaayi konduvannaalum."</p>
+    <p class="quote-text" data-lang="en">"If the sea were ink for the words of my Lord, the sea would run out before the words of my Lord run out, even if We brought another sea like it for aid."</p>
+    <p class="quote-source ml" data-lang="ml">— അൽ-കഹ്ഫ് 18:109</p>
+    <p class="quote-source" data-lang="manglish">— Al-Kahf 18:109</p>
+    <p class="quote-source" data-lang="en">— Al-Kahf 18:109</p>
+  </div>
+
+  <p class="body-text ml" data-lang="ml">
+    അല്ലാഹുവിന്റെ വാക്കുകൾ അനന്തമാണ് — സൃഷ്ടിക്കപ്പെട്ട ഒന്നിനും ഈ ഗുണം ഉണ്ടാകില്ല, കാരണം സൃഷ്ടിക്കപ്പെട്ട എല്ലാറ്റിനും അല്ലാഹു ഒരു അതിരും അവസാനവും നിശ്ചയിച്ചിട്ടുണ്ട്. അവന്റെ വാക്കിന് അതില്ല എന്നത് അത് അവന്റെ അതേ സ്വഭാവത്തിൽ പെട്ടതാണ് എന്നതിന്റെ ലക്ഷണമാണ്.
+  </p>
+  <p class="body-text manglish" data-lang="manglish">
+    Allahuvinte vaakkukal ananthamaanu — srishtikkappetta onninum ee gunam undaakilla, kaaranam srishtikkappetta ellaattinum Allahu oru athirum avasaanavum nishchayichittundu. Avante vaakkinu athilla ennathu athu avante athe swabhaavathil pettathaanu ennathinte lakshanamaanu.
+  </p>
+  <p class="body-text" data-lang="en">
+    Allah's words are without end — nothing created has this quality, since Allah has set a limit and an end for everything created. That His speech has none is a sign that it belongs to His own attribute, not to His creation.
+  </p>
+
+  <h2 class="section-heading ml" data-lang="ml">അവന്റെ വാക്കുകൊണ്ട് അഭയം തേടുന്നത്</h2>
+  <h2 class="section-heading" data-lang="manglish">Avante vaakkukondu abhayam thedunnathu</h2>
+  <h2 class="section-heading" data-lang="en">Seeking refuge in His words</h2>
+
+  <p class="body-text ml" data-lang="ml">
+    നബി ﷺ പഠിപ്പിച്ചു: "ആരെങ്കിലും ഒരു സ്ഥലത്ത് ഇറങ്ങി, 'അല്ലാഹുവിന്റെ പൂർണ്ണമായ വാക്കുകൾ കൊണ്ട് അവൻ സൃഷ്ടിച്ചതിന്റെ ദോഷത്തിൽ നിന്ന് ഞാൻ അഭയം തേടുന്നു' എന്ന് പറഞ്ഞാൽ, ആ സ്ഥലം വിടുന്നതു വരെ അവനെ ഒന്നും ബാധിക്കില്ല." അല്ലാഹുവിന്റെ വാക്കുകൾ സൃഷ്ടിക്കപ്പെട്ടതായിരുന്നെങ്കിൽ, അതിൽ അഭയം തേടുന്നത് ശിർക്ക് (ബഹുദൈവാരാധന) ആകുമായിരുന്നു — അല്ലാഹു അല്ലാതെ മറ്റെന്തിലും അഭയം തേടുന്നത് ശിർക്ക് ആണെന്ന് അറിയാമല്ലോ. നബി ﷺ തന്റെ സമൂഹത്തെ ശിർക്ക് പഠിപ്പിക്കുമോ?
+  </p>
+  <p class="body-text manglish" data-lang="manglish">
+    Nabi ﷺ padhippichu: "Aarenkilum oru sthalathu irangi, 'Allahuvinte poornnamaaya vaakkukal kondu avan srishtichathinte doshathil ninnu njaan abhayam thedunnu' ennu paranjaal, aa sthalam vidunnathu vare avane onnum baadhikkilla." Allahuvinte vaakkukal srishtikkappettathaayirunnenkil, athil abhayam thedunnathu shirk (bahudaivaaraadhana) aakumaayirunnu — Allahu allaathe mattenthilum abhayam thedunnathu shirk aanennu ariyaamallo. Nabi ﷺ thante samoohathe shirk padhippikkumo?
+  </p>
+  <p class="body-text" data-lang="en">
+    The Prophet ﷺ taught: "Whoever stops at a place and says: I seek refuge in the perfect words of Allah from the evil of that which He has created, nothing will harm him until he moves on." If Allah's words were created, seeking refuge in them would be shirk — and it is well known that seeking refuge in anything other than Allah is shirk. Would the Prophet ﷺ, who came to teach pure monotheism, ever have taught his people something that amounted to shirk?
+  </p>
+
+  <h2 class="section-heading ml" data-lang="ml">മുൻഗാമികളുടെ ഏകാഭിപ്രായം</h2>
+  <h2 class="section-heading" data-lang="manglish">Mungaamikalude ekaabhipraayam</h2>
+  <h2 class="section-heading" data-lang="en">The unanimous view of the early generations</h2>
+
+  <p class="body-text ml" data-lang="ml">
+    അംറ് ഇബ്നു ദീനാർ (റ) പറഞ്ഞു: "എഴുപത് വർഷമായി ഞാൻ സഹാബികളെയും അതിനടുത്ത തലമുറയെയും കണ്ടുമുട്ടിക്കൊണ്ടിരിക്കുന്നു — അവർ പറയുന്നു: അല്ലാഹു സ്രഷ്ടാവാണ്, മറ്റെല്ലാം സൃഷ്ടിയാണ്; ഖുർആൻ അല്ലാഹുവിന്റെ വാക്കാണ്, അത് അവനിൽ നിന്ന് വന്ന് അവനിലേക്ക് തിരിച്ചുപോകും." ഇത് നൂറുകണക്കിന് ആദ്യകാല പണ്ഡിതരുടെ ഏകാഭിപ്രായമായിരുന്നു.
+  </p>
+  <p class="body-text manglish" data-lang="manglish">
+    Amr ibn Dinar (R) paranju: "Ezhupathu varshamaayi njaan sahaabikaleyum athinaduta thalamuraayeyum kandumuttikkondirikkunnu — avar parayunnu: Allahu srashtaavaanu, mattellaam srishtiyaanu; Quran Allahuvinte vaakkaanu, athu avanil ninnu vannu avanilekku thirichupokum." Ithu nooru-kanakkinu aadyakaala panditarude ekaabhipraayamaayirunnu.
+  </p>
+  <p class="body-text" data-lang="en">
+    'Amr ibn Dinar said: "I have been meeting the companions of the Prophet ﷺ and those closest to them for seventy years, and they say: Allah is the Creator, and everything else is created; the Quran is the word of Allah — it came from Him and will return to Him." This was the unanimous position of hundreds of the earliest scholars of this ummah.
+  </p>
+
+  <p class="body-text ml" data-lang="ml">
+    ചുരുക്കത്തിൽ, ഖുർആൻ അല്ലാഹുവിന്റെ വാക്കാണ് — അവന്റെ ഒരു ഗുണവിശേഷം, അവന്റെ അസ്തിത്വത്തിൽ നിന്ന് വേറിടാത്തത്. ഈ വിശ്വാസമാണ് ഈ സമുദായത്തിന്റെ ആദ്യകാല തലമുറകൾ എന്നും മുറുകെപ്പിടിച്ചത്.
+  </p>
+  <p class="body-text manglish" data-lang="manglish">
+    Churukkathil, Quran Allahuvinte vaakkaanu — avante oru gunavishesham, avante asthithvathil ninnu veridaathathu. Ee vishvaasamaanu ee samudaayathinte aadyakaala thalamurakal ennum murukeppidichathu.
+  </p>
+  <p class="body-text" data-lang="en">
+    In summary, the Quran is the word of Allah — one of His attributes, inseparable from His own essence. This is the belief the earliest generations of this ummah held firmly, throughout.
+  </p>
+
+  <p class="body-text ml" data-lang="ml"><em>അല്ലാഹുവിന് നല്ലതായി അറിയാം.</em></p>
+  <p class="body-text manglish" data-lang="manglish"><em>Allahuvinu nallathaayi ariyaam.</em></p>
+  <p class="body-text" data-lang="en"><em>And Allah knows best.</em></p>
+
+</main>
+
+<footer class="footer">
+  <span data-lang="ml">© 2026 ജീവിതലക്ഷ്യം · jeevithalakshyam.info</span>
+  <span data-lang="manglish">© 2026 Jeevithalakshyam · jeevithalakshyam.info</span>
+  <span data-lang="en">© 2026 Jeevithalakshyam · jeevithalakshyam.info</span>
+</footer>
+
+<script>
+function toggleArticles(e) {
+  e.stopPropagation();
+  const btn = document.getElementById('articlesBtn');
+  const dd = document.getElementById('articlesDropdown');
+  const isOpen = dd.classList.toggle('open');
+  btn.classList.toggle('open', isOpen);
+}
+document.addEventListener('click', (e) => {
+  const menu = document.querySelector('.articles-menu');
+  if (menu && !menu.contains(e.target)) {
+    document.getElementById('articlesDropdown').classList.remove('open');
+    document.getElementById('articlesBtn').classList.remove('open');
+  }
+});
+function setLang(lang) {
+  document.documentElement.lang = lang;
+  localStorage.setItem('jl-lang', lang);
+  document.querySelectorAll('.lang-toggle button').forEach(b => b.classList.remove('active'));
+  document.getElementById('btn-' + lang).classList.add('active');
+}
+(function() {
+  const saved = localStorage.getItem('jl-lang') || 'ml';
+  setLang(saved);
+})();
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+});
+</script>
+
+</body>
+</html>

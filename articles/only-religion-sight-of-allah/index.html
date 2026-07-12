@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Only Religion in the Sight of Allah | ജീവിതലക്ഷ്യം</title>
+<meta name="description" content="What does it mean that 'the religion in the sight of Allah is Islam'? Every prophet's core message, and why one path remains after Muhammad ﷺ.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;700&family=Noto+Serif+Malayalam:wght@400;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --canvas: #0F1419;
+  --surface: #1A1F26;
+  --elevated: #232A33;
+  --primary: #00A86B;
+  --primary-bright: #00C77C;
+  --gold: #D4A24C;
+  --gold-bright: #F5C572;
+  --emerald-tint: #1A3A2E;
+  --heading: #FFFFFF;
+  --body: #D1D5DB;
+  --muted: #8B95A1;
+  --border: #2D3640;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+a { -webkit-tap-highlight-color: transparent; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--canvas);
+  color: var(--body);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.7;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(ellipse at 30% 20%, var(--emerald-tint) 0%, transparent 50%);
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: 0;
+}
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  padding: 1.25rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+  background: rgba(15, 20, 25, 0.6);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s;
+}
+nav.scrolled { border-bottom-color: var(--border); }
+.brand { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; color: var(--gold); font-family: 'Fraunces', serif; font-weight: 600; font-size: 1.1rem; letter-spacing: 0.5px; }
+.brand-glyph { width: 28px; height: 28px; border-radius: 50%; background: linear-gradient(135deg, var(--gold) 0%, var(--gold-bright) 100%); color: var(--canvas); display: flex; align-items: center; justify-content: center; font-family: 'Noto Serif Malayalam', serif; font-weight: 700; font-size: 1rem; }
+.nav-right { display: flex; align-items: center; gap: 0.75rem; }
+.articles-menu { position: relative; }
+.articles-btn {
+  display: flex; align-items: center; gap: 0.4rem;
+  background: transparent; border: 1px solid var(--border);
+  color: var(--muted); padding: 0.5rem 0.9rem;
+  border-radius: 50px; font-size: 0.78rem; font-weight: 500;
+  cursor: pointer; font-family: inherit; transition: all 0.25s;
+}
+.articles-btn:hover, .articles-btn.open { color: var(--heading); border-color: var(--primary); }
+.articles-icon { display: none; font-size: 0.85rem; line-height: 1; }
+.articles-btn .caret { font-size: 0.6rem; transition: transform 0.25s; }
+.articles-btn.open .caret { transform: rotate(180deg); }
+.articles-dropdown {
+  position: absolute; top: calc(100% + 10px); right: 0; min-width: 290px;
+  background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+  padding: 0.4rem; box-shadow: 0 12px 32px rgba(0,0,0,0.4);
+  opacity: 0; visibility: hidden; transform: translateY(-6px);
+  transition: all 0.2s; z-index: 200;
+}
+.articles-dropdown.open { opacity: 1; visibility: visible; transform: translateY(0); }
+.article-item {
+  display: block; padding: 0.7rem 0.85rem; border-radius: 8px;
+  color: var(--body); text-decoration: none; font-size: 0.85rem;
+  line-height: 1.5; transition: background 0.2s;
+}
+.article-item:hover { background: var(--elevated); color: var(--heading); }
+.article-item.current { color: var(--primary-bright); }
+.lang-toggle { display: flex; gap: 0.25rem; background: var(--surface); padding: 0.3rem; border-radius: 50px; border: 1px solid var(--border); }
+.lang-btn { background: transparent; border: none; color: var(--muted); padding: 0.4rem 0.9rem; border-radius: 50px; font-size: 0.78rem; font-weight: 500; cursor: pointer; transition: all 0.25s; font-family: inherit; }
+.lang-btn.active { background: var(--primary); color: var(--canvas); font-weight: 600; }
+.lang-btn:hover:not(.active) { color: var(--heading); }
+
+.article-header { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; padding: 8.5rem 24px 2.5rem; }
+.article-kicker { color: var(--muted); font-size: 12px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 18px; }
+.article-title { font-family: 'Fraunces', serif; font-weight: 700; font-size: clamp(1.7rem, 4vw, 2.3rem); color: var(--heading); line-height: 1.35; }
+.article-title.ml { font-family: 'Noto Serif Malayalam', serif; }
+.article-dek { margin-top: 16px; font-size: 16px; color: var(--muted); line-height: 1.7; }
+.article-dek.ml { font-family: 'Noto Serif Malayalam', serif; font-size: 17px; }
+.article-meta { margin-top: 20px; font-size: 13px; color: var(--muted); }
+.article-divider { width: 100%; height: 1px; background: var(--border); margin-top: 28px; }
+
+.article-container { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; padding: 8px 24px 80px; }
+.section-heading { font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.25rem; color: var(--primary-bright); margin: 2.5rem 0 1rem; }
+.section-heading.ml { font-family: 'Noto Serif Malayalam', serif; font-size: 1.3rem; }
+.body-text { font-size: 17px; line-height: 1.85; margin-bottom: 20px; color: var(--body); }
+.body-text.ml { font-family: 'Noto Serif Malayalam', serif; font-size: 19px; line-height: 1.9; }
+.body-text.manglish { font-style: italic; }
+.quote-block { background: var(--surface); border-left: 3px solid var(--primary); padding: 22px 26px; margin: 24px 0; border-radius: 8px; }
+.quote-text { font-family: 'Fraunces', serif; font-style: italic; font-size: 17px; color: var(--heading); line-height: 1.7; }
+.quote-text.ml { font-family: 'Noto Serif Malayalam', serif; font-style: normal; font-size: 18px; }
+.quote-source { margin-top: 10px; font-size: 13px; color: var(--muted); font-style: normal; }
+.ayah { font-family: 'Amiri', serif; font-size: 22px; color: var(--body); text-align: center; direction: rtl; line-height: 1.9; margin: 6px 0 14px; }
+.source-note { margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--border); font-size: 13px; color: var(--muted); }
+.back-link { display: inline-block; margin-top: 36px; color: var(--muted); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+.back-link:hover { color: var(--body); }
+.footer { position: relative; z-index: 1; text-align: center; padding: 40px 20px; color: var(--muted); font-size: 12px; border-top: 1px solid var(--border); margin-top: 40px; }
+
+[data-lang] { display: none; }
+html[lang="ml"] [data-lang="ml"], html[lang="manglish"] [data-lang="manglish"], html[lang="en"] [data-lang="en"] { display: block; }
+.fade-in { opacity: 0; transform: translateY(16px); animation: fadeUp 0.7s ease forwards; }
+@keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 640px) {
+  nav { padding: 0.9rem 1rem; }
+  .brand span:last-child { display: inline; }
+  .articles-btn { padding: 0.35rem 0.65rem; font-size: 0.7rem; }
+  .lang-btn { padding: 0.35rem 0.65rem; font-size: 0.7rem; }
+}
+@media (max-width: 400px) {
+  nav { padding: 0.8rem 0.7rem; }
+  .brand span:last-child { display: none; }
+  .articles-label, .articles-btn .caret { display: none; }
+  .articles-icon { display: inline; }
+  .articles-btn { padding: 0.3rem 0.5rem; border-radius: 50%; }
+  .nav-right { gap: 0.4rem; }
+  .lang-toggle { gap: 0.1rem; padding: 0.2rem; }
+  .lang-btn { padding: 0.28rem 0.45rem; font-size: 0.62rem; }
+}
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="/" class="brand">
+    <span class="brand-glyph">ജ</span>
+    <span>Jeevithalakshyam</span>
+  </a>
+  <div class="nav-right">
+    <div class="articles-menu">
+      <button class="articles-btn" id="articlesBtn" onclick="toggleArticles(event)">
+        <span class="articles-icon">&#128196;</span>
+        <span class="articles-label">അറിവുകൾ</span>
+        <span class="caret">&#9662;</span>
+      </button>
+      <div class="articles-dropdown" id="articlesDropdown">
+        <a href="/articles/evidence-islam-is-true/" class="article-item">ഇസ്‌ലാം സത്യമാണെന്നതിന് എന്ത് തെളിവ്?</a>
+        <a href="/articles/evidence-prophethood-muhammad/" class="article-item">മുഹമ്മദ് ﷺ യുടെ പ്രവാചകത്വത്തിന്റെ തെളിവ്</a>
+        <a href="/articles/evidence-oneness-of-allah/" class="article-item">അല്ലാഹുവിന്റെ ഏകത്വത്തിന്റെ തെളിവ്</a>
+        <a href="/articles/existence-of-god-evidence/" class="article-item">ദൈവാസ്തിത്വത്തിന് എന്ത് തെളിവ്?</a>
+        <a href="/articles/only-religion-sight-of-allah/" class="article-item current">അല്ലാഹുവിന്റെ അടുക്കൽ ഏകമതം ഏത്?</a>
+        <a href="/articles/quran-word-of-allah-proofs/" class="article-item">ഖുർആൻ അല്ലാഹുവിന്റെ വാക്കാണെന്നതിന്റെ തെളിവുകൾ</a>
+      </div>
+    </div>
+    <div class="lang-toggle" role="tablist">
+      <button class="lang-btn active" onclick="setLang('ml')" id="btn-ml">മലയാളം</button>
+      <button class="lang-btn" onclick="setLang('manglish')" id="btn-manglish">Manglish</button>
+      <button class="lang-btn" onclick="setLang('en')" id="btn-en">English</button>
+    </div>
+  </div>
+</nav>
+
+<header class="article-header">
+  <div class="article-kicker">
+    <span data-lang="ml">ലേഖനം</span>
+    <span data-lang="manglish">Lekhanam</span>
+    <span data-lang="en">Article</span>
+  </div>
+  <h1 class="article-title ml fade-in" data-lang="ml">അല്ലാഹുവിന്റെ അടുക്കൽ സ്വീകാര്യമായ ഒരേയൊരു മതം</h1>
+  <h1 class="article-title fade-in" data-lang="manglish">Allahuvinte adukkal sweekaaryamaaya oreyoru matham</h1>
+  <h1 class="article-title fade-in" data-lang="en">The Only Religion in the Sight of Allah</h1>
+
+  <p class="article-dek ml" data-lang="ml">"അല്ലാഹുവിന്റെ അടുക്കൽ മതം ഇസ്‌ലാം ആണ്" (3:19) എന്നതിന്റെ അർത്ഥം എന്താണ്? എല്ലാ പ്രവാചകന്മാരും ഒരേ അടിസ്ഥാന സന്ദേശം കൊണ്ടുവന്നു — സമർപ്പണം.</p>
+  <p class="article-dek" data-lang="manglish">"Allahuvinte adukkal matham Islam aanu" (3:19) ennathinte artham enthaanu? Ellaa pravaachakanmaarum ore adisthaana sandesham konduvannu — samarppanam.</p>
+  <p class="article-dek" data-lang="en">What does "the religion in the sight of Allah is Islam" (3:19) mean? Every prophet carried the same core message — submission to the One God.</p>
+
+  <div class="article-divider"></div>
+</header>
+
+<main class="article-container">
+
+  <p class="body-text ml fade-in" data-lang="ml">
+    ഖുർആൻ പറയുന്നു: "നിശ്ചയമായും അല്ലാഹുവിന്റെ അടുക്കൽ മതം ഇസ്‌ലാം ആണ്." (3:19) ഇവിടെ അല്ലാഹു അറിയിക്കുന്നത് — ഇസ്‌ലാം അല്ലാതെ അവൻ സ്വീകരിക്കുന്ന മറ്റൊരു മതമില്ല എന്നാണ്. ഇസ്‌ലാം എന്നാൽ അല്ലാഹുവിന് സ്വയം സമർപ്പിക്കുക, അവനെ മാത്രം ആരാധിക്കുക, അവനിലും അവന്റെ ദൂതന്മാരിലും അവർ കൊണ്ടുവന്നതിലും വിശ്വസിക്കുക എന്നാണ്.
+  </p>
+  <p class="body-text manglish fade-in" data-lang="manglish">
+    Quran parayunnu: "Nishchayamaayum Allahuvinte adukkal matham Islam aanu." (3:19) Ivide Allahu ariyikkunnathu — Islam allaathe avan sweekarikkunna mattoru mathamilla ennaanu. Islam ennaal Allahuvinu swayam samarppikkuka, avane maathram aaraadhikkuka, avanilum avante doothanmarilum avar konduvannathilum vishvasikkuka ennaanu.
+  </p>
+  <p class="body-text fade-in" data-lang="en">
+    The Quran says: "Indeed, the religion in the sight of Allah is Islam." (3:19) Here Allah tells us that there is no religion He accepts except Islam — meaning to submit fully to Allah, to worship Him alone, and to believe in Him and in what His messengers brought.
+  </p>
+
+  <h2 class="section-heading ml" data-lang="ml">"ഇസ്‌ലാം" എന്നാൽ സമർപ്പണം</h2>
+  <h2 class="section-heading" data-lang="manglish">"Islam" ennaal samarppanam</h2>
+  <h2 class="section-heading" data-lang="en">"Islam" means submission</h2>
+
+  <p class="body-text ml" data-lang="ml">
+    ഓരോ ദൂതനും അല്ലാഹു ഒരു നിയമവ്യവസ്ഥയും രീതിയും നിശ്ചയിച്ചു — ഒടുവിൽ അവസാനത്തെ ദൂതനായ മുഹമ്മദ് ﷺ യെ അയക്കുന്നതുവരെ, അദ്ദേഹത്തെ എല്ലാ ജനങ്ങളിലേക്കും അയച്ചു. അതിനുശേഷം, മുഹമ്മദ് ﷺ കൊണ്ടുവന്ന ഇസ്‌ലാം അല്ലാതെ അല്ലാഹു ആരിൽ നിന്നും ഒരു മതം സ്വീകരിക്കുകയില്ല.
+  </p>
+  <p class="body-text manglish" data-lang="manglish">
+    Oro doothanum Allahu oru niyamavyavastheyum reethiyum nishchayichu — oduvil avasaanathe doothanaaya Muhammad ﷺ ye ayakkunnathuvare, addhehathe ellaa janangalilekkum ayachu. Athinushesham, Muhammad ﷺ konduvanna Islam allaathe Allahu aaril ninnum oru matham sweekarikkukayilla.
+  </p>
+  <p class="body-text" data-lang="en">
+    For each messenger, Allah prescribed a system of law and a method — until He sent the last of them, Muhammad ﷺ, to all people. After him, Allah will not accept any religion from anyone except the Islam that he brought.
+  </p>
+
+  <h2 class="section-heading ml" data-lang="ml">മുൻ പ്രവാചകന്മാരും "മുസ്‌ലിംകൾ" ആയിരുന്നു</h2>
+  <h2 class="section-heading" data-lang="manglish">Mun pravaachakanmaarum "Muslimkal" aayirunnu</h2>
+  <h2 class="section-heading" data-lang="en">Were the earlier prophets "Muslims"?</h2>
+
+  <p class="body-text ml" data-lang="ml">
+    പ്രവാചകന്മാരുടെ മതം ഒന്നാണ്, നിയമവ്യവസ്ഥകൾ വ്യത്യസ്തമായിരുന്നാലും. നൂഹ് ﷺ, ഇബ്രാഹീം ﷺ, മൂസ ﷺ, ഈസ ﷺ — എല്ലാവരും തങ്ങളെ "മുസ്‌ലിംകൾ" (സമർപ്പിതർ) എന്ന് വിശേഷിപ്പിച്ചു. ഖുർആൻ ഈസ ﷺ യുടെ ശിഷ്യന്മാരെപ്പോലും ഇങ്ങനെ ഉദ്ധരിക്കുന്നു: "ഞങ്ങൾ വിശ്വസിച്ചു, ഞങ്ങൾ സമർപ്പിതരാണ് (മുസ്‌ലിംകൾ) എന്ന് സാക്ഷ്യം വഹിക്കുക."
+  </p>
+  <p class="body-text manglish" data-lang="manglish">
+    Pravaachakanmaarude matham onnaanu, niyamavyavasthakal vyathyasthamaayirunnaalum. Nooh ﷺ, Ibraaheem ﷺ, Moosa ﷺ, Eesa ﷺ — ellaavarum thangale "Muslimkal" (samarppithar) ennu visheshippichu. Quran Eesa ﷺ yude shishyanmaarepolum inganeyaanu udharikkunnathu: "Njangal vishvasichu, njangal samarppitharaanu (Muslimkal) ennu saakshyam vahikkuka."
+  </p>
+  <p class="body-text" data-lang="en">
+    The religion of the prophets is one, even though their systems of law differed. Nuh ﷺ, Ibrahim ﷺ, Musa ﷺ, and ‘Isa ﷺ all described themselves as "Muslims" — those who submit. The Quran even quotes the disciples of ‘Isa ﷺ saying, "We have believed, so bear witness that indeed we are Muslims."
+  </p>
+
+  <div class="quote-block">
+    <p class="quote-text ml" data-lang="ml">"നബിമാർ ഞങ്ങൾ, ഞങ്ങളുടെ മതം ഒന്നാണ്, നബിമാർ വിവിധ മാതാക്കളുടെ സഹോദരന്മാർ പോലെയാണ്."</p>
+    <p class="quote-text" data-lang="manglish">"Nabimaar njangal, njangalude matham onnaanu, nabimaar vividha maathaakkalude sahodaranmaar poleyaanu."</p>
+    <p class="quote-text" data-lang="en">"We prophets, our religion is one, and the Prophets are like brothers from different mothers."</p>
+    <p class="quote-source ml" data-lang="ml">— നബി ﷺ (ബുഖാരി, മുസ്‌ലിം)</p>
+    <p class="quote-source" data-lang="manglish">— Nabi ﷺ (Bukhari, Muslim)</p>
+    <p class="quote-source" data-lang="en">— The Prophet ﷺ (Bukhari, Muslim)</p>
+  </div>
+
+  <h2 class="section-heading ml" data-lang="ml">മുഹമ്മദ് ﷺ ക്ക് ശേഷം ഒരു വഴി മാത്രം</h2>
+  <h2 class="section-heading" data-lang="manglish">Muhammad ﷺ kku shesham oru vazhi maathram</h2>
+  <h2 class="section-heading" data-lang="en">After Muhammad ﷺ, one path remains</h2>
+
+  <p class="body-text ml" data-lang="ml">
+    ഓരോ കാലത്തും അല്ലാഹു ആ ജനതയ്ക്ക് അനുയോജ്യമായ നിയമം നിശ്ചയിച്ചു — ഒരു കാലത്തെ നിയമം പിന്നീട് മാറ്റപ്പെടും. ഇത് ആ മതം ഒന്നല്ല എന്നല്ല അർത്ഥം, ഖിബ്‌ല ബൈത്തുൽ മഖ്ദിസിൽ നിന്ന് കഅ്ബയിലേക്ക് മാറിയത് പോലെ ഒരു നിയമവ്യവസ്ഥയ്ക്കുള്ളിൽ തന്നെ മാറ്റം വരാം. എന്നാൽ അവസാന ദൂതൻ വന്നശേഷം, അദ്ദേഹത്തെ പിന്തുടരാതെ മറ്റൊരു വഴി സ്വീകാര്യമല്ല.
+  </p>
+  <p class="body-text manglish" data-lang="manglish">
+    Oro kaalathum Allahu aa janathaykku anuyojyamaaya niyamam nishchayichu — oru kaalathe niyamam pinnedu maattappedum. Ithu aa matham onnalla ennalla artham, Qiblah Baithul Maqdisil ninnu Ka'bayilekku maariyathu pole oru niyamavyavasthaykkullil thanne maattam varaam. Ennaal avasaana doothan vannashesham, addhehathe pinthudaraathe mattoru vazhi sweekaaryamalla.
+  </p>
+  <p class="body-text" data-lang="en">
+    In every era, Allah prescribed a law suited to that people, and later abrogated parts of it — as when the direction of prayer changed from Bayt al-Maqdis to the Ka'bah — without that meaning the religion itself was more than one. But once the final messenger came, no path other than following him remains acceptable.
+  </p>
+
+  <div class="quote-block">
+    <div class="ayah">وَمَن يَبْتَغِ غَيْرَ الْإِسْلَامِ دِينًا فَلَن يُقْبَلَ مِنْهُ</div>
+    <p class="quote-text ml" data-lang="ml">"ആരെങ്കിലും ഇസ്‌ലാം അല്ലാതെ മറ്റൊരു മതം ആഗ്രഹിക്കുന്നു എങ്കിൽ, അത് ഒരിക്കലും അവനിൽ നിന്ന് സ്വീകരിക്കപ്പെടില്ല, പരലോകത്തിൽ അവൻ നഷ്ടക്കാരിൽ ഒരാളായിരിക്കും."</p>
+    <p class="quote-text" data-lang="manglish">"Aarenkilum Islam allaathe mattoru matham aagrahikkunnu enkil, athu orikkalum avanil ninnu sweekarikkappedilla, paralokathil avan nashtakkaaril oraayaayirikkum."</p>
+    <p class="quote-text" data-lang="en">"And whoever desires other than Islam as religion, never will it be accepted from him, and he will be among the losers in the Hereafter."</p>
+    <p class="quote-source ml" data-lang="ml">— ആലു ഇംറാൻ 3:85</p>
+    <p class="quote-source" data-lang="manglish">— Aal Imran 3:85</p>
+    <p class="quote-source" data-lang="en">— Aal 'Imran 3:85</p>
+  </div>
+
+  <p class="body-text ml" data-lang="ml">
+    അല്ലാഹു അവസാനത്തെ ദൂതനും അദ്ദേഹത്തിന്റെ സമൂഹത്തിനും ഈ അനുഗ്രഹം ഓർമ്മിപ്പിക്കുന്നു: "ഇന്ന് ഞാൻ നിങ്ങൾക്ക് നിങ്ങളുടെ മതം പൂർത്തിയാക്കി, എന്റെ അനുഗ്രഹം നിങ്ങളിൽ പൂർണ്ണമാക്കി, ഇസ്‌ലാമിനെ നിങ്ങൾക്ക് മതമായി തൃപ്തിപ്പെട്ടു." (5:3)
+  </p>
+  <p class="body-text manglish" data-lang="manglish">
+    Allahu avasaanathe doothanum addhehathinte samoohathinum ee anugraham ormippikkunnu: "Innu Njaan ningalkku ningalude matham poorthiyaakki, ente anugraham ningalil poornnamaakki, Islamine ningalkku mathamaayi thruptippettu." (5:3)
+  </p>
+  <p class="body-text" data-lang="en">
+    Allah reminds the final Prophet and his ummah of this blessing: "This day I have perfected for you your religion and completed My favour upon you and have approved for you Islam as religion." (5:3)
+  </p>
+
+  <p class="body-text ml" data-lang="ml"><em>അല്ലാഹുവിന് നല്ലതായി അറിയാം.</em></p>
+  <p class="body-text manglish" data-lang="manglish"><em>Allahuvinu nallathaayi ariyaam.</em></p>
+  <p class="body-text" data-lang="en"><em>And Allah knows best.</em></p>
+
+</main>
+
+<footer class="footer">
+  <span data-lang="ml">© 2026 ജീവിതലക്ഷ്യം · jeevithalakshyam.info</span>
+  <span data-lang="manglish">© 2026 Jeevithalakshyam · jeevithalakshyam.info</span>
+  <span data-lang="en">© 2026 Jeevithalakshyam · jeevithalakshyam.info</span>
+</footer>
+
+<script>
+function toggleArticles(e) {
+  e.stopPropagation();
+  const btn = document.getElementById('articlesBtn');
+  const dd = document.getElementById('articlesDropdown');
+  const isOpen = dd.classList.toggle('open');
+  btn.classList.toggle('open', isOpen);
+}
+document.addEventListener('click', (e) => {
+  const menu = document.querySelector('.articles-menu');
+  if (menu && !menu.contains(e.target)) {
+    document.getElementById('articlesDropdown').classList.remove('open');
+    document.getElementById('articlesBtn').classList.remove('open');
+  }
+});
+function setLang(lang) {
+  document.documentElement.lang = lang;
+  localStorage.setItem('jl-lang', lang);
+  document.querySelectorAll('.lang-toggle button').forEach(b => b.classList.remove('active'));
+  document.getElementById('btn-' + lang).classList.add('active');
+}
+(function() {
+  const saved = localStorage.getItem('jl-lang') || 'ml';
+  setLang(saved);
+})();
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+});
+</script>
+
+</body>
+</html>
