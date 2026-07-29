@@ -17,17 +17,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&family=Noto+Sans+Malayalam:wght@400;500;600;700&family=Noto+Serif+Malayalam:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Favicons -->
-  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
-  <link rel="shortcut icon" href="/assets/favicon.svg">
-  <link rel="apple-touch-icon" href="/assets/favicon.svg">
-  <meta name="theme-color" content="#D4A24C">
-  <!-- PNG / ICO fallbacks (generate with scripts/generate-favicons.ps1) -->
-  <link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
-  <link rel="icon" href="/assets/favicon-16.png" sizes="16x16" type="image/png">
-  <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
-  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
-
 <style>
   :root {
     --canvas: #0F1419;
@@ -206,6 +195,10 @@
     line-height: 1.75;
     opacity: 0.92;
   }
+  .reflective-tagline.ml {
+    font-family: 'Noto Serif Malayalam', serif;
+    font-style: normal;
+  }
 
   .hero-tagline {
     font-family: 'Fraunces', serif;
@@ -213,7 +206,24 @@
     font-weight: 400;
     font-size: clamp(1.15rem, 2.3vw, 1.45rem);
     color: var(--gold);
+    margin-bottom: 0.6rem;
+  }
+  .hero-tagline.ml {
+    font-family: 'Noto Serif Malayalam', serif;
+    font-style: normal;
+  }
+  .hero-tagline-sub {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(1.15rem, 2.3vw, 1.45rem);
+    color: var(--gold);
+    opacity: 0.85;
     margin-bottom: 5rem;
+  }
+  .hero-tagline-sub.ml {
+    font-family: 'Noto Serif Malayalam', serif;
+    font-style: normal;
   }
 
   /* Divider */
@@ -308,7 +318,7 @@
     .brand { font-size: 0.95rem; }
     .lang-btn { padding: 0.35rem 0.7rem; font-size: 0.72rem; }
     .hero { min-height: auto; padding: 7rem 1.25rem 3rem; }
-    .hero-tagline { margin-bottom: 3rem; }
+    .hero-tagline-sub { margin-bottom: 3rem; }
     .articles-btn { padding: 0.35rem 0.65rem; font-size: 0.7rem; }
     .divider { margin: 0 auto 2.5rem; }
     .mirror-line { margin: 0.65rem 0; }
@@ -329,7 +339,7 @@
     .hero-title { font-size: clamp(2rem, 9vw, 2.5rem); }
     .why-word { font-size: clamp(2.75rem, 13vw, 4rem); }
     .reflective-tagline { font-size: 0.95rem; margin-bottom: 1.75rem; }
-    .hero-tagline { margin-bottom: 2.25rem; }
+    .hero-tagline-sub { margin-bottom: 2.25rem; }
   }
 
   footer {
@@ -378,12 +388,32 @@
   <h1 class="hero-title">ജീവിതലക്ഷ്യം</h1>
   <div class="hero-subtitle">Jeevithalakshyam</div>
 
-  <p class="reflective-tagline">
-    Reflections on the deepest question of life —<br>
-    meaning, purpose, and the path within.
-  </p>
+  <div class="lang-content active" data-lang="ml">
+    <p class="reflective-tagline ml">
+      ജീവിതത്തിലെ ഏറ്റവും ആഴമുള്ള ചോദ്യത്തെക്കുറിച്ചുള്ള ചിന്തകൾ —<br>
+      അർത്ഥം, ലക്ഷ്യം, ഉള്ളിലേക്കുള്ള വഴി.
+    </p>
+    <div class="hero-tagline ml">നിന്റെ ജീവിതം എന്തിനുവേണ്ടിയാണ്?</div>
+    <div class="hero-tagline-sub ml">ജീവിതത്തിന്റെ ലക്ഷ്യം എന്താണ്?</div>
+  </div>
 
-  <div class="hero-tagline">What is your life for?</div>
+  <div class="lang-content" data-lang="manglish">
+    <p class="reflective-tagline">
+      Jeevithathile erravum aazhamulla chodyathekkurichulla chinthakal —<br>
+      arthham, lakshyam, ullilekkulla vazhi.
+    </p>
+    <div class="hero-tagline">Ninte jeevitham enthinuvendiyaanu?</div>
+    <div class="hero-tagline-sub">Jeevithathinte lakshyam enthaanu?</div>
+  </div>
+
+  <div class="lang-content" data-lang="en">
+    <p class="reflective-tagline">
+      Reflections on the deepest question of life —<br>
+      meaning, purpose, and the path within.
+    </p>
+    <div class="hero-tagline">What is your life for?</div>
+    <div class="hero-tagline-sub">What's the purpose of Life?</div>
+  </div>
 
   <div class="divider"></div>
 
