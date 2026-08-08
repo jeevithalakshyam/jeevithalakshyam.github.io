@@ -94,7 +94,7 @@
 
 | 🎨 Design assets | \*\*Canva\*\* (free → Pro later) | Thumbnails, share cards |
 
-| 📊 Analytics (future) | TBD — Plausible or Umami planned |
+| 📊 Analytics | **Cloudflare Web Analytics (Free)** | Beacon injected in all pages · token `1b55bab063ac4ac2924fea151fe9124c` · no DNS change (gray-cloud) · no cookies |
 
 
 
@@ -537,6 +537,7 @@ jeevithalakshyam.info/
 | 2026-06-28 | Tri-language toggle (ML / Manglish / EN) | Captures missing diaspora + young Kerala audience |
 
 | 2026-06-28 | Malayalam as default language | Authentic Kerala-first stance |
+| 2026-08-08 | Analytics = Cloudflare Web Analytics (was: Plausible/Umami planned) | Free, privacy-first, no DNS/SSL risk (gray-cloud), real visitor/pageview data in existing Cloudflare account |
 
 
 
@@ -560,7 +561,7 @@ jeevithalakshyam.info/
 
 \- \*\*Migration to Jekyll/Astro:\*\* If content grows >50 articles
 
-\- \*\*Analytics:\*\* Plausible or Umami (privacy-first) when traffic warrants
+\- \*\*Analytics:\*\* ~~Plausible or Umami~~ **DONE 2026-08-08 → Cloudflare Web Analytics live** (free, no DNS change, no cookies)
 
 
 
