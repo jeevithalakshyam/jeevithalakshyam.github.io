@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ഇസ്‌ലാമിൽ അടിമത്തം? — മിൽകുൽ യമീൻ എന്ന സത്യം | ജീവിതലക്ഷ്യം</title>
+<meta name="description" content="ഇസ്‌ലാമിൽ അടിമത്തം ഉണ്ടോ? 'വലംകൈയിലുള്ളവർ' (മിൽകുൽ യമീൻ) എന്ന ഖുർആനിക സങ്കൽപ്പത്തിന്റെ യഥാർത്ഥ അർത്ഥവും യുദ്ധത്തടവുകാരോടുള്ള ഇസ്‌ലാമിൻ്റെ സമീപനവും.
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;700&family=Noto+Serif+Malayalam:wght@400;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --canvas: #0F1419;
+  --surface: #1A1F26;
+  --elevated: #232A33;
+  --primary: #00A86B;
+  --primary-bright: #00C77C;
+  --gold: #D4A24C;
+  --gold-bright: #F5C572;
+  --emerald-tint: #1A3A2E;
+  --heading: #FFFFFF;
+  --body: #D1D5DB;
+  --muted: #8B95A1;
+  --border: #2D3640;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+a { -webkit-tap-highlight-color: transparent; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--canvas);
+  color: var(--body);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.7;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(ellipse at 30% 20%, var(--emerald-tint) 0%, transparent 50%);
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: 0;
+}
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  padding: 1.25rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+  background: rgba(15, 20, 25, 0.6);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s;
+}
+nav.scrolled { border-bottom-color: var(--border); }
+.brand { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; color: var(--gold); font-family: 'Fraunces', serif; font-weight: 600; font-size: 1.1rem; letter-spacing: 0.5px; }
+.brand-glyph { width: 28px; height: 28px; border-radius: 50%; background: linear-gradient(135deg, var(--gold) 0%, var(--gold-bright) 100%); color: var(--canvas); display: flex; align-items: center; justify-content: center; font-family: 'Noto Serif Malayalam', serif; font-weight: 700; font-size: 1rem; }
+.nav-right { display: flex; align-items: center; gap: 0.75rem; }
+.articles-menu { position: relative; }
+.articles-btn {
+  display: flex; align-items: center; gap: 0.4rem;
+  background: transparent; border: 1px solid var(--border);
+  color: var(--muted); padding: 0.5rem 0.9rem;
+  border-radius: 50px; font-size: 0.78rem; font-weight: 500;
+  cursor: pointer; font-family: inherit; transition: all 0.25s;
+}
+.articles-btn:hover, .articles-btn.open { color: var(--heading); border-color: var(--primary); }
+.articles-icon { display: none; font-size: 0.85rem; line-height: 1; }
+.articles-btn .caret { font-size: 0.6rem; transition: transform 0.25s; }
+.articles-btn.open .caret { transform: rotate(180deg); }
+.articles-dropdown {
+  position: absolute; top: calc(100% + 10px); right: 0; min-width: 290px;
+  background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+  padding: 0.4rem; box-shadow: 0 12px 32px rgba(0,0,0,0.4);
+  opacity: 0; visibility: hidden; transform: translateY(-6px);
+  transition: all 0.2s; z-index: 200;
+}
+.articles-dropdown.open { opacity: 1; visibility: visible; transform: translateY(0); }
+.article-item {
+  display: block; padding: 0.7rem 0.85rem; border-radius: 8px;
+  color: var(--body); text-decoration: none; font-size: 0.85rem;
+  line-height: 1.5; transition: background 0.2s;
+}
+.article-item:hover { background: var(--elevated); color: var(--heading); }
+.article-item.current { color: var(--primary-bright); }
+.lang-toggle { display: flex; gap: 0.25rem; background: var(--surface); padding: 0.3rem; border-radius: 50px; border: 1px solid var(--border); }
+.lang-btn { background: transparent; border: none; color: var(--muted); padding: 0.4rem 0.9rem; border-radius: 50px; font-size: 0.78rem; font-weight: 500; cursor: pointer; transition: all 0.25s; font-family: inherit; }
+.lang-btn.active { background: var(--primary); color: var(--canvas); font-weight: 600; }
+.lang-btn:hover:not(.active) { color: var(--heading); }
+
+
+.article-header { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; padding: 8.5rem 24px 2.5rem; }
+.article-kicker { color: var(--muted); font-size: 12px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 18px; }
+.article-title { font-family: 'Fraunces', serif; font-weight: 700; font-size: clamp(1.7rem, 4vw, 2.3rem); color: var(--heading); line-height: 1.35; }
+.article-title.ml { font-family: 'Noto Serif Malayalam', serif; }
+.article-dek { margin-top: 16px; font-size: 16px; color: var(--muted); line-height: 1.7; }
+.article-dek.ml { font-family: 'Noto Serif Malayalam', serif; font-size: 17px; }
+.article-meta { margin-top: 20px; font-size: 13px; color: var(--muted); }
+.article-divider { width: 100%; height: 1px; background: var(--border); margin-top: 28px; }
+
+.article-container { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; padding: 8px 24px 80px; }
+.section-heading { font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.25rem; color: var(--primary-bright); margin: 2.5rem 0 1rem; }
+.section-heading.ml { font-family: 'Noto Serif Malayalam', serif; font-size: 1.3rem; }
+.body-text { font-size: 17px; line-height: 1.85; margin-bottom: 20px; color: var(--body); }
+.body-text.ml { font-family: 'Noto Serif Malayalam', serif; font-size: 19px; line-height: 1.9; }
+.body-text.manglish { font-style: italic; }
+.quote-block { background: var(--surface); border-left: 3px solid var(--primary); padding: 22px 26px; margin: 24px 0; border-radius: 8px; }
+.quote-text { font-family: 'Fraunces', serif; font-style: italic; font-size: 17px; color: var(--heading); line-height: 1.7; }
+.quote-text.ml { font-family: 'Noto Serif Malayalam', serif; font-style: normal; font-size: 18px; }
+.quote-source { margin-top: 10px; font-size: 13px; color: var(--muted); font-style: normal; }
+.ayah { font-family: 'Amiri', serif; font-size: 22px; color: var(--body); text-align: center; direction: rtl; line-height: 1.9; margin: 6px 0 14px; }
+.source-note { margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--border); font-size: 13px; color: var(--muted); }
+.back-link { display: inline-block; margin-top: 36px; color: var(--muted); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+.back-link:hover { color: var(--body); }
+.footer { position: relative; z-index: 1; text-align: center; padding: 40px 20px; color: var(--muted); font-size: 12px; border-top: 1px solid var(--border); margin-top: 40px; }
+
+[data-lang] { display: none; }
+html[lang="ml"] [data-lang="ml"], html[lang="manglish"] [data-lang="manglish"], html[lang="en"] [data-lang="en"] { display: block; }
+.fade-in { opacity: 0; transform: translateY(16px); animation: fadeUp 0.7s ease forwards; }
+@keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+.numbered { display: flex; gap: 14px; margin-bottom: 22px; }
+.numbered .num { flex: none; width: 30px; height: 30px; border-radius: 50%; background: var(--elevated); color: var(--primary-bright); font-family: 'Fraunces', serif; font-weight: 700; font-size: 14px; display: flex; align-items: center; justify-content: center; }
+.numbered .txt { flex: 1; }
+
+@media (max-width: 640px) {
+  nav { padding: 0.9rem 1rem; }
+  .brand span:last-child { display: inline; }
+  .articles-btn { padding: 0.35rem 0.65rem; font-size: 0.7rem; }
+  .lang-btn { padding: 0.35rem 0.65rem; font-size: 0.7rem; }
+}
+@media (max-width: 400px) {
+  nav { padding: 0.8rem 0.7rem; }
+  .brand span:last-child { display: none; }
+  .articles-label, .articles-btn .caret { display: none; }
+  .articles-icon { display: inline; }
+  .articles-btn { padding: 0.3rem 0.5rem; border-radius: 50%; }
+  .nav-right { gap: 0.4rem; }
+  .lang-toggle { gap: 0.1rem; padding: 0.2rem; }
+  .lang-btn { padding: 0.28rem 0.45rem; font-size: 0.62rem; }
+}
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="/" class="brand">
+    <span class="brand-glyph">ജ</span>
+    <span>Jeevithalakshyam</span>
+  </a>
+  <div class="nav-right">
+    <div class="articles-menu">
+      <button class="articles-btn" id="articlesBtn" onclick="toggleArticles(event)">
+        <span class="articles-icon">&#128196;</span>
+        <span class="articles-label">അറിവുകൾ</span>
+        <span class="caret">&#9662;</span>
+      </button>
+      <div class="articles-dropdown" id="articlesDropdown">
+        <a href="/articles/evidence-islam-is-true/" class="article-item">ഇസ്‌ലാം സത്യമാണെന്നതിന് എന്ത് തെളിവ്?</a>
+        <a href="/articles/evidence-prophethood-muhammad/" class="article-item">മുഹമ്മദ് ﷺ യുടെ പ്രവാചകത്വത്തിന്റെ തെളിവ്</a>
+        <a href="/articles/evidence-oneness-of-allah/" class="article-item">അല്ലാഹുവിന്റെ ഏകത്വത്തിന്റെ തെളിവ്</a>
+        <a href="/articles/existence-of-god-evidence/" class="article-item">ദൈവാസ്തിത്വത്തിന് എന്ത് തെളിവ്?</a>
+        <a href="/articles/only-religion-sight-of-allah/" class="article-item">അല്ലാഹുവിന്റെ അടുക്കൽ ഏകമതം ഏത്?</a>
+        <a href="/articles/quran-word-of-allah-proofs/" class="article-item">ഖുർആൻ അല്ലാഹുവിന്റെ വാക്കാണെന്നതിന്റെ തെളിവുകൾ</a>
+        <a href="/articles/slavery-in-islam/" class="article-item current">ഇസ്‌ലാമിൽ അടിമത്തം ഉണ്ടോ?</a>
+      </div>
+    </div>
+    <div class="lang-toggle" role="tablist">
+      <button class="lang-btn active" onclick="setLang('ml')" id="btn-ml">മലയാളം</button>
+      <button class="lang-btn" onclick="setLang('manglish')" id="btn-manglish">Manglish</button>
+      <button class="lang-btn" onclick="setLang('en')" id="btn-en">English</button>
+    </div>
+  </div>
+</nav>
+
+<header class="article-header">
+  <div class="article-kicker">
+    <span data-lang="ml">ലേഖനം</span>
+    <span data-lang="manglish">Lekhanam</span>
+    <span data-lang="en">Article</span>
+  </div>
+  <h1 class="article-title ml fade-in" data-lang="ml">ഇസ്‌ലാമിൽ അടിമത്തം ഉണ്ടോ?</h1>
+  <h1 class="article-title fade-in" data-lang="manglish">Islamil adimatham undo?</h1>
+  <h1 class="article-title fade-in" data-lang="en">Is There Slavery in Islam?</h1>
+
+  <p class="article-dek ml" data-lang="ml">സാധാരണ അർത്ഥത്തിലുള്ള അടിമത്തം ഇസ്‌ലാമിൽ ഇല്ല. 'വലംകൈയിലുള്ളവർ' (മിൽകുൽ യമീൻ) എന്ന ഖുർആനിക സങ്കൽപ്പം യഥാർത്ഥത്തിൽ എന്താണെന്നും യുദ്ധത്തടവുകാരോട് ഇസ്‌ലാം എങ്ങനെ പെരുമാറുന്നുവെന്നും ഈ ലേഖനം വിശദീകരിക്കുന്നു.</p>
+  <p class="article-dek" data-lang="manglish">Saadhaarana arthathilulla adimatham Islamil illa. 'Valamkaiyilullavar' (Milku al-Yamin) enna Quranika sankalpam yathaarthathil enthaanennum yuddhattadukkaarod Islaam engane perumaarunnuvendennum ee lekhana vishadeekarikunnu.</p>
+  <p class="article-dek" data-lang="en">There is no such thing as slavery — in the commonly understood sense — in Islam. This article explains what the Quranic concept of 'right-hand possession' (Milku al-Yamin) really is, and how Islam treats captives of war.</p>
+
+  <div class="article-divider"></div>
+</header>
+
+<main class="article-container">
+
+  <p class="body-text ml fade-in" data-lang="ml">
+    "ഇസ്‌ലാമിൽ അടിമത്തം ഉണ്ട്" എന്നത് ഇസ്‌ലാമിനെതിരെ ഉയർത്തുന്ന ഏറ്റവും സാധാരണമായ ആരോപണങ്ങളിലൊന്നാണ്. ഖുർആനിൽ 'നിങ്ങളുടെ വലംകൈകൾ ഉടമപ്പെടുത്തിയവർ' എന്ന ഒരു പദം വരുന്നതിനാൽ, ഇസ്‌ലാമും പഴയ അടിമത്തവും ഒന്നുതന്നെയാണെന്ന് പലരും വാദിക്കുന്നു. എന്നാൽ ഇവ തമ്മിൽ അടിസ്ഥാനപരമായ വ്യത്യാസമുണ്ട്. അത് മനസ്സിലാക്കാൻ, ആദ്യം 'അടിമത്തം' എന്ന് എന്തിനെ വിളിക്കുന്നുവെന്ന് നിർവചിക്കാം.
+  </p>
+  <p class="body-text manglish fade-in" data-lang="manglish">
+    "Islamil adimatham undu" ennathu Islamine thirthe uyarthunna erravum saadhaaranamaya aaropannangalil onnaanu. Quranil 'ningalude valamkaikal udamappeduthiyavar' enna oru padam varunnathinaal, Islaamum pazhaya adimathavum onnutanneyaanennu palarum vaadikkunnu. Ennaal ivu thammil adisthaanaparamaya vyathyaasamundu. Athu manassilaakkaan, aadyam 'adimatham' ennu enthine vilikkunnuvennu nirvachikkaam.
+  </p>
+  <p class="body-text fade-in" data-lang="en">
+    "Islam allows slavery" is one of the most common accusations leveled against Islam. Because the Quran speaks of "those whom your right hands possess," many claim that Islam and old-world slavery are one and the same. But the two are fundamentally different. To understand the difference, we first need to define what we call "slavery."
+  </p>
+
+
+  <h2 class="section-heading ml" data-lang="ml">'അടിമത്തം' എന്നാൽ എന്താണ്?</h2>
+  <h2 class="section-heading" data-lang="manglish">'Adimatham' ennaal enthaanu?</h2>
+  <h2 class="section-heading" data-lang="en">What do we mean by "slavery"?</h2>
+
+  <p class="body-text ml" data-lang="ml">
+    അടിമത്തം എന്നാൽ, ഒരു സ്വതന്ത്ര മനുഷ്യനെ ബലം പ്രയോഗിച്ച് പിടിച്ച്, അവനെ വസ്തുവാക്കി മാറ്റി, നഷ്ടപരിഹാരമില്ലാതെ ജോലി ചെയ്യിപ്പിക്കുകയും, തല്ലുകയും, മാനം കെടുത്തുകയും, രക്ഷപ്പെടാൻ സ്വാതന്ത്ര്യം നൽകാതിരിക്കുകയും ചെയ്യുന്ന ഒരു സമ്പ്രദായമാണ്. ആ അർത്ഥത്തിൽ അടിമ എന്നത് അവന്റെ ഉടമയുടെ 'സ്വത്ത്' ആണ്. ഈ നിർവചനത്തോട് പൂർണ്ണമായി യോജിക്കുന്ന ഒന്നും ഇസ്‌ലാമിൽ ഇല്ല.
+  </p>
+  <p class="body-text manglish" data-lang="manglish">
+    Adimatham ennaal, oru swathanthra manushyane balam prayogichu pidichu, avane vasthuvaakki maatti, nashtaparihaaramilaathe joli cheyyippikkukayum, thallukayum, maanam keduthukayum, rakshappedaan swathanthryam nalkaatirikkukayum cheyyunna oru sampradaayamaanu. Aa arthathil adima ennathu avante udamayude 'swatthu' aanu. Ee nirvachanathodu poornnamaayi yogikkunna onnum Islamil illa.
+  </p>
+  <p class="body-text" data-lang="en">
+    Slavery means taking a free human being by force, turning him into property, forcing him to work with no compensation, beating him, stripping him of dignity, and giving him no freedom to escape. In that sense, a slave is the "property" of his owner. Nothing in Islam matches this definition.
+  </p>
+
+  <p class="body-text ml" data-lang="ml">
+    ഒരു സ്വതന്ത്രനെ പിടിച്ച് അടിമയാക്കുന്നതിനെ ഇസ്‌ലാം കർശനമായി വിലക്കുന്നു. നബി ﷺ പറഞ്ഞു: മൂന്ന് പേരുടെ ശത്രു അല്ലാഹു ആണ് — അവരിൽ ഒരാൾ, ഒരു സ്വതന്ത്രനെ വിറ്റ് പണം വാങ്ങുന്നവനാണ്. അതായത്, ഒരാളെ തട്ടിക്കൊണ്ടുപോയി അടിമയാക്കി വിൽക്കുന്നത് ഇസ്‌ലാമിൽ പൂർണ്ണമായും നിഷിദ്ധമാണ്.
+  </p>
+  <p class="body-text manglish" data-lang="manglish">
+    Oru swathanthrane pidichu adimayaakkunnathine Islam karshamaayi vilakkunnu. Nabi ﷺ paranju: Moonnu perude sathru Allahu aanu — avaril oraal, oru swathanthrane vittu panam vaangunnaavanaanu. Athaayathu, orale thattikkondupoyi adimayaakki vilkkunnathu Islamil poornnamaayum nishiddhamaanu.
+  </p>
+  <p class="body-text" data-lang="en">
+    Islam strictly forbids taking a free person and making him a slave. The Prophet ﷺ said: Allah is the enemy of three people, one of whom is a man who sells a free person and consumes his price. In other words, kidnapping someone and selling him into slavery is completely forbidden in Islam.
+  </p>
+
+  <h2 class="section-heading ml" data-lang="ml">എങ്കിൽ 'വലംകൈയിലുള്ളവർ' ആരാണ്?</h2>
+  <h2 class="section-heading" data-lang="manglish">Engil 'valamkaiyilullavar' aaraanu?</h2>
+  <h2 class="section-heading" data-lang="en">Then who are "those your right hands possess"?</h2>
+
+  <p class="body-text ml" data-lang="ml">
+    'വലംകൈയിലുള്ളവർ' (മിൽകുൽ യമീൻ) എന്നത് യുദ്ധത്തടവുകാരെ സൂചിപ്പിക്കുന്നു — യുദ്ധത്തിൽ നിങ്ങൾക്കെതിരെ പോരാടാൻ വന്ന സൈന്യത്തോടൊപ്പം ഉണ്ടായിരുന്നവരെ. ഇത് സ്ത്രീകൾക്ക് മാത്രമല്ല, പുരുഷന്മാർക്കും ബാധകമാണ്. ഒരു യുദ്ധസൈന്യത്തോടൊപ്പം വരുന്ന സ്ത്രീകൾ ചിലപ്പോൾ പോരാട്ടത്തിൽ പങ്കെടുക്കും, ചിലർ മുറിവേറ്റവരെ ശുശ്രൂഷിക്കും. യുദ്ധം ചെയ്യാൻ വന്നവരെ മാത്രമേ ഇങ്ങനെ എടുക്കൂ — യുദ്ധം ചെയ്യാത്ത സാധാരണ ജനങ്ങളെ യുദ്ധക്കളത്തിൽ നിന്ന് പിടിച്ചെടുത്ത് അടിമയാക്കുന്നത് ഇസ്‌ലാമിൽ ഇല്ല.
+  </p>
+  <p class="body-text manglish" data-lang="manglish">
+    'Valamkaiyilullavar' (Milku al-Yamin) ennathu yuddhattadukaare soochippikkunnu — yuddhathil ningalkkethire poraadaan vanna sainyathodoppam undaayirunnavare. Ithu sthreekalkku maathramalla, purushanmarkkum baadhakamaanu. Oru yuddhasainyathodoppam varunna sthreekal chilappol poraattathil pankedukkum, chilarkkurappettavare sushrooshikkum. Yuddham cheyyaan vannavare maathrame ingane edukku — yuddham cheyyaatha saadhaarana janangale yuddhakkalatthil ninnu pidichedukki adimayaakkunnathu Islamil illa.
+  </p>
+  <p class="body-text" data-lang="en">
+    "Those your right hands possess" (Milku al-Yamin) refers to captives of war — people who came with the army that fought against you. It applies to men as well as women. The women who accompanied a fighting army sometimes fought, sometimes tended the wounded. Only those who came to fight could be taken this way — Islam does not take the ordinary civilian population and make them captives.
+  </p>
+
+  <p class="body-text ml" data-lang="ml">
+    യുദ്ധത്തടവുകാരാകുന്നവരെ എല്ലാവരെയും 'മിൽകുൽ യമീൻ' ആക്കണമെന്നില്ല. മുസ്‌ലിം ഭരണാധികാരിയാണ്, മുസ്‌ലിം സമൂഹത്തിന് ഏറ്റവും നല്ലത് ഏതാണോ അത് തീരുമാനിക്കുന്നത്. ഇസ്‌ലാം യുദ്ധത്തടവുകാരോട് പെരുമാറാൻ ഇനിപ്പറയുന്ന ഓപ്ഷനുകൾ നൽകുന്നു:
+  </p>
+  <p class="body-text manglish" data-lang="manglish">
+    Yuddhattadukaaraakunnavare ellaavareyum 'Milku al-Yamin' aakkanamenna. Muslim bharanaadhikaariyaanu, Muslim samoodhathinu erravum nallathu ethaanu athu theerumaanikkunnathu. Islam yuddhattadukaarod perumaraan inipparayunna options nalkunnu:
+  </p>
+  <p class="body-text" data-lang="en">
+    Not every captive of war must be made a "Milku al-Yamin." It is the Muslim leader who decides what is best for the Muslim community. Islam sets out these options for how captives of war may be dealt with:
+  </p>
+
+
+<div class="numbered">
+    <div class="num">1</div>
+    <div class="txt"><p class="body-text ml" data-lang="ml">മോചനദ്രവ്യം വാങ്ങി വിട്ടയക്കാം — പണത്തിന് പകരമായി അവരെ ശത്രുവിന് തിരികെ നൽകാം.</p>
+    <p class="body-text manglish" data-lang="manglish">Mochana-dravyam vaangi vittayakkaam — panathinu pakaramaayi avare sathruvin thirike nalkaam.</p>
+    <p class="body-text" data-lang="en">Ransom them — send them back to the enemy in exchange for money.</p></div>
+  </div>
+
+  <div class="numbered">
+    <div class="num">2</div>
+    <div class="txt"><p class="body-text ml" data-lang="ml">തടവുകാരെ പരസ്പരം കൈമാറാം — മുസ്‌ലിം തടവുകാരെ തിരികെ വാങ്ങാം.</p>
+    <p class="body-text manglish" data-lang="manglish">Tadukaare parasparam kaimaaraam — Muslim tadukaare thirike vaangaam.</p>
+    <p class="body-text" data-lang="en">Exchange them for Muslim prisoners held by the enemy.</p></div>
+  </div>
+
+  <div class="numbered">
+    <div class="num">3</div>
+    <div class="txt"><p class="body-text ml" data-lang="ml">പൂർണ്ണമായി സ്വതന്ത്രരാക്കി വിടാം — മക്ക വിജയത്തിൽ നബി ﷺ ചെയ്തതുപോലെ.</p>
+    <p class="body-text manglish" data-lang="manglish">Poornnamaayi swathanthraraakki vitaam — Makka vijayathil Nabi ﷺ cheythathupole.</p>
+    <p class="body-text" data-lang="en">Set them completely free — as the Prophet ﷺ did after the conquest of Makkah.</p></div>
+  </div>
+
+  <div class="numbered">
+    <div class="num">4</div>
+    <div class="txt"><p class="body-text ml" data-lang="ml">അവരെ യുദ്ധത്തടവുകാരായി (മിൽകുൽ യമീൻ) തുടരാൻ അനുവദിക്കാം.</p>
+    <p class="body-text manglish" data-lang="manglish">Avare yuddhattadukaaraayi (Milku al-Yamin) thudaraan anuvadikkaam.</p>
+    <p class="body-text" data-lang="en">Keep them as captives of war (Milku al-Yamin).</p></div>
+  </div>
+
+  <p class="body-text ml" data-lang="ml">
+    ഏത് ഓപ്ഷൻ എടുക്കണമെന്ന് തീരുമാനിക്കുന്നത് മുസ്‌ലിം ഭരണാധികാരിയാണ് — ജനങ്ങൾക്ക് ഏറ്റവും ഗുണകരമായത് എന്താണോ അത്. അവസാന ഓപ്ഷനിലാണ് 'മിൽകുൽ യമീൻ' സംഭവിക്കുന്നത്. എന്നാൽ ഇത് ഒരു ശിക്ഷയായാണ് മനസ്സിലാക്കപ്പെടുന്നത് — ഇന്ന് ജയിലും കമ്യൂണിറ്റി സർവീസും ഉള്ളതുപോലെ, അവൻ പോരാടാൻ വന്നതുകൊണ്ട് ഒരു സേവനം ചെയ്യേണ്ട അവസ്ഥയാണിത്.
+  </p>
+  <p class="body-text manglish" data-lang="manglish">
+    Ethu option edukkanaamennu theerumaanikkunnathu Muslim bharanaadhikaariyaanu — janangalkku erravum gunakaramaya enthaano athu. Avasaana optionilaanu 'Milku al-Yamin' sambhavikkunnathu. Ennaal ithu oru shikshayaayi manassilaakkappedunnathu — innu jailum community service um ullathupole, avan poraadaan vannathukondu oru sevanam cheyyaanenda avasthayaanithu.
+  </p>
+  <p class="body-text" data-lang="en">
+    It is the Muslim leader who decides which option best serves the people. The Milku al-Yamin situation arises with the last option. But it is understood as a punishment — like prison and community service today, it is a form of service the captive performs because of the war he came to fight.
+  </p>
+
+  <div class="quote-block">
+    <p class="ayah">فَإِمَّا مَنًّا بَعْدُ وَإِمَّا فِدَاءً</p>
+    <p class="quote-text ml" data-lang="ml">"ശേഷം, ഒന്നുകിൽ (മോചിപ്പിച്ച്) ഔദാര്യം കാണിക്കുക, അല്ലെങ്കിൽ മോചനദ്രവ്യം വാങ്ങുക." (47:4)</p>
+    <p class="quote-text manglish" data-lang="manglish">"Shesham, onnukil (mochippichu) audaaryam kaaniikkuka, allenkil mochanadravyam vaanguka." (47:4)</p>
+    <p class="quote-text" data-lang="en">"Then later [free them either as] an act of grace or by ransom." (47:4)</p>
+    <p class="quote-source">ഖുർആൻ 47:4 · സൂറത്ത് മുഹമ്മദ്</p>
+  </div>
+
+  <p class="body-text ml" data-lang="ml">
+    ഓർക്കുക: ഇങ്ങനെ തടവിലാകുന്നവർ യുദ്ധം ചെയ്യാൻ വന്നവരായിരുന്നു — നിങ്ങളെ കൊല്ലാൻ വന്നവർ. അവരോട് പോലും ഇസ്‌ലാം കൽപ്പിക്കുന്നത് ഈ ദയയാണ്.
+  </p>
+  <p class="body-text manglish" data-lang="manglish">
+    Orkuka: ingane taduvilaakunnavar yuddham cheyyaan vannavaraayirunnu — ningale kollaan vannavar. Avarod polum Islam kalppikkunnathu ee dayayaanu.
+  </p>
+  <p class="body-text" data-lang="en">
+    Remember: those who became captives had come to fight — they had come to kill. Even toward them, Islam commands this mercy.
+  </p>
+<h2 class="section-heading ml" data-lang="ml">യുദ്ധത്തടവുകാരോട് എങ്ങനെ പെരുമാറണം?</h2>
+  <h2 class="section-heading" data-lang="manglish">Yuddhattadukaarod engane perumaarunnaNam?</h2>
+  <h2 class="section-heading" data-lang="en">How must captives of war be treated?</h2>
+
+  <p class="body-text ml" data-lang="ml">
+    നബി ﷺ തടവുകാരോട് പെരുമാറേണ്ട രീതി വ്യക്തമായി പഠിപ്പിച്ചു. അവർ നിങ്ങൾ കഴിക്കുന്ന ഭക്ഷണം തന്നെ കഴിക്കണം, നിങ്ങൾ ധരിക്കുന്ന വസ്ത്രം തന്നെ ധരിക്കണം. ജോലിയിൽ അമിതഭാരം ചുമത്തരുത്; അമിതഭാരം ചുമത്തിയാൽ നിങ്ങൾ അവരെ സഹായിക്കണം. അവരെ അടിക്കാൻ പാടില്ല — അടിച്ചാൽ അതിന്റെ പ്രായശ്ചിത്തം അവരെ മോചിപ്പിക്കലാണ്.
+  </p>
+  <p class="body-text manglish" data-lang="manglish">
+    Nabi ﷺ tadukaarod perumaarenna reethi vyakthamaayi padhippichu. Avar ningal kazhikkunna bhakshanam thanne kazhikkanaam, ningal dharikkunna vasthram thanne dharikkaNam. Joliyil amithabhaaram chumaththaruthu; amithabhaaram chumaththiyaal ningal avare sahaayikkaNam. Avare adikkaan paadilla — adichchaal athinte praayaschittham avare mochippikkalaanu.
+  </p>
+  <p class="body-text" data-lang="en">
+    The Prophet ﷺ taught clearly how captives of war must be treated. They eat from the same food you eat and wear the same clothes you wear. You must not overburden them in work — if you do, you must help them. You may not hit them — the expiation for striking one is to set them free.
+  </p>
+
+  <p class="body-text ml" data-lang="ml">
+    കൂടാതെ, 'അടിമ' എന്ന പദം തന്നെ ഉപയോഗിക്കുന്നതും നബി ﷺ വിലക്കി: "നിങ്ങളിൽ ആരും 'എന്റെ അടിമ' (അബ്ദി) എന്ന് പറയരുത്; 'എന്റെ യുവാവ്' (ഫതായ), 'എന്റെ യുവതി' (ഫതാത്) എന്ന് വിളിക്കുക." (ബുഖാരി 2552; മുസ്ലിം 2249)
+  </p>
+  <p class="body-text manglish" data-lang="manglish">
+    Koodaathe, 'adima' enna padam thanne upayogikkunnathum Nabi ﷺ vilakki: "Ningalil aarum 'ente adima' (abdi) ennu parayaruthu; 'ente yuvaavu' (fatai), 'ente yuvathi' (fatati) ennu vilikkuka." (Bukhari 2552; Muslim 2249)
+  </p>
+  <p class="body-text" data-lang="en">
+    The Prophet ﷺ also forbade everyone from even using the word "slave": "None of you should say 'my slave' or 'my slave-girl'; rather, let him say 'my lad' and 'my girl.'" (Bukhari 2552; Muslim 2249)
+  </p>
+
+  <p class="body-text ml" data-lang="ml">
+    കൂടാതെ, മോചനത്തിന് എളുപ്പമുള്ള വഴിയുണ്ട് — 'മുകാതബ' (مُكاتبة). ഒരു യുദ്ധത്തടവുകാരന് മുസ്‌ലിം ജഡ്ജിയുടെ മുന്നിൽ ചെന്ന്, ഒരു തുക നൽകി തന്റെ സ്വാതന്ത്ര്യം വാങ്ങാം. മാത്രമല്ല, ഖുർആൻ അവരെ മോചിപ്പിക്കാൻ സഹായിക്കാൻ നിർദ്ദേശിക്കുന്നു: "അല്ലാഹു നിങ്ങൾക്ക് നൽകിയ സ്വത്തിൽ നിന്ന് അവർക്ക് നൽകുക" (24:33). അങ്ങനെ, അവർക്ക് ആഗ്രഹിക്കുന്നെങ്കിൽ സ്വതന്ത്രരാകാനുള്ള അവകാശവും അതിനുള്ള വഴിയും ലഭ്യമാണ്.
+  </p>
+  <p class="body-text manglish" data-lang="manglish">
+    Koodaathe, mochanathinu eluppamulla vazhiyundu — 'mukataba' (مُكاتبة). Oru yuddhattadukaaranu Muslim judge-nte munnil chennu, oru thuka nalki thante swathanthryam vaangaam. Maathramalla, Quran avare mochippikkaan sahaayikkaan nirdeshikkunnu: "Allahu ningalkku nalkiya swatthil ninnu avarkku nalkuka" (24:33). Angane, avarkku aagrahikkunnenkil swathanthraraakaanulla avakaasavum athinu vazhiyum labhyamaanu.
+  </p>
+  <p class="body-text" data-lang="en">
+    And there is an easy path to freedom — mukataba (مُكاتبة), a written agreement to buy one's freedom. A captive of war can go before a Muslim judge, pay a sum, and buy his freedom. Moreover, the Quran instructs you to help them: "give them of the wealth of Allah which He has given you" (24:33). So if they wish, both the right and the means to free themselves are available.
+  </p>
+
+  <p class="body-text ml" data-lang="ml">
+    നബി കാലത്തെ ഒരു ഉദാഹരണം: ഖൈബർ യുദ്ധത്തിനുശേഷം തടവുകാരായവരിൽ സഫിയ്യ ബിൻത് ഹുയയ് (റ) ഉൾപ്പെട്ടിരുന്നു — യഹൂദ ഗോത്രത്തലവന്റെ മകൾ. നബി ﷺ അവരെ മോചിപ്പിക്കുകയും അവരുടെ സ്വന്തം ഇഷ്ടത്തോടെ വിവാഹം ചെയ്യുകയും ചെയ്തു. തടവുകാരെ കൈമാറുന്നതും ഇസ്‌ലാമിൽ അനുവദനീയമാണ്.
+  </p>
+  <p class="body-text manglish" data-lang="manglish">
+    Nabi kaalatthe oru udhaaharanam: Khaibar yuddhathinu shesham tadukaraayaavaril Safiyyah bint Huyay (R) ulpedtirunnu — yahooda gothratthalavante makal. Nabi ﷺ avare mochippikkukayum avarude swantha ishtathode vivaaham cheyyukayum cheythu. Tadukaare kaimaarunnathum Islamil anuvadeeniyamaanu.
+  </p>
+  <p class="body-text" data-lang="en">
+    An example from the Prophet's ﷺ time: among those taken captive after the battle of Khaybar was Safiyyah bint Huyay, daughter of a Jewish tribal chief. The Prophet ﷺ freed her and, with her free consent, married her. Exchanging and trading captives is also permissible in Islam.
+  </p>
+<blockquote class="quote-block">
+    <p class="ayah">وَمَاۤ أَدۡرَاكَ مَا ٱلۡعَقَبَةُ ۝ فَكُّ رَقَبَةٍ</p>
+    <p class="quote-text ml" data-lang="ml">"എന്തെന്നു നിനക്കറിയാമോ, പ്രയാസകരമായ കയററം? — ഒരു അടിമയെ മോചിപ്പിക്കുക." (90:12-13)</p>
+    <p class="quote-text manglish" data-lang="manglish">"Enthennu ninakkariyaamo, prayaasakaramaya kayarram? — oru adimaye mochippikkuka." (90:12-13)</p>
+    <p class="quote-text" data-lang="en">"And what would make you know what the steep path is? — freeing a slave." (90:12-13)</p>
+    <p class="quote-source">ഖുർആൻ 90:12-13 · സൂറത്ത് അൽ-ബലദ്</p>
+  </blockquote>
+
+  <p class="body-text ml" data-lang="ml">
+    മോചനം ഇസ്‌ലാമിൽ വലിയ പുണ്യമാണ്. സകാത്തിന്റെ (നിർബന്ധിത ദാനത്തിന്റെ) ചെലവിടാവുന്ന ഇനങ്ങളിൽ ഒന്ന് അടിമകളെ മോചിപ്പിക്കലാണ്. പാപപരിഹാരത്തിനുള്ള (കഫാറ) വഴികളിൽ ഒന്നും അടിമയെ മോചിപ്പിക്കലാണ്. ഇസ്‌ലാമിന്റെ ഘടനയിൽത്തന്നെ, മോചനത്തിലേക്ക് നയിക്കുന്ന സംവിധാനങ്ങൾ അന്തർലീനമാണ്.
+  </p>
+  <p class="body-text manglish" data-lang="manglish">
+    Mochana"u Islamil valiya punyamaanu. Zakat-nte (nirbandhitha daanathinte) chelavidaavunna inangalil onnu adimakale mochippikkalaanu. Paapaparihaarathinu (kaffara) ulla vazhikalil onnum adimaye mochippikkalaanu. Islaminte ghatanayilthanne, mochanathilekku nayikkunna samvidaanangal antharleenamaanu.
+  </p>
+  <p class="body-text" data-lang="en">
+    Freeing captives is a great virtue in Islam. One of the categories on which Zakat (obligatory charity) may be spent is freeing them. One of the ways to expiate a sin (kaffarah) is freeing a captive. The very structure of Islam contains mechanisms that lead toward freedom.
+  </p>
+
+  <p class="body-text ml" data-lang="ml">
+    മറ്റൊരു വ്യത്യാസം: 'മിൽകുൽ യമീൻ' പാരമ്പര്യമായി കൈമാറപ്പെടുന്നില്ല. അടിമയുടെ മകനും അടിമയായി ജനിക്കുന്ന പഴയ സമ്പ്രദായം ഇസ്‌ലാമിൽ ഇല്ല. യുദ്ധത്തടവുകാരന് പിറക്കുന്ന കുട്ടി സ്വതന്ത്രനായി ജനിക്കുന്നു — തടവ് അടുത്ത തലമുറയിലേക്ക് കടന്നുപോകുന്നില്ല.
+  </p>
+  <p class="body-text manglish" data-lang="manglish">
+    Mattoru vyathyaasam: 'Milku al-Yamin' paaramparayamaayi kaimaaraappedunnilla. Adimayude makannum adimayaayi janikkunna pazhaya sampradaayam Islamil illa. Yuddhattadukaranu pirakkunna kutti swathanthranaayi janikkunnu — tadu aduttha thalamurailekku kadannupokunnilla.
+  </p>
+  <p class="body-text" data-lang="en">
+    Another difference: Milku al-Yamin is not inherited. The old system in which a slave's child was born a slave does not exist in Islam. A child born to a captive of war is born free — captivity does not pass to the next generation.
+  </p>
+<h2 class="section-heading ml" data-lang="ml">മറ്റ് സംസ്കാരങ്ങളുമായി താരതമ്യം</h2>
+  <h2 class="section-heading" data-lang="manglish">Mattu samskaarangalumaayi thaarathamyam</h2>
+  <h2 class="section-heading" data-lang="en">Compared with other cultures</h2>
+
+  <p class="body-text ml" data-lang="ml">
+    ചരിത്രത്തിലെ മറ്റ് മതങ്ങളും രാഷ്ട്രങ്ങളും യുദ്ധത്തടവുകാരെ പൊതുവെ 'സ്വത്ത്' ആയിട്ടാണ് കണ്ടത് — അവരെ എത്രവേണമെങ്കിലും അടിക്കാം, നിർബന്ധിത ജോലി ചെയ്യിക്കാം, ചിലപ്പോൾ കൊല്ലുക പോലും ചെയ്യാം. പഴയനിയമത്തിൽ പോലും പറയുന്നു: "അടിമ അവന്റെ യജമാനന്റെ സ്വത്താണ്" (പുറപ്പാട് 21:20-21). യുദ്ധത്തടവുകാരോട് ഇസ്‌ലാം പഠിപ്പിക്കുന്ന ഈ ദയയോട് താരതമ്യപ്പെടുത്താവുന്ന ഒരു സംസ്കാരവുമില്ല ചരിത്രത്തിൽ. മുകാതബയിലൂടെ സ്വാതന്ത്ര്യം വാങ്ങാനുള്ള വാതിൽ ഇസ്‌ലാമിൽ ആദ്യനാളേ തുറന്നിരുന്നു — ഇന്ന് പോലും ലോകത്തിന്റെ പല ഭാഗത്തും യുദ്ധത്തടവുകാർ നേരിടുന്നത് ഇതിനെക്കാൾ കഠിനമായ ചികിത്സയാണ്.
+  </p>
+  <p class="body-text manglish" data-lang="manglish">
+    Charithrathile mattu mathangalum raashtrangalum yuddhattadukaare pothuve 'swatthu' aayittaanu kandathu — avare ethravenamengilum adikkaam, nirbandhitha joli cheyyikkaam, chilappol kolluka polum cheyyaam. Pazhaya niyamathil polum parayunnu: "adima avante yajamante swatthaanu" (Exodus 21:20-21). Yuddhattadukaarod Islam padhippikkunna ee dayayodu thaarathamyappeduthaavunna oru samskaaravumilla charithrathil. Mukatabayiloode swathanthryam vaangaamulla vaathil Islamil aadyanaale thurannirunnu — innu polum lokathinte pala bhaagatthum yuddhattadukaar neridunnathu ithinekkal kadinamaaya chikithsayaanu.
+  </p>
+  <p class="body-text" data-lang="en">
+    In history, other religions and nations generally treated captives of war as "property" — they could be beaten as much as one wished, forced into labour, sometimes even killed. The Old Testament itself says: "the slave is his money" (Exodus 21:20-21). No culture in history can be compared to the mercy Islam teaches toward captives of war. And from its very first days, Islam opened the door of freedom through mukataba — while even today, in many parts of the world, captives of war face treatment far harsher than anything Islam prescribed.
+  </p>
+<h2 class="section-heading ml" data-lang="ml">എന്തുകൊണ്ട് ഒറ്റയടിക്ക് മോചിപ്പിച്ചില്ല?</h2>
+  <h2 class="section-heading" data-lang="manglish">Enthukondu ottayadikk mochippichilla?</h2>
+  <h2 class="section-heading" data-lang="en">Why not free them all at once?</h2>
+
+  <p class="body-text ml" data-lang="ml">
+    സത്യസന്ധമായ ഒരു ചോദ്യം ഇത് തന്നെയാണ്: "എങ്കിൽ എല്ലാ തടവുകാരെയും ഒറ്റയടിക്ക് മോചിപ്പിച്ചുകൂടായിരുന്നോ?" യാഥാർത്ഥ്യം നോക്കാം. ഇസ്‌ലാം വരുമ്പോൾ അടിമത്തം ഇതിനകം സമൂഹത്തിന്റെ ഭാഗമായിരുന്നു. കോടിക്കണക്കിന് അടിമകളെ ഒറ്റയടിക്ക് മോചിപ്പിച്ചാൽ, അവർക്ക് ഭവനമില്ലാതെയും ഭക്ഷണമില്ലാതെയും തെരുവിൽ നിൽക്കേണ്ടിവരും — അത് സമൂഹത്തിന് കൂടുതൽ വിനാശമായിരിക്കും. അതുകൊണ്ടാണ് ഇസ്‌ലാം മോചനത്തിലേക്കുള്ള ക്രമാനുഗതമായ വഴികൾ നൽകിയത് — സകാത്ത്, കഫാറ, മുകാതബ. സ്രഷ്ടാവിന് നന്നായി അറിയാം, ജനങ്ങൾക്ക് എന്താണ് യഥാർത്ഥ ഗുണകരം.
+  </p>
+  <p class="body-text manglish" data-lang="manglish">
+    Sathyasandhamaya oru chodyam ithu thanneyaanu: "Engil ella tadukaareyum ottayadikk mochippichukoodaayirunno?" Yaathaarthyam nokkaam. Islam varumbol adimatham ithinakam samoodhathinte bhaagamayirunnu. Kodikkanakkinu adimakale ottayadikk mochippichaal, avarkku bhavanamilaathe-yum bhakshanamilaathe-yum theruvil nilkkendivarum — athu samoodhathinu kooduthal vinaashamaayirikkum. Athukondaanu Islam mochanathilekkulla kramaanugathamaaya vazhikal nalkiyathu — zakat, kaffara, mukataba. Srashtaavinu nannaayi ariyaam, janangalkku enthaanu yathaartha gunakaram.
+  </p>
+  <p class="body-text" data-lang="en">
+    Here is an honest question: "Then why not free all captives at once?" Consider the reality. When Islam came, slavery was already part of society. If millions of slaves were freed at once, they would be left without homes and without food on the streets — which would only destroy the society further. That is why Islam gave gradual pathways to freedom — zakat, kaffarah, mukataba. The Creator knows best what is truly beneficial for people.
+  </p>
+
+  <h2 class="section-heading ml" data-lang="ml">സംശയങ്ങൾക്ക് ശരിയായ ഉത്തരം എവിടെ?</h2>
+  <h2 class="section-heading" data-lang="manglish">Samsayangalkku shariyaaya utharam evide?</h2>
+  <h2 class="section-heading" data-lang="en">Where should you take your questions?</h2>
+
+  <p class="body-text ml" data-lang="ml">
+    ഇങ്ങനെയുള്ള സംശയങ്ങൾ മിക്കപ്പോഴും വരുന്നത് വിഷയം പഠിക്കാത്തവരുടെ സംസാരത്തിൽ നിന്നാണ്. അതുകൊണ്ടാണ് ഖുർആൻ പറയുന്നത്: "നിങ്ങൾക്ക് അറിയില്ലെങ്കിൽ, അറിയുന്നവരോട് ചോദിക്കുക" (16:43). മറ്റൊരു വചനത്തിൽ, ഒരു 'കൂട്ടുകാരൻ' മറ്റൊരാളെ ഉയിർത്തെഴുന്നേൽപ്പിനെ നിഷേധിക്കുന്നതുവരെ വഴിവിട്ടിച്ച്, ഇരുവരും നരകത്തിൽ എത്തിയ ഉദാഹരണവും ഖുർആൻ നൽകുന്നു (37:51-53). സംശയങ്ങൾ ഉണ്ടാകുമ്പോൾ — പണ്ഡിതന്മാരോട് ചോദിക്കുക; യൂട്യൂബ് കമന്റുകളോടോ തർക്കവേദികളോടോ അല്ല.
+  </p>
+  <p class="body-text manglish" data-lang="manglish">
+    Inganeyulla samsayangal mikkaapozhum varunnathu vishayam padhikkaathavrude samsaarathil ninnu aanu. Athukondaanu Quran parayunnathu: "Ningalkku ariyillenkil, ariyunnavarod chodikkuka" (16:43). Mattoru vachanathil, oru 'koottukaaran' mattornale uyirthedunelpine nishedhikkunnathuvare vazhividichu, iruvarum narakathil ethiya udhaaranavum Quran nalkunnu (37:51-53). Samsayangal undaakumbol — pandithanmarkkodu chodikkuka; youtube comments-noodo tharkkavedikaloodo alla.
+  </p>
+  <p class="body-text" data-lang="en">
+    Doubts of this kind usually come from those who have not studied the subject. That is why the Quran says: "Ask those who have knowledge, if you do not know" (16:43). In another verse, the Quran gives the example of a "companion" who led another astray — even to denying the Resurrection — until both were cast into Hell (37:51-53). So when doubts arise — ask the scholars; not the comment sections and argument forums.
+  </p>
+
+  <h2 class="section-heading ml" data-lang="ml">ചുരുക്കം</h2>
+  <h2 class="section-heading" data-lang="manglish">Churukkam</h2>
+  <h2 class="section-heading" data-lang="en">Summary</h2>
+
+  <p class="body-text ml" data-lang="ml">
+    ചുരുക്കത്തിൽ, ഈ ലോകത്ത് അറിയപ്പെടുന്ന അർത്ഥത്തിലുള്ള അടിമത്തം — മനുഷ്യനെ സ്വത്തായി കാണുന്നത്, നിർബന്ധിത ജോലി, അടിയും മർദ്ദനവും — ഇസ്‌ലാമിൽ ഇല്ല. 'മിൽകുൽ യമീൻ' യുദ്ധത്തടവുകാരെ സംബന്ധിക്കുന്ന ഒരു നിയന്ത്രിത ക്രമം മാത്രമാണ്; അവരെ നന്മയോടെ പരിപാലിക്കാനും സ്വാതന്ത്ര്യം നൽകാനും വേണ്ടി രൂപകൽപ്പന ചെയ്തത്. ഇസ്‌ലാം അടിമത്തത്തെ കൊണ്ടുവന്നില്ല — നിലവിലുണ്ടായിരുന്ന ഒരു സമ്പ്രദായത്തെ നിയന്ത്രിച്ചു, ക്രമേണ അവസാനിപ്പിക്കുന്ന ദിശയിലേക്ക് നയിച്ചു.
+  </p>
+  <p class="body-text manglish" data-lang="manglish">
+    Churukkathil, ee lokathil ariyappedunna arthathilulla adimatham — manushyane swatthaayi kaakkunnathu, nirbandhitha joli, adiyum marddanavum — Islamil illa. 'Milku al-Yamin' yuddhattadukaare sambhandhikkunna oru niyanthritha kramam maathramaanu; avare nammayodu paripaalkaanum swathanthryam nalkaanum vendi roopakalppana cheythathu. Islam adimathatthe kondavannilla — nilavilundaayirunna oru sampradaayatthe niyanthrichu, kramena avasaanipikkunna dishayilekku nayichu.
+  </p>
+  <p class="body-text" data-lang="en">
+    In short, slavery as the world knows it — owning a human being, forced labour, beatings and degradation — does not exist in Islam. Milku al-Yamin is simply a regulated arrangement concerning captives of war, designed to care for them with goodness and to grant them freedom. Islam did not introduce slavery; it regulated an existing practice and gradually steered it toward its end.
+  </p>
+
+  <h2 class="section-heading ml" data-lang="ml">തെളിവുകൾ — ഖുർആനും സുന്നത്തും</h2>
+  <h2 class="section-heading" data-lang="manglish">Thelivukal — Quranum sunnathum</h2>
+  <h2 class="section-heading" data-lang="en">Evidences — from the Quran and Sunnah</h2>
+
+  <p class="body-text ml" data-lang="ml">ഈ ലേഖനത്തിലെ പ്രധാന വാദങ്ങൾക്ക് അടിസ്ഥാനമായ ഖുർആൻ, സുന്നത്ത് തെളിവുകൾ:</p>
+  <p class="body-text manglish" data-lang="manglish">Ee lekhanathile pradhaana vaadangalkku adisthaanamaaya Quran, sunnath thelivukal:</p>
+  <p class="body-text" data-lang="en">The Quran and Sunnah evidences behind the main points of this article:</p>
+
+  <p class="body-text ml" data-lang="ml">
+    • ഖുർആൻ 90:12-13 — "അടിമയെ മോചിപ്പിക്കുക" (ഫക്കു റഖബ)<br>
+    • ഖുർആൻ 47:4 — യുദ്ധത്തടവുകാരെ മോചിപ്പിക്കാം അല്ലെങ്കിൽ മോചനദ്രവ്യം വാങ്ങാം<br>
+    • ഖുർആൻ 24:33 — മുകാതബ (സ്വാതന്ത്ര്യ ഉടമ്പടി) + സഹായം<br>
+    • ഖുർആൻ 9:60 — സകാത്ത് ചെലവിടാവുന്ന ഇനം: അടിമ മോചനം<br>
+    • ഖുർആൻ 5:89 — കഫാറയിൽ അടിമ മോചനം<br>
+    • ഖുർആൻ 16:43 — അറിയുന്നവരോട് ചോദിക്കുക<br>
+    • ഹദീസ് (ബുഖാരി 2227) — സ്വതന്ത്രനെ വിൽക്കുന്നവൻ; അല്ലാഹുവിന്റെ ശത്രു<br>
+    • ഹദീസ് (ബുഖാരി 2545; മുസ്ലിം 1661) — ഭക്ഷണവും വസ്ത്രവും, അമിതഭാരം വേണ്ട<br>
+    • ഹദീസ് (മുസ്ലിം 1657) — അടിയുടെ പ്രായശ്ചിത്തം മോചനം<br>
+    • ഹദീസ് (ബുഖാരി 2552; മുസ്ലിം 2249) — 'എന്റെ അടിമ' എന്ന് വിളിക്കരുത്<br>
+    • താരതമ്യം: പുറപ്പാട് 21:20-21 — "അടിമ അവന്റെ സ്വത്താണ്"
+  </p>
+  <p class="body-text manglish" data-lang="manglish">
+    • Quran 90:12-13 — "orudimaye mochippikkuka" (fakku raqabah)<br>
+    • Quran 47:4 — yuddhattadukaare mochippikkaam allenkil mochanadravyam vaangaam<br>
+    • Quran 24:33 — mukataba (swathanthrya udampadi) + sahaayam<br>
+    • Quran 9:60 — zakat chelavidaavunna inam: adima mochanam<br>
+    • Quran 5:89 — kaffarayil adima mochanam<br>
+    • Quran 16:43 — ariyunnavarod chodikkuka<br>
+    • Hadeeth (Bukhari 2227) — swathanthrane vilkkunnavan; Allahuvinte sathru<br>
+    • Hadeeth (Bukhari 2545; Muslim 1661) — bhakshanavum vasthravum, amithabhaaram venda<br>
+    • Hadeeth (Muslim 1657) — adiyude praayaschittham mochanam<br>
+    • Hadeeth (Bukhari 2552; Muslim 2249) — 'ente adima' ennu vilikkaruthu<br>
+    • Thaarathamyam: Exodus 21:20-21 — "adima avante swatthaanu"
+  </p>
+  <p class="body-text" data-lang="en">
+    • Quran 90:12-13 — freeing a slave (fakku raqabah)<br>
+    • Quran 47:4 — captives of war may be freed or ransomed<br>
+    • Quran 24:33 — mukataba (contract of emancipation) and helping them<br>
+    • Quran 9:60 — freeing slaves as a category of Zakat expenditure<br>
+    • Quran 5:89 — freeing a slave as an expiation (kaffarah)<br>
+    • Quran 16:43 — ask the people of knowledge<br>
+    • Hadith (Bukhari 2227) — the one who sells a free person is an enemy of Allah<br>
+    • Hadith (Bukhari 2545; Muslim 1661) — food and clothing, and no overburdening in work<br>
+    • Hadith (Muslim 1657) — the expiation for striking is freedom<br>
+    • Hadith (Bukhari 2552; Muslim 2249) — do not say "my slave"<br>
+    • Comparison: Exodus 21:20-21 — "the slave is his money"
+  </p>
+
+  <p class="body-text" style="text-align:center;font-family:'Amiri',serif;font-size:26px;color:var(--gold);margin-top:48px;">وَاللَّهُ أَعْلَمْ</p>
+  <p class="body-text" style="text-align:center;font-size:13px;color:var(--muted);">Wallāhu aʿlam — And Allah knows best</p>
+</main>
+
+<footer class="footer">
+  <span data-lang="ml">© 2026 ജീവിതലക്ഷ്യം · jeevithalakshyam.info</span>
+  <span data-lang="manglish">© 2026 Jeevithalakshyam · jeevithalakshyam.info</span>
+  <span data-lang="en">© 2026 Jeevithalakshyam · jeevithalakshyam.info</span>
+</footer>
+
+<script>
+function toggleArticles(e) {
+  e.stopPropagation();
+  const btn = document.getElementById('articlesBtn');
+  const dd = document.getElementById('articlesDropdown');
+  const isOpen = dd.classList.toggle('open');
+  btn.classList.toggle('open', isOpen);
+}
+document.addEventListener('click', (e) => {
+  const menu = document.querySelector('.articles-menu');
+  if (menu && !menu.contains(e.target)) {
+    document.getElementById('articlesDropdown').classList.remove('open');
+    document.getElementById('articlesBtn').classList.remove('open');
+  }
+});
+function setLang(lang) {
+  document.documentElement.lang = lang;
+  localStorage.setItem('jl-lang', lang);
+  document.querySelectorAll('.lang-toggle button').forEach(b => b.classList.remove('active'));
+  document.getElementById('btn-' + lang).classList.add('active');
+}
+(function() {
+  const saved = localStorage.getItem('jl-lang') || 'ml';
+  setLang(saved);
+})();
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+});
+</script>
+
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "1b55bab063ac4ac2924fea151fe9124c"}'></script><!-- End Cloudflare Web Analytics -->
+
+</body>
+</html>
