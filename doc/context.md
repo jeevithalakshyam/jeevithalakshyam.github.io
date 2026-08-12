@@ -4,7 +4,7 @@
 
 
 
-\*\*Last updated:\*\* 2026-06-28
+\*\*Last updated:\*\* 2026-08-13
 
 \*\*Owner:\*\* Insaf Chennamkulam
 
@@ -538,6 +538,9 @@ jeevithalakshyam.info/
 
 | 2026-06-28 | Malayalam as default language | Authentic Kerala-first stance |
 | 2026-08-08 | Analytics = Cloudflare Web Analytics (was: Plausible/Umami planned) | Free, privacy-first, no DNS/SSL risk (gray-cloud), real visitor/pageview data in existing Cloudflare account |
+| 2026-08-13 | New article: "ഇസ്‌ലാമിൽ അടിമത്തം ഉണ്ടോ?" (`articles/slavery-in-islam/`) | First article built by reconciling two YouTube street-dawah transcripts into a structured tri-language exposition; registered in every page's "അറിവുകൾ" dropdown |
+| 2026-08-13 | Article closings standardized to Arabic "وَاللَّهُ أَعْلَمْ" | Uniform sacred closing (Amiri, gold, centered) shown in all language views; replaces trilingual "അല്ലാഹുവിന് നല്ലതായി അറിയാം" on all 6 original articles |
+| 2026-08-13 | Article pipeline: video transcript → draft-for-approval → commit | Transcripts (especially dialogue) reconciled into article form; drafts always shown for human approval before commit/push |
 
 
 
@@ -562,6 +565,8 @@ jeevithalakshyam.info/
 \- \*\*Migration to Jekyll/Astro:\*\* If content grows >50 articles
 
 \- \*\*Analytics:\*\* ~~Plausible or Umami~~ **DONE 2026-08-08 → Cloudflare Web Analytics live** (free, no DNS change, no cookies)
+
+\- \*\*Review pending:\*\* `slavery-in-islam` hadith references need scholar spot-check on sunnah.com — Bukhari 2227, 2545, 2552; Muslim 1661, 1657, 2249 (Quran ayahs 90:12-13, 47:4, 24:33, 9:60, 5:89, 16:43 already verified)
 
 
 
@@ -592,6 +597,8 @@ When returning to work on this project, the assistant should:
 7\. \*\*Maintain Static + JavaScript architecture\*\* — no backend additions without explicit approval
 
 8\. \*\*Mandatory:\*\* No content goes live without human Salafi scholar review
+
+9\. \*\*Article pipeline (video transcripts):\*\* To publish a new article from a YouTube transcript — (a) reconcile/restructure the content into the site's tri-language exposition, (b) build the HTML using the template in `articles/slavery-in-islam/index.html`, (c) show the draft for human approval first, (d) register it in every page's "അറിവുകൾ" dropdown, (e) commit + push. Keep the Arabic closing "وَاللَّهُ أَعْلَمْ" standard.
 
 
 
